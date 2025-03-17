@@ -14,6 +14,8 @@
         <link rel="apple-touch-icon" sizes="180x180" href="./resurse/imagini/favicon/apple-touch-icon.png">
         <meta name="apple-mobile-web-app-title" content="Magazin AdoraStep">
         <link rel="manifest" href="./resurse/imagini/favicon/site.webmanifest">
+
+        <link rel="stylesheet" type="text/css" href="./resurse/css/general.css">
     </head>
     <body>
     
@@ -25,7 +27,7 @@
                         <a href="index.html">ACASA</a>
                         <ul>
                             <li>
-                                <a href="#informatii-magazin">Despre Noi</a>
+                                <a href="#welcome">Despre Noi</a>
                                 <ul>
                                     <li><a href="#motto">Motto-ul Nostru</a></li>
                                 </ul>
@@ -33,9 +35,12 @@
                             <li>
                                 <a href="#promotii">Promotii</a>
                                 <ul>
-                                    <li><a href="#promotii-formula">Cum Se Calculeaza Promotiile?</a></li>
+                                    <li><a href="#promotii-zilnice">Promoții Zilnice</a></li>
+                                    <li><a href="#promotii-lunare">Promoții lunare</a></li>
+
                                 </ul>
                             </li>
+                            <li><a href="#produse">Produse</a></li>
                             <li>
                                 <a href="#noutati-in-moda">Noutati In Lumea Modei</a>
                                 <ul>
@@ -45,6 +50,8 @@
                             </li>
                             <li><a href="#evolutia-modei">Evolutia Modei</a></li>
                             <li><a href="#faq">Intrebari Frecvente</a></li>
+                            <li><a href="#anunturi">Anunțuri</a></li>
+                            <li><a href="#program">Program</a></li>
                         </ul>
                     </li>
                     <li><a href="produse.html">PRODUSE</a></li>
@@ -55,160 +62,222 @@
         </header>
 
         <main>
-            <section id="informatii-magazin">
-                <h2>Despre <b>AdoraStep</b></h2>
-                <p>Bine ați venit la <b>Magazinul de Pantofi AdoraStep</b>, un magazin online dedicat celor mai <b>elegante</b> și <b>confortabile</b> <b>pantofi</b>. Aici găsiți o gamă variată de produse, de la <b>pantofi cu toc</b> la <b>adidași</b>, <b>cizme</b> și <b>sneakers</b>, oferind în același timp opțiuni pentru <b>încălțăminte casual</b> și <b>încălțăminte formala</b>.</p>
-                
-                <p>Pantofii nu sunt doar un accesoriu de <b>modă</b>, ci și o necesitate zilnică care contribuie la sănătatea și <b>confortul</b> picioarelor. Fiecare pereche este aleasă cu grijă pentru a combina designul modern cu materiale de înaltă <b>calitate</b>, oferind suport optim în orice situație.</p>
-                
-                <p>Povestea noastră începe din dorința de a aduce inovația și rafinamentul în fiecare pas. La AdoraStep, credem că fiecare pereche de pantofi spune o poveste unică – fie că este vorba de un eveniment special sau de o zi obișnuită. Folosim tehnici moderne de fabricație și materiale ecologice pentru a crea produse care îmbină estetica cu durabilitatea.</p>
-                
-                <p>De-a lungul anilor, am acumulat experiență și pasiune pentru încălțăminte, oferind clienților nu doar produse, ci și sfaturi de stil și îngrijire. Fiecare model este gândit pentru a răspunde nevoilor variate ale clienților noștri, de la <b>confortul</b> zilnic la <b>eleganța</b> evenimentelor deosebite.</p>
-                
-                <figure>
-                    <picture>
-                        <source srcset="./resurse/imagini/banner-mic.png" media="(max-width:500px)" width="250">
-                        <source srcset="./resurse/imagini/banner-mediu.png" media="(max-width:750px)" width="500">
-                        <img src="./resurse/imagini/banner-mare.png" title="banner" width="750">
-                    </picture>
-                    <figcaption>O selecție din pantofii noștri</figcaption>
+            <div id="grid-pagina">
+
+                <section id="welcome">
+                    <h2>Despre <b>AdoraStep</b></h2>
+                    <p>Bine ați venit la <b>Magazinul de Pantofi AdoraStep</b>, un magazin online dedicat celor mai <b>elegante</b> și <b>confortabile</b> <b>pantofi</b>. Aici găsiți o gamă variată de produse, de la <b>pantofi cu toc</b> la <b>adidași</b>, <b>cizme</b> și <b>sneakers</b>, oferind în același timp opțiuni pentru <b>încălțăminte casual</b> și <b>încălțăminte formala</b>.</p>
+                    
+                    <p>Pantofii nu sunt doar un accesoriu de <b>modă</b>, ci și o necesitate zilnică care contribuie la sănătatea și <b>confortul</b> picioarelor. Fiecare pereche este aleasă cu grijă pentru a combina designul modern cu materiale de înaltă <b>calitate</b>, oferind suport optim în orice situație.</p>
+                    
+                    <p>Povestea noastră începe din dorința de a aduce inovația și rafinamentul în fiecare pas. La AdoraStep, credem că fiecare pereche de pantofi spune o poveste unică – fie că este vorba de un eveniment special sau de o zi obișnuită. Folosim tehnici moderne de fabricație și materiale ecologice pentru a crea produse care îmbină estetica cu durabilitatea.</p>
+                    
+                    <p>De-a lungul anilor, am acumulat experiență și pasiune pentru încălțăminte, oferind clienților nu doar produse, ci și sfaturi de stil și îngrijire. Fiecare model este gândit pentru a răspunde nevoilor variate ale clienților noștri, de la <b>confortul</b> zilnic la <b>eleganța</b> evenimentelor deosebite.</p>
+                    
+                    <figure>
+                        <picture>
+                            <source srcset="./resurse/imagini/banner-mic.png" media="(max-width:800px)">
+                            <source srcset="./resurse/imagini/banner-mediu.png" media="(max-width:1200px)">
+                            <img src="./resurse/imagini/banner-mare.png" alt="text">
+                        </picture>
+                        <figcaption>O selecție din pantofii noștri</figcaption>
+                    </figure>
+                    
+                    <section id="motto">
+                        <h3>Motto-ul nostru</h3>
+                        <blockquote cite="https://www.virtualmag.ro/blog/100-de-citate-cu-si-despre-moda.html">
+                            "Moda nu este ceva care există numai în rochii. Moda este în cer, pe stradă, moda este legată de idei, de viață, de tot ceea ce ne înconjoară."
+                            <footer>— Coco Chanel</footer>
+                        </blockquote>  
+                    </section>
+                </section>
+
+                <section id="promotii">
+                    <h2>Promoții</h2>
+                    <p>Descoperiți ofertele noastre de <b>reduceri</b> și <b>promoții</b> la <b>pantofi sport</b> și <b>pantofi de lux</b>. Nu ratați șansa de a cumpăra <b>pantofi din piele</b> sau <b>pantofi din catifea</b> la prețuri avantajoase!</p>
+                    
+                    <p><b>Promoțiile noastre</b> sunt gândite nu doar ca o simplă reducere de preț, ci ca o modalitate de a vă oferi acces la ultimele <b>tendințe</b> în materie de <b>design și confort</b>. Fiecare ofertă este concepută pentru a satisface nevoile clienților noștri, aducând inovație și valoare adăugată fiecărei achiziții.</p>
+                                    
+                    <p>Clienții noștri beneficiază de consultanță dedicată, astfel încât fiecare achiziție să fie o experiență plăcută și informată. Fie că sunteți în căutarea unui model clasic sau a unei inovații moderne, promoțiile noastre vă ajută să găsiți întotdeauna cea mai bună opțiune.</p>
+                    
+                    <section id="promotii-zilnice">
+                        <h3>Super Promoții de Azi</h3>
+                        <p>Profită de discounturile pe care le-am pregătit special pentru tine. <strong>Reducerile sunt valabile pentru o perioadă limitată</strong> și se aplică la o gamă variată de articole: de la încălțăminte cool pentru oraș și echipamente sport de performanță, până la piese de lux care adaugă rafinament garderobei tale.</p>
+                        <p>În prezent, sunt valabile aceste reduceri <i lang="en">site-wide</i>:</p>
+                        <ol>
+                            <li><b>Vans</b> – <s>40%</s> 60%</li>
+                            <li><b>Reebok</b> – 30%</li>
+                            <li><b>Valentino</b> – 10%</li>
+                        </ol>
+                    </section>
+
+                    <section id="promotii-lunare">
+                        <h3>Ofertă Specială Martie: Cumperi 2, primești 3!</h3>
+                        <p>Profită acum de cele mai tari reduceri ale sezonului! Fie că ești în căutare de <em>sneakers</em> fresh sau piese statement de la <em>branduri de top</em>, ai ocazia perfectă să îți reînnoiești garderoba la prețuri imbatabile.</p>
+                        <p>Cumpără în luna martie 2 produse de același tip și al treilea e CADOU! <strong>Nu rata ocazia să-ți iei mai mult, plătind mai puțin. Stocurile sunt limitate!</strong></p>
+                    </section>
+
+                    <details>
+                        <summary>Cum funcționează promoțiile?</summary>
+                        <p>Calculul prețului promoțional se face astfel: prețul promoțional este egal cu prețul inițial minus o reducere procentuală.</p>
+                        <math xmlns="http://www.w3.org/1998/Math/MathML">
+                            <mi>P</mi>
+                            <mo>=</mo>
+                            <mi>C</mi>
+                            <mo>&minus;</mo>
+                            <mfrac>
+                                <mrow>
+                                    <mi>C</mi>
+                                    <mo>&times;</mo>
+                                    <mi>D</mi>
+                                </mrow>
+                                <mn>100</mn>
+                            </mfrac>
+                        </math>
+                        <p>Unde: P reprezintă prețul promoțional, C este prețul inițial, iar D este procentul de reducere.</p>
+                    </details>
+                </section>
+
+                <figure id="fig1">
+                    <img src="./resurse/imagini/fig1.png" alt="Pantofi cu toc">
+                    <figcaption>Pantofi cu toc</figcaption>
                 </figure>
 
-                <p>Comercializăm produse de la firme de top precum <b>New Balance</b>, <b>Valentino</b>, <b>Reebok</b> și multe altele! Fiecare brand a fost ales pentru <b>calitatea</b> și inovația sa, astfel încât să puteți găsi întotdeauna ceva care să se potrivească <b>stilului</b> dumneavoastră.</p>
-                <p>Descoperă mai multe dintre brandurile pe care noi le comercializăm dând click pe unul dintre pantofii de mai jos! S-ar putea să fii surprins de diversitatea și creativitatea modelelor noastre.</p>
+                <figure id="fig2">
+                    <img src="./resurse/imagini/fig2.png" alt="Pantofi balet">
+                    <figcaption>Pantofi balet</figcaption>
+                </figure>
+                
+                <figure id="fig3">
+                    <img src="./resurse/imagini/fig3.png" alt="Pantofi sport">
+                    <figcaption>Pantofi sport</figcaption>
+                </figure>
 
-                <img src="./resurse/imagini/diverse-shoes-logos.png" usemap="#imageMap" alt="Imagine împărțită în 12 zone" width="360">
+                <section id="produse">
+                    <h2>Produse</h2>
+                    <p>Comercializăm produse de la firme de top precum <b>New Balance</b>, <b>Valentino</b>, <b>Reebok</b> și multe altele! Fiecare brand a fost ales pentru <b>calitatea</b> și inovația sa, astfel încât să puteți găsi întotdeauna ceva care să se potrivească <b>stilului</b> dumneavoastră.</p>
+                    <p>Descoperă mai multe dintre brandurile pe care noi le comercializăm dând click pe unul dintre pantofii de mai jos! S-ar putea să fii surprins de diversitatea și creativitatea modelelor noastre.</p>
 
-                <map name="imageMap">
-                    <area shape="rect" coords="0,0,120,90" href="https://www.vans.com/en-us" alt="Vans" target="_blank">
-                    <area shape="rect" coords="120,0,240,90" href="https://www.adidas.ro/" alt="Adidas" target="_blank">
-                    <area shape="rect" coords="240,0,360,90" href="https://eu.puma.com/de/en/home" alt="Puma" target="_blank">
-                
-                    <area shape="rect" coords="0,90,120,180" href="https://www.reebok.com/" alt="Reebok" target="_blank">
-                    <area shape="rect" coords="120,90,240,180" href="https://eu.christianlouboutin.com/ro_en/" alt="Louboutin" target="_blank">
-                    <area shape="rect" coords="240,90,360,180" href="https://www.valentino.com/en-ro/" alt="Valentino" target="_blank">
-                
-                    <area shape="rect" coords="0,180,120,270" href="https://nakedwolfe.com/" alt="Naked Wolfe" target="_blank">
-                    <area shape="rect" coords="120,180,240,270" href="https://www.crocs.ro/" alt="Crocs" target="_blank">
-                    <area shape="rect" coords="240,180,360,270" href="https://www.newbalance.com/" alt="New Balance" target="_blank">
-                
-                    <area shape="rect" coords="0,270,120,360" href="https://www.converse.ro/" alt="Converse" target="_blank">
-                    <area shape="rect" coords="120,270,240,360" href="https://www.skechers.com/" alt="Skechers" target="_blank">
-                    <area shape="rect" coords="240,270,360,360" href="https://www.fila.com/" alt="Fila" target="_blank">
-                </map>
-                
-                <section id="motto">
-                    <h3>Motto-ul nostru</h3>
-                    <blockquote cite="https://www.virtualmag.ro/blog/100-de-citate-cu-si-despre-moda.html">
-                        "Moda nu este ceva care există numai în rochii. Moda este în cer, pe stradă, moda este legată de idei, de viață, de tot ceea ce ne înconjoară."
-                        <footer>— Coco Chanel</footer>
-                    </blockquote>  
-                </section>
-            </section>
+                    <img src="./resurse/imagini/diverse-shoes-logos.png" usemap="#imageMap" alt="Imagine împărțită în 12 zone" width="300">
 
-            <section id="promotii">
-                <h2>Promoții Speciale</h2>
-                <p>Descoperiți ofertele noastre de <b>reduceri</b> și <b>promoții</b> la <b>pantofi sport</b> și <b>pantofi de lux</b>. Nu ratați șansa de a cumpăra <b>pantofi din piele</b> sau <b>pantofi din catifea</b> la prețuri avantajoase!</p>
-                
-                <p><b>Promoțiile noastre</b> sunt gândite nu doar ca o simplă reducere de preț, ci ca o modalitate de a vă oferi acces la ultimele <b>tendințe</b> în materie de <b>design și confort</b>. Fiecare ofertă este concepută pentru a satisface nevoile clienților noștri, aducând inovație și valoare adăugată fiecărei achiziții.</p>
-                                
-                <p>Clienții noștri beneficiază de consultanță dedicată, astfel încât fiecare achiziție să fie o experiență plăcută și informată. Fie că sunteți în căutarea unui model clasic sau a unei inovații moderne, promoțiile noastre vă ajută să găsiți întotdeauna cea mai bună opțiune.</p>
-                
-                <p>În prezent, sunt valabile aceste reduceri <i lang="en">site-wide</i>:</p>
-                <ol>
-                    <li><b>Vans</b> – <s>40%</s> 60%</li>
-                    <li><b>Reebok</b> – 30%</li>
-                    <li><b>Valentino</b> – 10%</li>
-                </ol>
-                <section id="promotii-formula">
-                    <h3>Formula Promoții</h3>
-                    <p>
-                        Calculul prețului promoțional se face astfel: prețul promoțional este egal cu prețul inițial minus o reducere procentuală. Exemplu:
-                    </p>
-                    <math xmlns="http://www.w3.org/1998/Math/MathML">
-                        <mi>P</mi>
-                        <mo>=</mo>
-                        <mi>C</mi>
-                        <mo>&minus;</mo>
-                        <mfrac>
-                            <mrow>
-                                <mi>C</mi>
-                                <mo>&times;</mo>
-                                <mi>D</mi>
-                            </mrow>
-                            <mn>100</mn>
-                        </mfrac>
-                    </math>
-                    <p>
-                        Unde: P reprezintă prețul promoțional, C este prețul inițial, iar D este procentul de reducere.
-                    </p>
-                </section>
-            </section>
-
-            <section id="noutati-in-moda">
-                <h2>Noutăți</h2>
-                <p>Explorează aici ce este nou în lumea <b>modei</b> și află ultimele <b>tendințe</b> în materie de <b>pantofi</b>!</p>
-                
-                <p>Pentru pasionații de <b>modă</b>, <b>pantofii</b> reprezintă un element esențial în definirea unui <b>stil</b> personal. Noile tehnologii și materiale inovatoare aduc pe piață modele ce combină estetica cu funcționalitatea, oferind <b>confort</b> pe tot parcursul zilei.</p>
-                
-                <p>Industria <b>încălțămintei</b> este într-o continuă evoluție, iar tendințele actuale se axează pe sustenabilitate, <b>confort</b> și <b>design</b> atemporal. Modelele noastre includ detalii rafinate, cum ar fi cusături precise, materiale respirabile și tălpi ergonomice, menite să reducă oboseala și să îmbunătățească postura.</p>
-                
-                <p>De asemenea, colaborăm cu <b>designeri</b> renumiți pentru a aduce colecții exclusive, care reușesc să surprindă esența <b>modei</b> contemporane, păstrând totodată legătura cu tradițiile clasice în domeniul <b>încălțămintei</b>.</p>
-
-                <section id="tendinte">
-                    <h3>Găsește-ți stilul!</h3>
-                    <p>Nu te-ai hotărât încă? Ți-am pregătit următoarele articole pentru a te ajuta să îți găsești <b>stilul</b>, fiind în <b>trend</b> cu cele mai noi <b>tendințe</b>!</p>
-                    <a href="https://www.vogue.com/article/street-style-shoes" target="_blank">12 Fall Shoe Trends We Traced Back to Street Style</a>
-                    <br>
-                    <a href="https://medium.com/@acsrz/the-importance-of-shoes-in-fashion-5c3e80d7c158" target="_blank">THE IMPORTANCE OF SHOES IN FASHION</a>
-                    <br>
-                    <a href="https://www.glamourmagazine.co.uk/article/shoe-trends-2024" target="_blank">I'm a fashion editor and these are the only 9 shoe trends I'm shopping in 2024</a>
-                    <br>
+                    <map name="imageMap">
+                        <area shape="rect" coords="0,0,120,90" href="https://www.vans.com/en-us" alt="Vans" target="_blank">
+                        <area shape="rect" coords="120,0,240,90" href="https://www.adidas.ro/" alt="Adidas" target="_blank">
+                        <area shape="rect" coords="240,0,360,90" href="https://eu.puma.com/de/en/home" alt="Puma" target="_blank">
+                    
+                        <area shape="rect" coords="0,90,120,180" href="https://www.reebok.com/" alt="Reebok" target="_blank">
+                        <area shape="rect" coords="120,90,240,180" href="https://eu.christianlouboutin.com/ro_en/" alt="Louboutin" target="_blank">
+                        <area shape="rect" coords="240,90,360,180" href="https://www.valentino.com/en-ro/" alt="Valentino" target="_blank">
+                    
+                        <area shape="rect" coords="0,180,120,270" href="https://nakedwolfe.com/" alt="Naked Wolfe" target="_blank">
+                        <area shape="rect" coords="120,180,240,270" href="https://www.crocs.ro/" alt="Crocs" target="_blank">
+                        <area shape="rect" coords="240,180,360,270" href="https://www.newbalance.com/" alt="New Balance" target="_blank">
+                    
+                        <area shape="rect" coords="0,270,120,360" href="https://www.converse.ro/" alt="Converse" target="_blank">
+                        <area shape="rect" coords="120,270,240,360" href="https://www.skechers.com/" alt="Skechers" target="_blank">
+                        <area shape="rect" coords="240,270,360,360" href="https://www.fila.com/" alt="Fila" target="_blank">
+                    </map>
+                    <p>Colecțiile noastre sunt actualizate constant pentru a reflecta ultimele <b>tendințe</b> în <b>modă</b> și tehnologie, astfel încât să beneficiezi de cele mai noi inovații din domeniu. Indiferent dacă ești pasionat de sport, de lifestyle urban sau cauți ceva sofisticat pentru evenimente speciale, vei găsi la noi opțiuni variate și adaptate gusturilor moderne.</p>
+                    <p>Ai găsit ceva ce ți-a făcut cu ochiul? <strong>Grăbește-te, stocurile sunt limitate!</strong></p>
                 </section>
 
-                <article id="revista">
-                    <h3><i lang="en">Be a Star!</i></h3>
-                    <p>Te întrebi ce <b>pantofi</b> să-ți mai cumperi sau cu ce să-i asortezi? Iată ce poartă celebritățile pentru a-și sublinia personalitatea și stilul unic. Fiecare detaliu, de la tălpile elegante la finisajele rafinate, contribuie la crearea unei imagini impecabile, indiferent dacă ești la o petrecere sau într-o întâlnire de afaceri.</p>
-                    <p>Uite cum să integrezi cu succes fiecare pereche de pantofi în garderoba ta:</p>
-                    <embed src="./resurse/altele/vogue-magazine.pdf" type="application/pdf" width="600" height="400">
+                <section id="noutati-in-moda">
+                    <h2>Ultimele Tendințe din Modă</h2>
+                    <p>Explorează aici ce este nou în lumea <b>modei</b> și află ultimele <b>tendințe</b> în materie de <b>pantofi</b>!</p>
+                    
+                    <p>Pentru pasionații de <b>modă</b>, <b>pantofii</b> reprezintă un element esențial în definirea unui <b>stil</b> personal. Noile tehnologii și materiale inovatoare aduc pe piață modele ce combină estetica cu funcționalitatea, oferind <b>confort</b> pe tot parcursul zilei.</p>
+                    
+                    <p>Industria <b>încălțămintei</b> este într-o continuă evoluție, iar tendințele actuale se axează pe sustenabilitate, <b>confort</b> și <b>design</b> atemporal. Modelele noastre includ detalii rafinate, cum ar fi cusături precise, materiale respirabile și tălpi ergonomice, menite să reducă oboseala și să îmbunătățească postura.</p>
+                    
+                    <p>De asemenea, colaborăm cu <b>designeri</b> renumiți pentru a aduce colecții exclusive, care reușesc să surprindă esența <b>modei</b> contemporane, păstrând totodată legătura cu tradițiile clasice în domeniul <b>încălțămintei</b>.</p>
+
+                    <section id="tendinte">
+                        <h3>Găsește-ți stilul!</h3>
+                        <p>Nu te-ai hotărât încă? Ți-am pregătit următoarele articole pentru a te ajuta să îți găsești <b>stilul</b>, fiind în <b>trend</b> cu cele mai noi <b>tendințe</b>!</p>
+                        <a href="https://www.vogue.com/article/street-style-shoes" target="_blank">12 Fall Shoe Trends We Traced Back to Street Style</a>
+                        <br>
+                        <a href="https://medium.com/@acsrz/the-importance-of-shoes-in-fashion-5c3e80d7c158" target="_blank">THE IMPORTANCE OF SHOES IN FASHION</a>
+                        <br>
+                        <a href="https://www.glamourmagazine.co.uk/article/shoe-trends-2024" target="_blank">I'm a fashion editor and these are the only 9 shoe trends I'm shopping in 2024</a>
+                        <br>
+                    </section>
+
+                    <article id="revista">
+                        <h3><i lang="en">Be a Star!</i></h3>
+                        <p>Te întrebi ce <b>pantofi</b> să-ți mai cumperi sau cu ce să-i asortezi? Iată ce poartă celebritățile pentru a-și sublinia personalitatea și stilul unic. Fiecare detaliu, de la tălpile elegante la finisajele rafinate, contribuie la crearea unei imagini impecabile, indiferent dacă ești la o petrecere sau într-o întâlnire de afaceri.</p>
+                        <p>Uite cum să integrezi cu succes fiecare pereche de pantofi în garderoba ta:</p>
+                        <embed src="./resurse/altele/vogue-magazine.pdf" type="application/pdf" width="600" height="400">
+                    </article>
+                </section>
+
+                <article id="evolutia-modei">
+                    <h2>Evoluția Modei</h2>
+                    <p>Ai fost vreodată curioasă să vezi cum au evoluat <b>trendurile</b> în ultimii 100 de ani și cum s-au transformat modelele de <b>pantofi</b> de la <b>eleganța</b> clasică la inovațiile contemporane?</p>
+                    
+                    <p>Evoluția <b>modei</b> este o mărturie a schimbărilor culturale și tehnologice din societate. <b>Pantofii</b> au trecut de la modele rudimentare la creații sofisticate, care reflectă atât tradiția, cât și inovația. De-a lungul secolului, fiecare epocă a adus cu sine noi influențe – de la siluetele vintage la formele futuriste ale <b>modei</b> moderne.</p>
+                    
+                    <p>Aceste schimbări nu doar că ne oferă o privire retrospectivă asupra istoriei, dar ne și inspiră în alegerea modelelor care se potrivesc cel mai bine <b>stilului</b> și nevoilor actuale. În acest context, tehnologia și sustenabilitatea au devenit piloni importanți, contribuind la crearea de <b>pantofi</b> care sunt prietenoși cu mediul și <b>confortabili</b> pentru utilizator.</p>
+                    
+                    <div class="taburi-iframe">
+                        <a href="https://www.youtube.com/embed/pFb1Jt1VdcY" target="ifr-video">100 Years of Heels | Glamour</a>
+                        <br>
+                        <a href="https://www.youtube.com/embed/c15Rz4V0yGs" target="ifr-video">100 Years of Women's Sneakers | Glamour</a>
+                        <br>
+                        <a href="https://www.youtube.com/embed/JLrL-MWGu80" target="ifr-video">100 Years of Women's Shoes | Glamour</a>
+                    </div>
+                    <iframe name="ifr-video" width="560" height="315" src="https://www.youtube.com/embed/pFb1Jt1VdcY" title="YouTube video player" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </article>
-            </section>
 
-            <article id="evolutia-modei">
-                <h2>Evoluția Modei: 100 De Ani De Pantofi</h2>
-                <p>Ai fost vreodată curioasă să vezi cum au evoluat <b>trendurile</b> în ultimii 100 de ani și cum s-au transformat modelele de <b>pantofi</b> de la <b>eleganța</b> clasică la inovațiile contemporane?</p>
-                
-                <p>Evoluția <b>modei</b> este o mărturie a schimbărilor culturale și tehnologice din societate. <b>Pantofii</b> au trecut de la modele rudimentare la creații sofisticate, care reflectă atât tradiția, cât și inovația. De-a lungul secolului, fiecare epocă a adus cu sine noi influențe – de la siluetele vintage la formele futuriste ale <b>modei</b> moderne.</p>
-                
-                <p>Aceste schimbări nu doar că ne oferă o privire retrospectivă asupra istoriei, dar ne și inspiră în alegerea modelelor care se potrivesc cel mai bine <b>stilului</b> și nevoilor actuale. În acest context, tehnologia și sustenabilitatea au devenit piloni importanți, contribuind la crearea de <b>pantofi</b> care sunt prietenoși cu mediul și <b>confortabili</b> pentru utilizator.</p>
-                
-                <div class="taburi-iframe">
-                    <a href="https://www.youtube.com/embed/pFb1Jt1VdcY" target="ifr-video">100 Years of Heels | Glamour</a>
-                    <br>
-                    <a href="https://www.youtube.com/embed/c15Rz4V0yGs" target="ifr-video">100 Years of Women's Sneakers | Glamour</a>
-                    <br>
-                    <a href="https://www.youtube.com/embed/JLrL-MWGu80" target="ifr-video">100 Years of Women's Shoes | Glamour</a>
-                </div>
-                <iframe name="ifr-video" width="560" height="315" src="https://www.youtube.com/embed/pFb1Jt1VdcY" title="YouTube video player" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            </article>
+                <section id="anunturi">
+                    <h2>Anunțuri</h2>
+                    <p><time datetime="2025-03-01">1 martie 2025</time>: În luna femeii, am dat startul unor super <b>promoții</b>! <a href="#promotii">Click aici</a> pentru acces rapid la sectiunea de <b>promoții</b>!</p>
+                    <p><time datetime="2025-01-01">25 decembrie 2024</time>: Un an nou fericit și <b>stilat</b>!</p>
+                    <p><time datetime="2024-12-25">25 decembrie 2024</time>: Crăciun fericit plin de cadouri <b>chic</b>!</p>
+                    <p><time datetime="2024-12-15">15 decembrie 2024</time>: Magazinul va fi închis cu ocazia sărbătorilor pe <time datetime="2024-12-25">25 decembrie</time>, <time datetime="2024-12-26">26 decembrie</time> și <time datetime="2025-01-01">1 ianuarie</time>.</p>
+                    <p><time datetime="2024-10-16">16 octombrie 2024</time>: Astăzi se deschide magazinul AdoraStep! Vă așteptăm cu drag atât online, cât și la sediul nostru!</p>
+                </section>
 
-            <section id="faq">
-                <h2>Întrebări Frecvente</h2>
-                <details>
-                    <summary>Care este politica de retur?</summary>
-                    <p>Oferim retur în 30 de zile pentru orice produs achiziționat.</p>
-                </details>
-                <details>
-                    <summary>Ce metode de plată acceptați?</summary>
-                    <p>Acceptăm plăți prin card, transfer bancar și numerar la livrare.</p>
-                </details>
-                <details>
-                    <summary>Cum îmi pot da seama ce mărime mi se potrivește?</summary>
-                    <p><strong>Înainte să te apuci de <i lang="en">shopping</i>, </strong><a href="./resurse/imagini/shoes-size-guide.png" download="ceva.png">click aici pentru a descărca ghidul mărimilor</a>!</p>
-                </details>
-                <br>
-            </section>
+                <section id="faq">
+                    <h2>Întrebări Frecvente</h2>
+                    <details>
+                        <summary>Care este politica de retur?</summary>
+                        <p>Oferim retur în 30 de zile pentru orice produs achiziționat.</p>
+                    </details>
+                    <details>
+                        <summary>Ce metode de plată acceptați?</summary>
+                        <p>Acceptăm plăți prin card, transfer bancar și numerar la livrare.</p>
+                    </details>
+                    <details>
+                        <summary>Cum îmi pot da seama ce mărime mi se potrivește?</summary>
+                        <p><strong>Înainte să te apuci de <i lang="en">shopping</i>, </strong><a href="./resurse/imagini/shoes-size-guide.png" download="ceva.png">click aici pentru a descărca ghidul mărimilor</a>!</p>
+                    </details>
+                    <br>
+                </section>
+
+                <section id="program">
+                    <h2>Program</h2>
+                    <p>Vă așteptăm cu drag în magazinul nostru, unde veți găsi produse de calitate și oferte speciale, într-un ambient plăcut și prietenos! Echipa noastră este pregătită să vă ajute cu orice aveți nevoie. </p>
+                    <p>Consultați programul nostru și vizitați-ne când vă este mai convenabil:</p>
+                    <table>
+                      <tbody>
+                        <tr>
+                          <td>Luni - Vineri</td>
+                          <td>09:00 - 20:00</td>
+                        </tr>
+                        <tr>
+                          <td>Sâmbătă</td>
+                          <td>09:00 - 13:00</td>
+                        </tr>
+                        <tr>
+                          <td>Duminică</td>
+                          <td>Închis</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </section>
+                  
+            </div>
         </main>
 
         <footer>
@@ -224,7 +293,9 @@
                 <br>
                 WhatsApp: <a href="https://wa.me/0712345678">+40712345678</a>
             </address>
-            <p><small>Copyright &copy; <time datetime="2025-03-05">5 martie 2025</time></small></p>
+            <br>
+            <small>Copyright &copy; <time datetime="2025-03-05">5 martie 2025</time></small>
+            <br>
             <a href="#">Înapoi sus</a>
             <br>
         </footer>

@@ -1,3 +1,138 @@
-p{
-    color:aqua;
+html {
+    font-size: 15px;
+}
+
+
+body {
+    --spatiere-pagina: 100px;
+    background-color: #FBF3FB;
+}
+
+h2 {
+    font-size: 1.6rem;
+}
+
+h3 {
+    font-size:1.4rem;
+}
+
+#grid-pagina {
+    display: grid;
+    grid-template-areas: "welcome          welcome          welcome"
+                         "promotii         promotii         promotii"
+                         "fig1             produse          produse"
+                         "fig2             produse          produse"
+                         "fig3             produse          produse"
+                         "noutati-in-moda  noutati-in-moda  noutati-in-moda"
+                         "evolutia-modei   evolutia-modei   evolutia-modei"
+                         "faq              anunturi         program";
+}
+
+#grid-pagina > *{
+    outline: 2px solid #E75480;
+    padding: 8px;
+}
+
+#grid-pagina > figure {
+    margin: 0;
+}
+
+#grid-pagina img {
+    width: 100%;
+    max-width: 800px;
+    min-width: 100px;
+}
+
+#grid-pagina img[usemap="#imageMap"] {
+    width: 500px;
+}
+
+main {
+    padding-left: var(--spatiere-pagina);
+    padding-right: var(--spatiere-pagina);
+}
+
+#welcome {
+    grid-area: welcome;
+}
+
+#promotii {
+    grid-area: promotii;
+}
+
+#noutati-in-moda {
+    grid-area: noutati-in-moda;
+}
+
+#evolutia-modei {
+    grid-area: evolutia-modei;
+}
+
+#faq {
+    grid-area: faq;
+}
+
+#anunturi {
+    grid-area: anunturi;
+}
+
+#produse {
+    grid-area: produse;
+}
+
+#program {
+    grid-area: program;
+}
+
+#fig1 {
+    grid-area: fig1;
+}
+
+#fig2 {
+    grid-area: fig2;
+}
+
+#fig3 {
+    grid-area: fig3;
+}
+
+figcaption{
+    text-align:center;
+}
+
+@media screen and (max-width:1200px){
+    html {
+        font-size: 14px;
+    }
+
+    body {
+        --spatiere-pagina: 50px;
+    }
+
+    #grid-pagina {
+        grid-template-areas: "welcome          welcome"
+                             "promotii         promotii"
+                             "fig1             produse"
+                             "fig2             produse"
+                             "fig3             produse"
+                             "noutati-in-moda  noutati-in-moda"
+                             "evolutia-modei   evolutia-modei"
+                             "anunturi         anunturi"
+                             "faq              faq"
+                             "program          program";
+    }
+}
+
+@media screen and (max-width:800px) {
+    #grid-pagina {
+        display: block;
+    }
+
+    html {
+        font-size: 13px;
+    }
+
+    body {
+        --spatiere-pagina: 20px;
+    }
 }
