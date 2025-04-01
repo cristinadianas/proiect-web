@@ -1,11 +1,32 @@
 html {
-    font-size: 15px;
+    font-size: 17px;
 }
-
 
 body {
     --spatiere-pagina: 100px;
-    background-color: #FBF3FB;
+    --pink-lightest: #fff5fa;
+    --pink-light: #ffe9f0;
+    --pink-medium: #f7d6e0;
+    --pink-dark: #e7acbc;
+    --pink-darkest: #d48a9c;
+    background-color: var(--pink-lightest);
+}
+
+header, footer {
+    background-color: var(--pink-light);
+    border: 1px solid var(--pink-medium);
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(212, 138, 156, 0.25);
+    padding: 1rem;
+    margin: 1rem var(--spatiere-pagina);
+}
+
+nav {
+    margin: 1rem var(--spatiere-pagina);
+}
+
+h1 {
+    font-size: 2.5rem;
 }
 
 h2 {
@@ -13,24 +34,64 @@ h2 {
 }
 
 h3 {
-    font-size:1.4rem;
+    font-size: 1.4rem;
 }
 
+#promotii math {
+    font-family: 'Cinzel', serif;
+    font-size: 1.2rem;
+    border: 1px dashed var(--pink-medium);
+    padding: 0.5rem;
+}
+  
+#promotii math mi, mn {
+    color: var(--pink-darkest);
+    font-style: italic;
+}
+  
+#promotii math mo {
+    color: var(--pink-medium);
+}
+
+#program table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+  
+#program td {
+    padding: 0.6rem 1rem;
+    border: 1px solid var(--pink-medium);
+    text-align: left;
+}
+  
+#program tr:nth-child(odd) {
+    background-color: var(--pink-lightest);
+}
+  
+#program tr:nth-child(even) {
+    background-color: var(--pink-light);
+}
+  
+  
 #grid-pagina {
     display: grid;
+    grid-gap: 1.5rem;
     grid-template-areas: "welcome          welcome          welcome"
                          "promotii         promotii         promotii"
+                         "faq              anunturi         program"
                          "fig1             produse          produse"
                          "fig2             produse          produse"
-                         "fig3             produse          produse"
                          "noutati-in-moda  noutati-in-moda  noutati-in-moda"
-                         "evolutia-modei   evolutia-modei   evolutia-modei"
-                         "faq              anunturi         program";
+                         "evolutia-modei   evolutia-modei   evolutia-modei";
 }
 
-#grid-pagina > *{
-    outline: 1px solid #E75480;
+#grid-pagina > * {
+    outline: 1px solid var(--pink-medium);
     padding: 8px;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
 }
 
 #grid-pagina > figure {
@@ -41,6 +102,7 @@ h3 {
     width: 100%;
     max-width: 800px;
     min-width: 100px;
+    border-radius: 5px;
 }
 
 #grid-pagina img[usemap="#imageMap"] {
@@ -92,17 +154,34 @@ main {
     grid-area: fig2;
 }
 
-#fig3 {
-    grid-area: fig3;
+figcaption {
+    text-align: center;
 }
 
-figcaption{
-    text-align:center;
+.dancing-script {
+    font-family: "Dancing Script", cursive;
+    font-optical-sizing: auto;
+    font-size: 2rem;
+    font-weight: 400;
+    font-style: normal;
 }
 
-@media screen and (max-width:1200px){
+.lobster-regular {
+    font-family: "Lobster", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.cinzel {
+    font-family: "Cinzel", serif;
+    font-optical-sizing: auto;
+    font-weight: 900;
+    font-style: normal;
+}
+
+@media screen and (max-width:1200px) {
     html {
-        font-size: 14px;
+        font-size: 15.5px;
     }
 
     body {
@@ -120,19 +199,108 @@ figcaption{
                              "anunturi         anunturi"
                              "faq              faq"
                              "program          program";
+        grid-gap: 1rem;
+    }
+
+    header, footer, nav {
+        margin: 1rem var(--spatiere-pagina);
     }
 }
 
 @media screen and (max-width:800px) {
     #grid-pagina {
         display: block;
+        grid-gap: 0.5rem;
     }
 
     html {
-        font-size: 13px;
+        font-size: 14px;
     }
 
     body {
         --spatiere-pagina: 20px;
     }
+
+    header, footer, nav {
+        margin: 1rem var(--spatiere-pagina);
+    }
+}
+
+.taburi-iframe {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 0.1rem;
+    margin-right: 0.3rem;
+    width: 140px;
+}
+
+.taburi-iframe > a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.2rem;
+    min-height: 35px;
+    border: 1px solid var(--pink-darkest);
+    background-color: var(--pink-lightest);
+    border-radius: 4px;
+    font-family: "Cinzel", serif;
+    color: var(--pink-darkest);
+    font-weight: bold;
+    transition: 0.2s ease;
+    text-decoration: none;
+    line-height: 1.1;
+    text-wrap: balance;
+    text-align: center;
+    font-size: 0.85rem;
+}
+
+.taburi-iframe > a:hover {
+    background-color: var(--pink-light);
+    transform: translateX(2px);
+}
+
+.container-iframe {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 0.5rem;
+}
+
+.container-iframe > iframe {
+    width: 660px;
+    height: 360px;
+    border-radius: 4px;
+    border: 1px solid var(--pink-medium);
+}
+
+#link-top {
+    position: fixed;
+    bottom: 0.3em;
+    opacity: 0.5;
+    right: 0.3em;
+    width: 3rem;
+    box-sizing: border-box;
+    height: 3rem;
+    line-height: 3rem;
+    text-align: center;
+    border: 5px solid var(--pink-dark);
+    border-top-color: var(--pink-medium);
+    background: var(--pink-light);
+}
+
+#link-top:hover {
+    opacity: 1;
+}
+
+#triunghi {
+    height: 0px;
+    width: 0;
+    display: inline-block;
+    border-bottom: 1.5rem solid var(--pink-darkest);
+    border-left: 1rem solid transparent;
+    border-right: 1rem solid transparent;
+    vertical-align: top;
+    transform: translateY(30%);
 }
