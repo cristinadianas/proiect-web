@@ -11,6 +11,11 @@ body {
     --pink-dark: #e7acbc;
     --pink-darkest: #d48a9c;
     background-color: var(--pink-lightest);
+    background-image: url("../imagini/background.png");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
 header, footer {

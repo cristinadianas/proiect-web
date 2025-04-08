@@ -3,7 +3,6 @@
 }
 
 nav {
-    background-color: var(--pink-lightest);
     --inaltime-meniu: 30px;
     --latime-buton: 150px;
     height: var(--inaltime-meniu);
