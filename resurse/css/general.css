@@ -1,5 +1,6 @@
 html {
     font-size: 17px;
+    transition: font-size 0.5s;
 }
 
 body {
@@ -16,9 +17,20 @@ header, footer {
     background-color: var(--pink-light);
     border: 1px solid var(--pink-medium);
     border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(212, 138, 156, 0.25);
+    box-shadow: 0 2px 8px var(--pink-darkest);
     padding: 1rem;
     margin: 1rem var(--spatiere-pagina);
+}
+
+header {
+    display: flex;
+    align-items: center;
+    padding: 0.1rem;
+}
+
+main {
+    padding-left: var(--spatiere-pagina);
+    padding-right: var(--spatiere-pagina);
 }
 
 nav {
@@ -26,7 +38,7 @@ nav {
 }
 
 h1 {
-    font-size: 2.5rem;
+    font-size: 4rem;
 }
 
 h2 {
@@ -37,53 +49,26 @@ h3 {
     font-size: 1.4rem;
 }
 
-#promotii math {
-    font-family: 'Cinzel', serif;
-    font-size: 1.2rem;
-    border: 1px dashed var(--pink-medium);
-    padding: 0.5rem;
-}
-  
-#promotii math mi, mn {
-    color: var(--pink-darkest);
-    font-style: italic;
-}
-  
-#promotii math mo {
-    color: var(--pink-medium);
+figcaption {
+    text-align: center;
 }
 
-#program table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 1rem;
+#motto {
+    font-size: 2rem;
 }
-  
-#program td {
-    padding: 0.6rem 1rem;
-    border: 1px solid var(--pink-medium);
-    text-align: left;
-}
-  
-#program tr:nth-child(odd) {
-    background-color: var(--pink-lightest);
-}
-  
-#program tr:nth-child(even) {
-    background-color: var(--pink-light);
-}
-  
+
+/* GRID */
   
 #grid-pagina {
     display: grid;
     grid-gap: 1.5rem;
-    grid-template-areas: "welcome          welcome          welcome"
-                         "promotii         promotii         promotii"
-                         "faq              anunturi         program"
-                         "fig1             produse          produse"
-                         "fig2             produse          produse"
-                         "noutati-in-moda  noutati-in-moda  noutati-in-moda"
-                         "evolutia-modei   evolutia-modei   evolutia-modei";
+    grid-template-areas: "welcome          welcome          welcome          welcome"
+                         "promotii         promotii         promotii         promotii"
+                         "faq              anunturi         anunturi         program"
+                         "fig1             fig1             produse          produse"
+                         "fig2             fig2             produse          produse"
+                         "noutati-in-moda  noutati-in-moda  noutati-in-moda  noutati-in-moda"
+                         "evolutia-modei   evolutia-modei   evolutia-modei   evolutia-modei";
 }
 
 #grid-pagina > * {
@@ -91,7 +76,7 @@ h3 {
     padding: 8px;
     border-radius: 10px;
     background-color: white;
-    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 8px var(--pink-darkest);
 }
 
 #grid-pagina > figure {
@@ -106,12 +91,7 @@ h3 {
 }
 
 #grid-pagina img[usemap="#imageMap"] {
-    width: 500px;
-}
-
-main {
-    padding-left: var(--spatiere-pagina);
-    padding-right: var(--spatiere-pagina);
+    width: 360px;
 }
 
 #welcome {
@@ -154,14 +134,28 @@ main {
     grid-area: fig2;
 }
 
-figcaption {
-    text-align: center;
+/* STILIZARE FORMULA */
+
+#promotii math {
+    font-family: 'Cinzel', serif;
+    font-size: 1.2rem;
+    padding: 0.5rem;
 }
+  
+#promotii math mi, mn {
+    color: var(--pink-darkest);
+    font-style: italic;
+}
+  
+#promotii math mo {
+    color: var(--pink-dark);
+} 
+
+/* FONTS */
 
 .dancing-script {
     font-family: "Dancing Script", cursive;
     font-optical-sizing: auto;
-    font-size: 2rem;
     font-weight: 400;
     font-style: normal;
 }
@@ -179,6 +173,154 @@ figcaption {
     font-style: normal;
 }
 
+/* IFRAME */
+
+.container-iframe {
+    display: flex;
+    width: fit-content;
+    padding: 0;
+    gap: 0;
+    align-items: flex-start;
+}
+
+.taburi-iframe {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    padding: 0 0 0 5px;
+    margin: 0;
+}
+
+
+.taburi-iframe > a {
+    display: block;
+    background: linear-gradient(to left, var(--pink-lightest), var(--pink-light));
+    color: var(--pink-darkest);
+    text-decoration: none;
+    padding: 15px 20px;
+    border: 2px solid var(--pink-darkest);
+    border-radius: 15px 0 0 15px;
+    box-shadow: inset 10px 5px 6px -4px var(--pink-dark);
+    font-weight: bold;
+    text-align: center;
+    width: 140px;
+    white-space: normal;
+    word-break: break-word;
+    font-family: "Cinzel";
+    font-size: 0.75rem;
+    transition: all 0.5s ease;
+}
+
+.taburi-iframe a:hover {
+    background: var(--pink-darkest);
+    box-shadow: none;
+    color: white;
+    cursor: pointer;
+}
+
+.container-iframe iframe {
+    border: 4px solid var(--pink-darkest);
+    margin: 0;
+    padding: 0;
+}
+
+/* LINK TOP */
+
+#link-top {
+    display: block;
+    position: fixed;
+    bottom: 1em;
+    right: 1em;
+    width: 4rem;
+    height: 4rem;
+    background: var(--pink-light);
+    border: 2px solid var(--pink-dark);
+    border-top-left-radius: 2rem;
+    border-top-right-radius: 2rem;
+    box-shadow: inset 0 0 10px var(--pink-darkest);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    opacity: 0.7;
+    transition: box-shadow 0.3s ease, opacity 0.3s ease;
+}
+
+#link-top:hover {
+    box-shadow: inset 0 0 15px var(--pink-darkest);
+    opacity: 1;
+}
+
+#triunghi {
+    font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif;
+    font-size: 2rem;
+    color: var(--pink-dark);
+    display: block;
+    line-height: 1;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+#link-top:hover #triunghi {
+    transform: scale(1.2);
+    color: var(--pink-darkest);
+}
+
+/* TABEL */
+
+.table-container {
+    overflow-x: auto;
+    max-width: 100%;
+    margin: 20px auto;
+    border: 5px double var(--pink-darkest);
+    padding: 10px;
+    font-size: 0.75rem;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    font-weight: bold;
+}
+
+caption {
+    caption-side: bottom;
+    padding: 10px;
+    font-weight: bold;
+    color: var(--pink-darkest);
+}
+
+th, td {
+    border: 1px solid var(--pink-darkest);
+    padding: 10px;
+    transition: all 0.75s ease;
+}
+
+tbody th:nth-child(odd), tbody td:nth-child(odd) {
+    color: var(--pink-darkest);
+}
+
+tbody th:nth-child(even), tbody td:nth-child(even) {
+    color: var(--pink-dark);
+}
+
+thead th, thead td {
+    background-color: var(--pink-darkest);
+    color: white;
+}
+
+tfoot tr td {
+    color: var(--pink-darkest)
+}
+
+tbody tr:hover td {
+    background-color: var(--pink-dark);
+    color: white;
+    border-width: 5px;
+}
+
+/* SCREEN SIZE */
+
 @media screen and (max-width:1200px) {
     html {
         font-size: 15.5px;
@@ -191,26 +333,35 @@ figcaption {
     #grid-pagina {
         grid-template-areas: "welcome          welcome"
                              "promotii         promotii"
-                             "fig1             produse"
-                             "fig2             produse"
-                             "fig3             produse"
-                             "noutati-in-moda  noutati-in-moda"
-                             "evolutia-modei   evolutia-modei"
                              "anunturi         anunturi"
                              "faq              faq"
-                             "program          program";
+                             "program          program"
+                             "fig1             produse"
+                             "fig2             produse"
+                             "noutati-in-moda  noutati-in-moda"
+                             "evolutia-modei   evolutia-modei";
         grid-gap: 1rem;
     }
 
     header, footer, nav {
         margin: 1rem var(--spatiere-pagina);
     }
+
+    #logo {
+        width: 150px;
+    }
+    .container-iframe iframe {
+        max-width: 500px;
+    }
 }
 
 @media screen and (max-width:800px) {
     #grid-pagina {
         display: block;
-        grid-gap: 0.5rem;
+    }
+
+    #grid-pagina > * {
+        margin-bottom: 15px;
     }
 
     html {
@@ -224,83 +375,20 @@ figcaption {
     header, footer, nav {
         margin: 1rem var(--spatiere-pagina);
     }
-}
 
-.taburi-iframe {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    gap: 0.1rem;
-    margin-right: 0.3rem;
-    width: 140px;
-}
+    #logo {
+        width:135px;
+    }
 
-.taburi-iframe > a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.2rem;
-    min-height: 35px;
-    border: 1px solid var(--pink-darkest);
-    background-color: var(--pink-lightest);
-    border-radius: 4px;
-    font-family: "Cinzel", serif;
-    color: var(--pink-darkest);
-    font-weight: bold;
-    transition: 0.2s ease;
-    text-decoration: none;
-    line-height: 1.1;
-    text-wrap: balance;
-    text-align: center;
-    font-size: 0.85rem;
-}
+    * {
+        transition: none !important;
+    }
 
-.taburi-iframe > a:hover {
-    background-color: var(--pink-light);
-    transform: translateX(2px);
-}
+    .container-iframe iframe {
+        max-width: 320px;
+    }
 
-.container-iframe {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    gap: 0.5rem;
-}
-
-.container-iframe > iframe {
-    width: 660px;
-    height: 360px;
-    border-radius: 4px;
-    border: 1px solid var(--pink-medium);
-}
-
-#link-top {
-    position: fixed;
-    bottom: 0.3em;
-    opacity: 0.5;
-    right: 0.3em;
-    width: 3rem;
-    box-sizing: border-box;
-    height: 3rem;
-    line-height: 3rem;
-    text-align: center;
-    border: 5px solid var(--pink-dark);
-    border-top-color: var(--pink-medium);
-    background: var(--pink-light);
-}
-
-#link-top:hover {
-    opacity: 1;
-}
-
-#triunghi {
-    height: 0px;
-    width: 0;
-    display: inline-block;
-    border-bottom: 1.5rem solid var(--pink-darkest);
-    border-left: 1rem solid transparent;
-    border-right: 1rem solid transparent;
-    vertical-align: top;
-    transform: translateY(30%);
+    .taburi-iframe > a {
+        max-width: 50px;
+    }
 }
