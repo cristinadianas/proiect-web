@@ -1,0 +1,15 @@
+@import 'variabile';
+
+ul.meniu {
+    font-size: 0.9rem;
+    
+    > li:first-child {
+        &::after {
+            display: none;
+        }
+    }
+    
+    li {
+      width: $button-width * 0.9;
+    }
+}

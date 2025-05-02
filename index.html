@@ -25,19 +25,26 @@
         <link rel="stylesheet" type="text/css" href="./resurse/css/nav1200.css" media="screen and (max-width:1200px)">
         <link rel="stylesheet" type="text/css" href="./resurse/css/nav800.css" media="screen and (max-width:800px)">
 
+        <link rel="stylesheet" type="text/css" href="./resurse/css/print.css">
+
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     </head>
     <body>
-    
+
         <header>
             <img src="./resurse/imagini/logo.png" alt="logo-magazin" width="200" id="logo">
             <h1 class="dancing-script">Magazin de Pantofi AdoraStep</h1>
+            <p id="watermark"></p>
         </header>
 
         <nav>
             <label id="hamburger" for="ch-menu">
-                <img src="./resurse/imagini/hamburger_icon_alb.png" alt="menu">
-            </label>
+                <div class="hamburger-icon">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+              </label>
             <input id="ch-menu" type="checkbox">
             <ul class="meniu">
                 <li><div class="text-icon" id="acasa">Acasa</div><div class="imag-icon" id="acasa-mediu"><span class="fa-solid fa-house"></span></div>
@@ -53,7 +60,13 @@
                     </ul>
                 </li>
                 <li><div class="text-icon"><a href="#">Produse</a></div><div class="imag-icon" ><span class="fa-solid fa-cart-shopping"></span></div></li>
-                <li><div class="text-icon"><a href="#">Contul Meu</a></div><div class="imag-icon" ><span class="fa-solid fa-book"></span></div></li>
+                <li><div class="text-icon"><a href="#">Galerie</a></div><div class="imag-icon" ><span class="fa-solid fa-camera"></span></div>
+                    <ul>
+                        <li><a href="#galerie-statica">Statica</a></li>
+                        <li><a href="#galerie-dinamica">Dinamica</a></li>
+                    </ul>
+                </li>
+                <li><div class="text-icon"><a href="#">Contul Meu</a></div><div class="imag-icon" ><span class="fa-solid fa-circle-user"></span></div></li>
                 <li><div class="text-icon"><a href="#">Cautare</a></div><div class="imag-icon" ><span class="fa-solid fa-magnifying-glass"></span></div></li>
             </ul>
         </nav>
@@ -84,7 +97,7 @@
                         <h3>Motto-ul nostru</h3>
                         <blockquote cite="https://www.virtualmag.ro/blog/100-de-citate-cu-si-despre-moda.html" class="dancing-script">
                             "Moda nu este ceva care există numai în rochii. Moda este în cer, pe stradă, moda este legată de idei, de viață, de tot ceea ce ne înconjoară."
-                            <footer>— Coco Chanel</footer>
+                            <footer id="footer-quote">— Coco Chanel</footer>
                         </blockquote>  
                     </section>
                 </section>
@@ -368,6 +381,7 @@
             <a href="#" title="mergi sus" id="link-top">
                 <div id="triunghi">&#8679;</div>
             </a>
+            <p id="absolut"></p>
         </footer>
     </body>
 </html>

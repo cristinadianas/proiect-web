@@ -10,12 +10,15 @@ body {
     --pink-medium: #f7d6e0;
     --pink-dark: #e7acbc;
     --pink-darkest: #d48a9c;
+    --pink-accent: #ac3f59;
     background-color: var(--pink-lightest);
+    /*
     background-image: url("../imagini/background.png");
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    */
 }
 
 header, footer {
@@ -44,6 +47,7 @@ nav {
 
 h1 {
     font-size: 4rem;
+    color: var(--pink-darkest)
 }
 
 h2 {
@@ -365,7 +369,7 @@ tbody tr:hover td {
         display: block;
     }
 
-    #grid-pagina > * {
+    #grid-pagina > *:not(:last-child) {
         margin-bottom: 15px;
     }
 

@@ -1,0 +1,133 @@
+@import 'variabile';
+
+@mixin common-link-style {
+  color: var(--pink-darkest);
+  text-decoration: none;
+  transition: all $transition-duration ease;
+  display: block;
+  height: 100%;
+  cursor: pointer;
+  font-family: "Cinzel", serif;
+}
+
+@mixin submenu-animation {
+  animation-name: animatie_submeniu;
+  animation-timing-function: linear;
+  animation-iteration-count: 1;
+  animation-duration: $animation-duration;
+  animation-fill-mode: forwards;
+  transform-origin: 50% 0;
+}
+
+#hamburger,
+#ch-menu {
+  display: none;
+}
+
+nav {
+  height: $menu-height;
+  position: sticky;
+  top: 0;
+}
+
+ul.meniu {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  background-color: var(--pink-light);
+
+  a,
+  div {
+    @include common-link-style;
+  }
+
+  ul {
+    display: none;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    list-style-type: none;
+    background-color: var(--pink-light);
+    z-index: 999;
+    overflow: visible;
+    @include submenu-animation;
+  }
+
+  li {
+    width: $button-width;
+    height: $menu-height;
+    box-sizing: border-box;
+    text-align: center;
+    font-weight: bold;
+    line-height: $menu-height;
+    background-color: var(--pink-light);
+    position: relative;
+
+    &:hover {
+      > a,
+      > div,
+      > div a {
+        color: var(--pink-accent);
+      }
+      ul {
+        display: block;
+      }
+    }
+
+    div.imag-icon {
+      display: none;
+    }
+  }
+
+  > li:first-child {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .imag-icon,
+    .text-icon {
+      display: none;
+    }
+
+    &::before {
+      content: "\f015";
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
+      display: inline-block;
+      margin-right: 5px;
+      color: var(--pink-darkest);
+      transition: color $transition-duration ease;
+    }
+
+    &::after {
+      content: "Acasa";
+      display: inline-block;
+      color: var(--pink-darkest);
+      opacity: 0;
+      transition: all $transition-duration ease;
+      font-family: "Cinzel", serif;
+    }
+
+    &:hover {
+      &::before,
+      &::after {
+        color: var(--pink-accent);
+        opacity: 1;
+      }
+    }
+  }
+}
+
+@keyframes animatie_submeniu {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
