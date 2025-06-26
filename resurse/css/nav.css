@@ -66,32 +66,40 @@ ul.meniu li div.imag-icon {
   display: none;
 }
 ul.meniu > li:first-child {
+  position: relative;
+}
+ul.meniu > li:first-child > a {
   display: flex;
   align-items: center;
   justify-content: center;
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  text-decoration: none;
 }
-ul.meniu > li:first-child .imag-icon,
-ul.meniu > li:first-child .text-icon {
+ul.meniu > li:first-child > a .text-icon,
+ul.meniu > li:first-child > a .imag-icon {
   display: none;
 }
-ul.meniu > li:first-child::before {
+ul.meniu > li:first-child > a::before {
   content: "\f015";
   font-family: "Font Awesome 6 Free";
   font-weight: 900;
-  display: inline-block;
   margin-right: 5px;
   color: var(--pink-darkest);
-  transition: color 0.75s ease;
+  transition: color 0.75s ease, opacity 0.75s ease;
+  opacity: 1;
 }
-ul.meniu > li:first-child::after {
+ul.meniu > li:first-child > a::after {
   content: "Acasa";
-  display: inline-block;
+  margin-left: 0.25em;
   color: var(--pink-darkest);
   opacity: 0;
   transition: all 0.75s ease;
   font-family: "Cinzel", serif;
 }
-ul.meniu > li:first-child:hover::before, ul.meniu > li:first-child:hover::after {
+ul.meniu > li:first-child > a:hover::before,
+ul.meniu > li:first-child > a:hover::after {
   color: var(--pink-accent);
   opacity: 1;
 }

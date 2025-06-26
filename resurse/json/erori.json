@@ -1,0 +1,56 @@
+{
+    "cale_baza": "/resurse/imagini/erori",
+    "eroare_default":{
+        "titlu":"Eroare neașteptată",
+        "text": "Ceva nu a mers cum trebuie. Încearcă din nou cu stil!",
+        "imagine":"interzis.png"
+    },
+    "info_erori": [
+        {
+            "identificator":404,
+            "status":true,
+            "titlu":"404 - Pagina lipsește",
+            "text": "Pagina asta nu mai e pe raft. Caută alt model!",
+            "imagine":"lupa.png"
+        },
+        {
+            "identificator":403,
+            "status":true,
+            "titlu":"403 - Acces interzis!",
+            "text": "Nu ai voie aici. Înapoi la vitrină!",
+            "imagine":"interzis.png"
+        },
+        {
+            "identificator":400,
+            "status":true,
+            "titlu":"400 - Cerere invalidă",
+            "text": "Ne pare rău, cererea nu poate fi procesată.",
+            "imagine":"interzis.png"
+        },
+        
+        {
+            "identificator":1,
+            "status":false,
+            "titlu":"Site în lucru",
+            "text": "Rearanjăm colecția. Revino puțin mai târziu!",
+            "imagine":"interzis.png"
+        },
+        
+        {
+            "identificator":2,
+            "status":false,
+            "titlu":"Eroare bază de date",
+            "text": "Platforma e pe pauză. Te rugăm să revii.",
+            "imagine":"interzis.png"
+        },
+        
+        {
+            "identificator":3,
+            "status":false,
+            "titlu":"Date incorecte",
+            "text": "Verifică informațiile și încearcă din nou.",
+            "imagine":"interzis.png"
+        }
+    ]
+}
+  

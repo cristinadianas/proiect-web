@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ro">
+    <head>
+        <title>Magazin de Pantofi AdoraStep</title>
+        <meta name="keywords" content="pantofi, AdoraStep, magazin de pantofi, magazin online, pantofi cu toc, tocuri, adidași, cizme, sneakers, încălțăminte, transport curier, București, Vans, Adidas, Puma, Reebok, moda, stil, confort, eleganta, tendinte, încălțăminte casual, încălțăminte formala, design, calitate, reduceri, promotii, pantofi sport, pantofi de lux, pantofi pentru femei, pantofi de dama, pantofi cu sireturi, pantofi din piele, pantofi din catifea, sandale, pantofi de iarna, pantofi de vara, pantofi de birou, pantofi pentru ocazii speciale">
+        <meta name="description" content="AdoraStep: Magazin de Pantofi de Damă, cu o gamă variată de produse: pantofi cu toc, sneakers, cizme, încălțăminte casual și formală. Transport la Domiciliu">
+        <%- include("../fragmente/head.ejs") %>
+    </head>
+    <body>
+        <%- include("../fragmente/header.ejs") %>
+
+        <main>
+            <div id="grid-pagina">
+                <section id="welcome">
+                    <h2>Despre <b>AdoraStep</b></h2>
+                    
+                    <p>Bine ați venit la <b>Magazinul de Pantofi AdoraStep</b>, un magazin online dedicat celor mai <b>elegante</b> și <b>confortabile</b> <b>pantofi</b>. Aici găsiți o gamă variată de produse, de la <b>pantofi cu toc</b> la <b>adidași</b>, <b>cizme</b> și <b>sneakers</b>, oferind în același timp opțiuni pentru <b>încălțăminte casual</b> și <b>încălțăminte formala</b>.</p>
+                    
+                    <p>Pantofii nu sunt doar un accesoriu de <b>modă</b>, ci și o necesitate zilnică care contribuie la sănătatea și <b>confortul</b> picioarelor. Fiecare pereche este aleasă cu grijă pentru a combina designul modern cu materiale de înaltă <b>calitate</b>, oferind suport optim în orice situație.</p>
+                    
+                    <p>Povestea noastră începe din dorința de a aduce inovația și rafinamentul în fiecare pas. La AdoraStep, credem că fiecare pereche de pantofi spune o poveste unică – fie că este vorba de un eveniment special sau de o zi obișnuită. Folosim tehnici moderne de fabricație și materiale ecologice pentru a crea produse care îmbină estetica cu durabilitatea.</p>
+                    
+                    <p>De-a lungul anilor, am acumulat experiență și pasiune pentru încălțăminte, oferind clienților nu doar produse, ci și sfaturi de stil și îngrijire. Fiecare model este gândit pentru a răspunde nevoilor variate ale clienților noștri, de la <b>confortul</b> zilnic la <b>eleganța</b> evenimentelor deosebite.</p>
+                    
+                    <figure>
+                        <picture>
+                            <source srcset="/resurse/imagini/banner-mic.png" media="(max-width:800px)">
+                            <source srcset="/resurse/imagini/banner-mediu.png" media="(max-width:1200px)">
+                            <img src="/resurse/imagini/banner-mare.png" alt="banner-magazin">
+                        </picture>
+                        <figcaption>O selecție din pantofii noștri</figcaption>
+                    </figure>
+                    
+                    <section id="motto">
+                        <h3>Motto-ul nostru</h3>
+                        <blockquote cite="https://www.virtualmag.ro/blog/100-de-citate-cu-si-despre-moda.html" class="dancing-script">
+                            "Moda nu este ceva care există numai în rochii. Moda este în cer, pe stradă, moda este legată de idei, de viață, de tot ceea ce ne înconjoară."
+                            <footer id="footer-quote">— Coco Chanel</footer>
+                        </blockquote>  
+                    </section>
+                </section>
+            </div>
+        </main>
+        <%- include("../fragmente/footer.ejs") %>
+    </body>
+</html>

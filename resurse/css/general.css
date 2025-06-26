@@ -328,6 +328,74 @@ tbody tr:hover td {
     border-width: 5px;
 }
 
+/* STILIZARE LINKURI */
+
+a {
+    color: black;
+}
+
+a:visited {
+    color: var(--pink-accent);
+}
+
+a[href^="http"]::before {
+    content: "⮳";
+    font-family: 'Noto Sans Symbols 2', sans-serif;
+    font-size: 1.5em;
+    margin-right: 0.25em;
+    color: var(--pink-medium);
+    vertical-align: middle;
+  }
+  
+a[href^="http"]:hover::before {
+   color: var(--pink-accent);
+}
+
+main a {
+    position: relative;
+    z-index: 0;
+    text-decoration: underline;
+    
+    background-image: radial-gradient(
+        ellipse at center,
+        var(--pink-medium)    0%,
+        var(--pink-medium)   40%,
+        transparent 80%,
+        transparent 100%
+    );
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    background-size: 0% 0%;
+    
+    transition: background-size 1s ease;
+  }
+  
+main a:hover {
+    background-size: 100% 100%;
+}
+
+main a:active {
+    border: 2px solid var(--pink-medium);
+    border-radius: 4px;
+}
+
+/* VIDEOCLIP */
+
+#videoclip {
+    width: 100%;
+    max-width: 800px;
+    min-width: 400px;
+    display: block;
+    margin: auto;
+}
+  
+::cue {
+    background-color: var(--pink-darkest);
+    color: var(--pink-lightest);
+}
+  
+
 /* SCREEN SIZE */
 
 @media screen and (max-width:1200px) {
