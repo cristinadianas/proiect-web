@@ -1,0 +1,29 @@
+<section id="galerie-statica">
+    <div class="text-reflection-container">
+        <h1 class="text-reflection-text">Galerie Statica</h1>
+        <div class="text-reflection-mirror">Galerie Statica</div>
+    </div>
+    <br><br><br><br>
+    <div id="grid-galerie">
+        <% 
+        d = new Date();
+        vect_luni=["ianuarie", "februarie", "martie", "aprilie", "mai", "iunie", "iulie","august","septembrie","octombrie","noiembrie","decembrie"];
+        luna_curenta = vect_luni[d.getMonth()];
+        let nr_imagini = 0;
+        for(let imag of locals.imagini) { %>
+            <% if(imag.luni && imag.luni.includes(luna_curenta)) { 
+                if(nr_imagini >= 10) break;
+                nr_imagini++;
+                %>
+                <figure>
+                    <picture>
+                        <source srcset="<%- imag.fisier_mic %>" media="screen and (max-width: 800px)">
+                        <source srcset="<%- imag.fisier_mediu %>" media="screen and (max-width: 1200px)">
+                        <img src="<%- imag.fisier %>" title="<%- imag.descriere %>" alt="<%- (imag.alt !== undefined ? imag.alt : imag.titlu) %>">
+                    </picture>
+                    <figcaption><%- imag.descriere %></figcaption>
+                </figure>
+            <% } %>
+        <% } %>
+    </div>
+</section>

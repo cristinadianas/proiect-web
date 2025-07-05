@@ -1,0 +1,4555 @@
+h2 {
+  font-family: "Dancing Script", cursive;
+  font-size: 4rem;
+  color: var(--pink-darkest);
+  margin: 0;
+}
+
+#grid-pagina-galerie {
+  display: block;
+}
+#grid-pagina-galerie > * {
+  outline: 1px solid var(--pink-medium);
+  padding: 8px;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 0 2px 8px var(--pink-darkest);
+  margin-bottom: 10px;
+}
+
+#galerie-statica {
+  grid-area: galerie-statica;
+  counter-reset: c 0;
+}
+
+#galerie-dinamica {
+  grid-area: galerie-dinamica;
+}
+
+#grid-galerie {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, auto);
+  gap: 0.5em;
+}
+#grid-galerie figure {
+  overflow: visible;
+  position: relative;
+}
+#grid-galerie figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform 1.25s ease;
+  transform-origin: center center;
+}
+#grid-galerie figure figcaption {
+  text-align: center;
+  font-size: 1.2rem;
+  font-family: "Dancing Script", cursive;
+  color: var(--pink-darkest);
+  padding: 0.5rem;
+  font-weight: normal;
+  background-color: transparent;
+  transform-origin: center top;
+  transition: transform 1.25s ease, background-color 1.25s ease, color 1.25s ease, font-weight 1.25s ease;
+}
+#grid-galerie figure figcaption::before {
+  content: counter(c, lower-alpha) ". ";
+  counter-increment: c 1;
+}
+#grid-galerie figure:hover {
+  z-index: 10;
+}
+#grid-galerie figure:hover img {
+  transform: translateY(-15%) scale(1.3);
+}
+#grid-galerie figure:hover figcaption {
+  background-color: var(--pink-dark);
+  color: var(--pink-lightest);
+  font-weight: bold;
+  transform: scaleX(1.3);
+}
+#grid-galerie > figure:nth-of-type(1) {
+  grid-area: 1/1/2/2;
+}
+#grid-galerie > figure:nth-of-type(2) {
+  grid-area: 1/2/2/3;
+}
+#grid-galerie > figure:nth-of-type(3) {
+  grid-area: 1/3/2/4;
+}
+#grid-galerie > figure:nth-of-type(4) {
+  grid-area: 1/4/2/5;
+}
+#grid-galerie > figure:nth-of-type(5) {
+  grid-area: 2/1/3/2;
+}
+#grid-galerie > figure:nth-of-type(6) {
+  grid-area: 2/4/3/5;
+}
+#grid-galerie > figure:nth-of-type(7) {
+  grid-area: 3/1/4/2;
+}
+#grid-galerie > figure:nth-of-type(8) {
+  grid-area: 3/2/4/3;
+}
+#grid-galerie > figure:nth-of-type(9) {
+  grid-area: 3/3/4/4;
+}
+#grid-galerie > figure:nth-of-type(10) {
+  grid-area: 3/4/4/5;
+}
+
+#galerie-dinamica .slides {
+  position: relative;
+  overflow: hidden;
+  border: 15px solid transparent;
+  border-image: url("../imagini/border.png") 30 round;
+  aspect-ratio: 3/2;
+  max-width: 800px;
+}
+#galerie-dinamica .slides figure {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+#galerie-dinamica .slides figure figcaption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  font-family: "Dancing Script", cursive;
+  background: rgba(0, 0, 0, 0.6);
+  color: var(--pink-lightest);
+  padding: 0.5rem;
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+#galerie-dinamica .slides figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+#galerie-dinamica .slides figure:first-child {
+  z-index: 1;
+}
+#galerie-dinamica .slides figure:not(:first-child) {
+  z-index: 2;
+  animation-fill-mode: both;
+}
+@keyframes revealUniform2 {
+  0% {
+    clip-path: polygon(100% 0%, 100% 0%, 0% 100%, 0% 100%);
+  }
+  2.5% {
+    clip-path: polygon(95% 0%, 100% 0%, 100% 5%, 5% 100%, 0% 100%, 0% 95%);
+  }
+  5% {
+    clip-path: polygon(90% 0%, 100% 0%, 100% 10%, 10% 100%, 0% 100%, 0% 90%);
+  }
+  7.5% {
+    clip-path: polygon(85% 0%, 100% 0%, 100% 15%, 15% 100%, 0% 100%, 0% 85%);
+  }
+  10% {
+    clip-path: polygon(80% 0%, 100% 0%, 100% 20%, 20% 100%, 0% 100%, 0% 80%);
+  }
+  12.5% {
+    clip-path: polygon(75% 0%, 100% 0%, 100% 25%, 25% 100%, 0% 100%, 0% 75%);
+  }
+  15% {
+    clip-path: polygon(70% 0%, 100% 0%, 100% 30%, 30% 100%, 0% 100%, 0% 70%);
+  }
+  17.5% {
+    clip-path: polygon(65% 0%, 100% 0%, 100% 35%, 35% 100%, 0% 100%, 0% 65%);
+  }
+  20% {
+    clip-path: polygon(60% 0%, 100% 0%, 100% 40%, 40% 100%, 0% 100%, 0% 60%);
+  }
+  22.5% {
+    clip-path: polygon(55% 0%, 100% 0%, 100% 45%, 45% 100%, 0% 100%, 0% 55%);
+  }
+  25% {
+    clip-path: polygon(50% 0%, 100% 0%, 100% 50%, 50% 100%, 0% 100%, 0% 50%);
+  }
+  27.5% {
+    clip-path: polygon(45% 0%, 100% 0%, 100% 55%, 55% 100%, 0% 100%, 0% 45%);
+  }
+  30% {
+    clip-path: polygon(40% 0%, 100% 0%, 100% 60%, 60% 100%, 0% 100%, 0% 40%);
+  }
+  32.5% {
+    clip-path: polygon(35% 0%, 100% 0%, 100% 65%, 65% 100%, 0% 100%, 0% 35%);
+  }
+  35% {
+    clip-path: polygon(30% 0%, 100% 0%, 100% 70%, 70% 100%, 0% 100%, 0% 30%);
+  }
+  37.5% {
+    clip-path: polygon(25% 0%, 100% 0%, 100% 75%, 75% 100%, 0% 100%, 0% 25%);
+  }
+  40% {
+    clip-path: polygon(20% 0%, 100% 0%, 100% 80%, 80% 100%, 0% 100%, 0% 20%);
+  }
+  42.5% {
+    clip-path: polygon(15% 0%, 100% 0%, 100% 85%, 85% 100%, 0% 100%, 0% 15%);
+  }
+  45% {
+    clip-path: polygon(10% 0%, 100% 0%, 100% 90%, 90% 100%, 0% 100%, 0% 10%);
+  }
+  47.5% {
+    clip-path: polygon(5% 0%, 100% 0%, 100% 95%, 95% 100%, 0% 100%, 0% 5%);
+  }
+  50% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 100% 100%, 0% 100%, 0% 0%);
+  }
+  50% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+  100% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+}
+#galerie-dinamica.galerie-2 .slides figure:nth-child(2) {
+  animation-name: revealUniform2;
+  animation-duration: 12s;
+  animation-delay: 0s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-2 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-2 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+@keyframes revealUniform3 {
+  0% {
+    clip-path: polygon(100% 0%, 100% 0%, 0% 100%, 0% 100%);
+  }
+  1.6666666667% {
+    clip-path: polygon(95% 0%, 100% 0%, 100% 5%, 5% 100%, 0% 100%, 0% 95%);
+  }
+  3.3333333333% {
+    clip-path: polygon(90% 0%, 100% 0%, 100% 10%, 10% 100%, 0% 100%, 0% 90%);
+  }
+  5% {
+    clip-path: polygon(85% 0%, 100% 0%, 100% 15%, 15% 100%, 0% 100%, 0% 85%);
+  }
+  6.6666666667% {
+    clip-path: polygon(80% 0%, 100% 0%, 100% 20%, 20% 100%, 0% 100%, 0% 80%);
+  }
+  8.3333333333% {
+    clip-path: polygon(75% 0%, 100% 0%, 100% 25%, 25% 100%, 0% 100%, 0% 75%);
+  }
+  10% {
+    clip-path: polygon(70% 0%, 100% 0%, 100% 30%, 30% 100%, 0% 100%, 0% 70%);
+  }
+  11.6666666667% {
+    clip-path: polygon(65% 0%, 100% 0%, 100% 35%, 35% 100%, 0% 100%, 0% 65%);
+  }
+  13.3333333333% {
+    clip-path: polygon(60% 0%, 100% 0%, 100% 40%, 40% 100%, 0% 100%, 0% 60%);
+  }
+  15% {
+    clip-path: polygon(55% 0%, 100% 0%, 100% 45%, 45% 100%, 0% 100%, 0% 55%);
+  }
+  16.6666666667% {
+    clip-path: polygon(50% 0%, 100% 0%, 100% 50%, 50% 100%, 0% 100%, 0% 50%);
+  }
+  18.3333333333% {
+    clip-path: polygon(45% 0%, 100% 0%, 100% 55%, 55% 100%, 0% 100%, 0% 45%);
+  }
+  20% {
+    clip-path: polygon(40% 0%, 100% 0%, 100% 60%, 60% 100%, 0% 100%, 0% 40%);
+  }
+  21.6666666667% {
+    clip-path: polygon(35% 0%, 100% 0%, 100% 65%, 65% 100%, 0% 100%, 0% 35%);
+  }
+  23.3333333333% {
+    clip-path: polygon(30% 0%, 100% 0%, 100% 70%, 70% 100%, 0% 100%, 0% 30%);
+  }
+  25% {
+    clip-path: polygon(25% 0%, 100% 0%, 100% 75%, 75% 100%, 0% 100%, 0% 25%);
+  }
+  26.6666666667% {
+    clip-path: polygon(20% 0%, 100% 0%, 100% 80%, 80% 100%, 0% 100%, 0% 20%);
+  }
+  28.3333333333% {
+    clip-path: polygon(15% 0%, 100% 0%, 100% 85%, 85% 100%, 0% 100%, 0% 15%);
+  }
+  30% {
+    clip-path: polygon(10% 0%, 100% 0%, 100% 90%, 90% 100%, 0% 100%, 0% 10%);
+  }
+  31.6666666667% {
+    clip-path: polygon(5% 0%, 100% 0%, 100% 95%, 95% 100%, 0% 100%, 0% 5%);
+  }
+  33.3333333333% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 100% 100%, 0% 100%, 0% 0%);
+  }
+  33.3333333333% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+  100% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+}
+#galerie-dinamica.galerie-3 .slides figure:nth-child(2) {
+  animation-name: revealUniform3;
+  animation-duration: 18s;
+  animation-delay: 0s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-3 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-3 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-3 .slides figure:nth-child(3) {
+  animation-name: revealUniform3;
+  animation-duration: 18s;
+  animation-delay: 6s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-3 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-3 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+@keyframes revealUniform4 {
+  0% {
+    clip-path: polygon(100% 0%, 100% 0%, 0% 100%, 0% 100%);
+  }
+  1.25% {
+    clip-path: polygon(95% 0%, 100% 0%, 100% 5%, 5% 100%, 0% 100%, 0% 95%);
+  }
+  2.5% {
+    clip-path: polygon(90% 0%, 100% 0%, 100% 10%, 10% 100%, 0% 100%, 0% 90%);
+  }
+  3.75% {
+    clip-path: polygon(85% 0%, 100% 0%, 100% 15%, 15% 100%, 0% 100%, 0% 85%);
+  }
+  5% {
+    clip-path: polygon(80% 0%, 100% 0%, 100% 20%, 20% 100%, 0% 100%, 0% 80%);
+  }
+  6.25% {
+    clip-path: polygon(75% 0%, 100% 0%, 100% 25%, 25% 100%, 0% 100%, 0% 75%);
+  }
+  7.5% {
+    clip-path: polygon(70% 0%, 100% 0%, 100% 30%, 30% 100%, 0% 100%, 0% 70%);
+  }
+  8.75% {
+    clip-path: polygon(65% 0%, 100% 0%, 100% 35%, 35% 100%, 0% 100%, 0% 65%);
+  }
+  10% {
+    clip-path: polygon(60% 0%, 100% 0%, 100% 40%, 40% 100%, 0% 100%, 0% 60%);
+  }
+  11.25% {
+    clip-path: polygon(55% 0%, 100% 0%, 100% 45%, 45% 100%, 0% 100%, 0% 55%);
+  }
+  12.5% {
+    clip-path: polygon(50% 0%, 100% 0%, 100% 50%, 50% 100%, 0% 100%, 0% 50%);
+  }
+  13.75% {
+    clip-path: polygon(45% 0%, 100% 0%, 100% 55%, 55% 100%, 0% 100%, 0% 45%);
+  }
+  15% {
+    clip-path: polygon(40% 0%, 100% 0%, 100% 60%, 60% 100%, 0% 100%, 0% 40%);
+  }
+  16.25% {
+    clip-path: polygon(35% 0%, 100% 0%, 100% 65%, 65% 100%, 0% 100%, 0% 35%);
+  }
+  17.5% {
+    clip-path: polygon(30% 0%, 100% 0%, 100% 70%, 70% 100%, 0% 100%, 0% 30%);
+  }
+  18.75% {
+    clip-path: polygon(25% 0%, 100% 0%, 100% 75%, 75% 100%, 0% 100%, 0% 25%);
+  }
+  20% {
+    clip-path: polygon(20% 0%, 100% 0%, 100% 80%, 80% 100%, 0% 100%, 0% 20%);
+  }
+  21.25% {
+    clip-path: polygon(15% 0%, 100% 0%, 100% 85%, 85% 100%, 0% 100%, 0% 15%);
+  }
+  22.5% {
+    clip-path: polygon(10% 0%, 100% 0%, 100% 90%, 90% 100%, 0% 100%, 0% 10%);
+  }
+  23.75% {
+    clip-path: polygon(5% 0%, 100% 0%, 100% 95%, 95% 100%, 0% 100%, 0% 5%);
+  }
+  25% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 100% 100%, 0% 100%, 0% 0%);
+  }
+  25% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+  100% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+}
+#galerie-dinamica.galerie-4 .slides figure:nth-child(2) {
+  animation-name: revealUniform4;
+  animation-duration: 24s;
+  animation-delay: 0s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-4 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-4 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-4 .slides figure:nth-child(3) {
+  animation-name: revealUniform4;
+  animation-duration: 24s;
+  animation-delay: 6s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-4 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-4 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-4 .slides figure:nth-child(4) {
+  animation-name: revealUniform4;
+  animation-duration: 24s;
+  animation-delay: 12s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-4 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-4 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+@keyframes revealUniform5 {
+  0% {
+    clip-path: polygon(100% 0%, 100% 0%, 0% 100%, 0% 100%);
+  }
+  1% {
+    clip-path: polygon(95% 0%, 100% 0%, 100% 5%, 5% 100%, 0% 100%, 0% 95%);
+  }
+  2% {
+    clip-path: polygon(90% 0%, 100% 0%, 100% 10%, 10% 100%, 0% 100%, 0% 90%);
+  }
+  3% {
+    clip-path: polygon(85% 0%, 100% 0%, 100% 15%, 15% 100%, 0% 100%, 0% 85%);
+  }
+  4% {
+    clip-path: polygon(80% 0%, 100% 0%, 100% 20%, 20% 100%, 0% 100%, 0% 80%);
+  }
+  5% {
+    clip-path: polygon(75% 0%, 100% 0%, 100% 25%, 25% 100%, 0% 100%, 0% 75%);
+  }
+  6% {
+    clip-path: polygon(70% 0%, 100% 0%, 100% 30%, 30% 100%, 0% 100%, 0% 70%);
+  }
+  7% {
+    clip-path: polygon(65% 0%, 100% 0%, 100% 35%, 35% 100%, 0% 100%, 0% 65%);
+  }
+  8% {
+    clip-path: polygon(60% 0%, 100% 0%, 100% 40%, 40% 100%, 0% 100%, 0% 60%);
+  }
+  9% {
+    clip-path: polygon(55% 0%, 100% 0%, 100% 45%, 45% 100%, 0% 100%, 0% 55%);
+  }
+  10% {
+    clip-path: polygon(50% 0%, 100% 0%, 100% 50%, 50% 100%, 0% 100%, 0% 50%);
+  }
+  11% {
+    clip-path: polygon(45% 0%, 100% 0%, 100% 55%, 55% 100%, 0% 100%, 0% 45%);
+  }
+  12% {
+    clip-path: polygon(40% 0%, 100% 0%, 100% 60%, 60% 100%, 0% 100%, 0% 40%);
+  }
+  13% {
+    clip-path: polygon(35% 0%, 100% 0%, 100% 65%, 65% 100%, 0% 100%, 0% 35%);
+  }
+  14% {
+    clip-path: polygon(30% 0%, 100% 0%, 100% 70%, 70% 100%, 0% 100%, 0% 30%);
+  }
+  15% {
+    clip-path: polygon(25% 0%, 100% 0%, 100% 75%, 75% 100%, 0% 100%, 0% 25%);
+  }
+  16% {
+    clip-path: polygon(20% 0%, 100% 0%, 100% 80%, 80% 100%, 0% 100%, 0% 20%);
+  }
+  17% {
+    clip-path: polygon(15% 0%, 100% 0%, 100% 85%, 85% 100%, 0% 100%, 0% 15%);
+  }
+  18% {
+    clip-path: polygon(10% 0%, 100% 0%, 100% 90%, 90% 100%, 0% 100%, 0% 10%);
+  }
+  19% {
+    clip-path: polygon(5% 0%, 100% 0%, 100% 95%, 95% 100%, 0% 100%, 0% 5%);
+  }
+  20% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 100% 100%, 0% 100%, 0% 0%);
+  }
+  20% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+  100% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+}
+#galerie-dinamica.galerie-5 .slides figure:nth-child(2) {
+  animation-name: revealUniform5;
+  animation-duration: 30s;
+  animation-delay: 0s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-5 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-5 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-5 .slides figure:nth-child(3) {
+  animation-name: revealUniform5;
+  animation-duration: 30s;
+  animation-delay: 6s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-5 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-5 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-5 .slides figure:nth-child(4) {
+  animation-name: revealUniform5;
+  animation-duration: 30s;
+  animation-delay: 12s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-5 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-5 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-5 .slides figure:nth-child(5) {
+  animation-name: revealUniform5;
+  animation-duration: 30s;
+  animation-delay: 18s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-5 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-5 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+@keyframes revealUniform6 {
+  0% {
+    clip-path: polygon(100% 0%, 100% 0%, 0% 100%, 0% 100%);
+  }
+  0.8333333333% {
+    clip-path: polygon(95% 0%, 100% 0%, 100% 5%, 5% 100%, 0% 100%, 0% 95%);
+  }
+  1.6666666667% {
+    clip-path: polygon(90% 0%, 100% 0%, 100% 10%, 10% 100%, 0% 100%, 0% 90%);
+  }
+  2.5% {
+    clip-path: polygon(85% 0%, 100% 0%, 100% 15%, 15% 100%, 0% 100%, 0% 85%);
+  }
+  3.3333333333% {
+    clip-path: polygon(80% 0%, 100% 0%, 100% 20%, 20% 100%, 0% 100%, 0% 80%);
+  }
+  4.1666666667% {
+    clip-path: polygon(75% 0%, 100% 0%, 100% 25%, 25% 100%, 0% 100%, 0% 75%);
+  }
+  5% {
+    clip-path: polygon(70% 0%, 100% 0%, 100% 30%, 30% 100%, 0% 100%, 0% 70%);
+  }
+  5.8333333333% {
+    clip-path: polygon(65% 0%, 100% 0%, 100% 35%, 35% 100%, 0% 100%, 0% 65%);
+  }
+  6.6666666667% {
+    clip-path: polygon(60% 0%, 100% 0%, 100% 40%, 40% 100%, 0% 100%, 0% 60%);
+  }
+  7.5% {
+    clip-path: polygon(55% 0%, 100% 0%, 100% 45%, 45% 100%, 0% 100%, 0% 55%);
+  }
+  8.3333333333% {
+    clip-path: polygon(50% 0%, 100% 0%, 100% 50%, 50% 100%, 0% 100%, 0% 50%);
+  }
+  9.1666666667% {
+    clip-path: polygon(45% 0%, 100% 0%, 100% 55%, 55% 100%, 0% 100%, 0% 45%);
+  }
+  10% {
+    clip-path: polygon(40% 0%, 100% 0%, 100% 60%, 60% 100%, 0% 100%, 0% 40%);
+  }
+  10.8333333333% {
+    clip-path: polygon(35% 0%, 100% 0%, 100% 65%, 65% 100%, 0% 100%, 0% 35%);
+  }
+  11.6666666667% {
+    clip-path: polygon(30% 0%, 100% 0%, 100% 70%, 70% 100%, 0% 100%, 0% 30%);
+  }
+  12.5% {
+    clip-path: polygon(25% 0%, 100% 0%, 100% 75%, 75% 100%, 0% 100%, 0% 25%);
+  }
+  13.3333333333% {
+    clip-path: polygon(20% 0%, 100% 0%, 100% 80%, 80% 100%, 0% 100%, 0% 20%);
+  }
+  14.1666666667% {
+    clip-path: polygon(15% 0%, 100% 0%, 100% 85%, 85% 100%, 0% 100%, 0% 15%);
+  }
+  15% {
+    clip-path: polygon(10% 0%, 100% 0%, 100% 90%, 90% 100%, 0% 100%, 0% 10%);
+  }
+  15.8333333333% {
+    clip-path: polygon(5% 0%, 100% 0%, 100% 95%, 95% 100%, 0% 100%, 0% 5%);
+  }
+  16.6666666667% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 100% 100%, 0% 100%, 0% 0%);
+  }
+  16.6666666667% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+  100% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+}
+#galerie-dinamica.galerie-6 .slides figure:nth-child(2) {
+  animation-name: revealUniform6;
+  animation-duration: 36s;
+  animation-delay: 0s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-6 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-6 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-6 .slides figure:nth-child(3) {
+  animation-name: revealUniform6;
+  animation-duration: 36s;
+  animation-delay: 6s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-6 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-6 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-6 .slides figure:nth-child(4) {
+  animation-name: revealUniform6;
+  animation-duration: 36s;
+  animation-delay: 12s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-6 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-6 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-6 .slides figure:nth-child(5) {
+  animation-name: revealUniform6;
+  animation-duration: 36s;
+  animation-delay: 18s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-6 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-6 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-6 .slides figure:nth-child(6) {
+  animation-name: revealUniform6;
+  animation-duration: 36s;
+  animation-delay: 24s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-6 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-6 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+@keyframes revealUniform7 {
+  0% {
+    clip-path: polygon(100% 0%, 100% 0%, 0% 100%, 0% 100%);
+  }
+  0.7142857143% {
+    clip-path: polygon(95% 0%, 100% 0%, 100% 5%, 5% 100%, 0% 100%, 0% 95%);
+  }
+  1.4285714286% {
+    clip-path: polygon(90% 0%, 100% 0%, 100% 10%, 10% 100%, 0% 100%, 0% 90%);
+  }
+  2.1428571429% {
+    clip-path: polygon(85% 0%, 100% 0%, 100% 15%, 15% 100%, 0% 100%, 0% 85%);
+  }
+  2.8571428571% {
+    clip-path: polygon(80% 0%, 100% 0%, 100% 20%, 20% 100%, 0% 100%, 0% 80%);
+  }
+  3.5714285714% {
+    clip-path: polygon(75% 0%, 100% 0%, 100% 25%, 25% 100%, 0% 100%, 0% 75%);
+  }
+  4.2857142857% {
+    clip-path: polygon(70% 0%, 100% 0%, 100% 30%, 30% 100%, 0% 100%, 0% 70%);
+  }
+  5% {
+    clip-path: polygon(65% 0%, 100% 0%, 100% 35%, 35% 100%, 0% 100%, 0% 65%);
+  }
+  5.7142857143% {
+    clip-path: polygon(60% 0%, 100% 0%, 100% 40%, 40% 100%, 0% 100%, 0% 60%);
+  }
+  6.4285714286% {
+    clip-path: polygon(55% 0%, 100% 0%, 100% 45%, 45% 100%, 0% 100%, 0% 55%);
+  }
+  7.1428571429% {
+    clip-path: polygon(50% 0%, 100% 0%, 100% 50%, 50% 100%, 0% 100%, 0% 50%);
+  }
+  7.8571428571% {
+    clip-path: polygon(45% 0%, 100% 0%, 100% 55%, 55% 100%, 0% 100%, 0% 45%);
+  }
+  8.5714285714% {
+    clip-path: polygon(40% 0%, 100% 0%, 100% 60%, 60% 100%, 0% 100%, 0% 40%);
+  }
+  9.2857142857% {
+    clip-path: polygon(35% 0%, 100% 0%, 100% 65%, 65% 100%, 0% 100%, 0% 35%);
+  }
+  10% {
+    clip-path: polygon(30% 0%, 100% 0%, 100% 70%, 70% 100%, 0% 100%, 0% 30%);
+  }
+  10.7142857143% {
+    clip-path: polygon(25% 0%, 100% 0%, 100% 75%, 75% 100%, 0% 100%, 0% 25%);
+  }
+  11.4285714286% {
+    clip-path: polygon(20% 0%, 100% 0%, 100% 80%, 80% 100%, 0% 100%, 0% 20%);
+  }
+  12.1428571429% {
+    clip-path: polygon(15% 0%, 100% 0%, 100% 85%, 85% 100%, 0% 100%, 0% 15%);
+  }
+  12.8571428571% {
+    clip-path: polygon(10% 0%, 100% 0%, 100% 90%, 90% 100%, 0% 100%, 0% 10%);
+  }
+  13.5714285714% {
+    clip-path: polygon(5% 0%, 100% 0%, 100% 95%, 95% 100%, 0% 100%, 0% 5%);
+  }
+  14.2857142857% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 100% 100%, 0% 100%, 0% 0%);
+  }
+  14.2857142857% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+  100% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+}
+#galerie-dinamica.galerie-7 .slides figure:nth-child(2) {
+  animation-name: revealUniform7;
+  animation-duration: 42s;
+  animation-delay: 0s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-7 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-7 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-7 .slides figure:nth-child(3) {
+  animation-name: revealUniform7;
+  animation-duration: 42s;
+  animation-delay: 6s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-7 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-7 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-7 .slides figure:nth-child(4) {
+  animation-name: revealUniform7;
+  animation-duration: 42s;
+  animation-delay: 12s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-7 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-7 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-7 .slides figure:nth-child(5) {
+  animation-name: revealUniform7;
+  animation-duration: 42s;
+  animation-delay: 18s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-7 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-7 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-7 .slides figure:nth-child(6) {
+  animation-name: revealUniform7;
+  animation-duration: 42s;
+  animation-delay: 24s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-7 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-7 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-7 .slides figure:nth-child(7) {
+  animation-name: revealUniform7;
+  animation-duration: 42s;
+  animation-delay: 30s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-7 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-7 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+@keyframes revealUniform8 {
+  0% {
+    clip-path: polygon(100% 0%, 100% 0%, 0% 100%, 0% 100%);
+  }
+  0.625% {
+    clip-path: polygon(95% 0%, 100% 0%, 100% 5%, 5% 100%, 0% 100%, 0% 95%);
+  }
+  1.25% {
+    clip-path: polygon(90% 0%, 100% 0%, 100% 10%, 10% 100%, 0% 100%, 0% 90%);
+  }
+  1.875% {
+    clip-path: polygon(85% 0%, 100% 0%, 100% 15%, 15% 100%, 0% 100%, 0% 85%);
+  }
+  2.5% {
+    clip-path: polygon(80% 0%, 100% 0%, 100% 20%, 20% 100%, 0% 100%, 0% 80%);
+  }
+  3.125% {
+    clip-path: polygon(75% 0%, 100% 0%, 100% 25%, 25% 100%, 0% 100%, 0% 75%);
+  }
+  3.75% {
+    clip-path: polygon(70% 0%, 100% 0%, 100% 30%, 30% 100%, 0% 100%, 0% 70%);
+  }
+  4.375% {
+    clip-path: polygon(65% 0%, 100% 0%, 100% 35%, 35% 100%, 0% 100%, 0% 65%);
+  }
+  5% {
+    clip-path: polygon(60% 0%, 100% 0%, 100% 40%, 40% 100%, 0% 100%, 0% 60%);
+  }
+  5.625% {
+    clip-path: polygon(55% 0%, 100% 0%, 100% 45%, 45% 100%, 0% 100%, 0% 55%);
+  }
+  6.25% {
+    clip-path: polygon(50% 0%, 100% 0%, 100% 50%, 50% 100%, 0% 100%, 0% 50%);
+  }
+  6.875% {
+    clip-path: polygon(45% 0%, 100% 0%, 100% 55%, 55% 100%, 0% 100%, 0% 45%);
+  }
+  7.5% {
+    clip-path: polygon(40% 0%, 100% 0%, 100% 60%, 60% 100%, 0% 100%, 0% 40%);
+  }
+  8.125% {
+    clip-path: polygon(35% 0%, 100% 0%, 100% 65%, 65% 100%, 0% 100%, 0% 35%);
+  }
+  8.75% {
+    clip-path: polygon(30% 0%, 100% 0%, 100% 70%, 70% 100%, 0% 100%, 0% 30%);
+  }
+  9.375% {
+    clip-path: polygon(25% 0%, 100% 0%, 100% 75%, 75% 100%, 0% 100%, 0% 25%);
+  }
+  10% {
+    clip-path: polygon(20% 0%, 100% 0%, 100% 80%, 80% 100%, 0% 100%, 0% 20%);
+  }
+  10.625% {
+    clip-path: polygon(15% 0%, 100% 0%, 100% 85%, 85% 100%, 0% 100%, 0% 15%);
+  }
+  11.25% {
+    clip-path: polygon(10% 0%, 100% 0%, 100% 90%, 90% 100%, 0% 100%, 0% 10%);
+  }
+  11.875% {
+    clip-path: polygon(5% 0%, 100% 0%, 100% 95%, 95% 100%, 0% 100%, 0% 5%);
+  }
+  12.5% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 100% 100%, 0% 100%, 0% 0%);
+  }
+  12.5% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+  100% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+}
+#galerie-dinamica.galerie-8 .slides figure:nth-child(2) {
+  animation-name: revealUniform8;
+  animation-duration: 48s;
+  animation-delay: 0s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-8 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-8 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-8 .slides figure:nth-child(3) {
+  animation-name: revealUniform8;
+  animation-duration: 48s;
+  animation-delay: 6s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-8 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-8 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-8 .slides figure:nth-child(4) {
+  animation-name: revealUniform8;
+  animation-duration: 48s;
+  animation-delay: 12s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-8 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-8 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-8 .slides figure:nth-child(5) {
+  animation-name: revealUniform8;
+  animation-duration: 48s;
+  animation-delay: 18s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-8 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-8 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-8 .slides figure:nth-child(6) {
+  animation-name: revealUniform8;
+  animation-duration: 48s;
+  animation-delay: 24s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-8 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-8 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-8 .slides figure:nth-child(7) {
+  animation-name: revealUniform8;
+  animation-duration: 48s;
+  animation-delay: 30s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-8 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-8 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-8 .slides figure:nth-child(8) {
+  animation-name: revealUniform8;
+  animation-duration: 48s;
+  animation-delay: 36s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-8 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-8 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+@keyframes revealUniform9 {
+  0% {
+    clip-path: polygon(100% 0%, 100% 0%, 0% 100%, 0% 100%);
+  }
+  0.5555555556% {
+    clip-path: polygon(95% 0%, 100% 0%, 100% 5%, 5% 100%, 0% 100%, 0% 95%);
+  }
+  1.1111111111% {
+    clip-path: polygon(90% 0%, 100% 0%, 100% 10%, 10% 100%, 0% 100%, 0% 90%);
+  }
+  1.6666666667% {
+    clip-path: polygon(85% 0%, 100% 0%, 100% 15%, 15% 100%, 0% 100%, 0% 85%);
+  }
+  2.2222222222% {
+    clip-path: polygon(80% 0%, 100% 0%, 100% 20%, 20% 100%, 0% 100%, 0% 80%);
+  }
+  2.7777777778% {
+    clip-path: polygon(75% 0%, 100% 0%, 100% 25%, 25% 100%, 0% 100%, 0% 75%);
+  }
+  3.3333333333% {
+    clip-path: polygon(70% 0%, 100% 0%, 100% 30%, 30% 100%, 0% 100%, 0% 70%);
+  }
+  3.8888888889% {
+    clip-path: polygon(65% 0%, 100% 0%, 100% 35%, 35% 100%, 0% 100%, 0% 65%);
+  }
+  4.4444444444% {
+    clip-path: polygon(60% 0%, 100% 0%, 100% 40%, 40% 100%, 0% 100%, 0% 60%);
+  }
+  5% {
+    clip-path: polygon(55% 0%, 100% 0%, 100% 45%, 45% 100%, 0% 100%, 0% 55%);
+  }
+  5.5555555556% {
+    clip-path: polygon(50% 0%, 100% 0%, 100% 50%, 50% 100%, 0% 100%, 0% 50%);
+  }
+  6.1111111111% {
+    clip-path: polygon(45% 0%, 100% 0%, 100% 55%, 55% 100%, 0% 100%, 0% 45%);
+  }
+  6.6666666667% {
+    clip-path: polygon(40% 0%, 100% 0%, 100% 60%, 60% 100%, 0% 100%, 0% 40%);
+  }
+  7.2222222222% {
+    clip-path: polygon(35% 0%, 100% 0%, 100% 65%, 65% 100%, 0% 100%, 0% 35%);
+  }
+  7.7777777778% {
+    clip-path: polygon(30% 0%, 100% 0%, 100% 70%, 70% 100%, 0% 100%, 0% 30%);
+  }
+  8.3333333333% {
+    clip-path: polygon(25% 0%, 100% 0%, 100% 75%, 75% 100%, 0% 100%, 0% 25%);
+  }
+  8.8888888889% {
+    clip-path: polygon(20% 0%, 100% 0%, 100% 80%, 80% 100%, 0% 100%, 0% 20%);
+  }
+  9.4444444444% {
+    clip-path: polygon(15% 0%, 100% 0%, 100% 85%, 85% 100%, 0% 100%, 0% 15%);
+  }
+  10% {
+    clip-path: polygon(10% 0%, 100% 0%, 100% 90%, 90% 100%, 0% 100%, 0% 10%);
+  }
+  10.5555555556% {
+    clip-path: polygon(5% 0%, 100% 0%, 100% 95%, 95% 100%, 0% 100%, 0% 5%);
+  }
+  11.1111111111% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 100% 100%, 0% 100%, 0% 0%);
+  }
+  11.1111111111% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+  100% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+}
+#galerie-dinamica.galerie-9 .slides figure:nth-child(2) {
+  animation-name: revealUniform9;
+  animation-duration: 54s;
+  animation-delay: 0s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-9 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-9 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-9 .slides figure:nth-child(3) {
+  animation-name: revealUniform9;
+  animation-duration: 54s;
+  animation-delay: 6s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-9 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-9 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-9 .slides figure:nth-child(4) {
+  animation-name: revealUniform9;
+  animation-duration: 54s;
+  animation-delay: 12s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-9 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-9 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-9 .slides figure:nth-child(5) {
+  animation-name: revealUniform9;
+  animation-duration: 54s;
+  animation-delay: 18s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-9 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-9 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-9 .slides figure:nth-child(6) {
+  animation-name: revealUniform9;
+  animation-duration: 54s;
+  animation-delay: 24s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-9 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-9 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-9 .slides figure:nth-child(7) {
+  animation-name: revealUniform9;
+  animation-duration: 54s;
+  animation-delay: 30s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-9 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-9 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-9 .slides figure:nth-child(8) {
+  animation-name: revealUniform9;
+  animation-duration: 54s;
+  animation-delay: 36s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-9 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-9 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-9 .slides figure:nth-child(9) {
+  animation-name: revealUniform9;
+  animation-duration: 54s;
+  animation-delay: 42s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-9 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-9 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+@keyframes revealUniform10 {
+  0% {
+    clip-path: polygon(100% 0%, 100% 0%, 0% 100%, 0% 100%);
+  }
+  0.5% {
+    clip-path: polygon(95% 0%, 100% 0%, 100% 5%, 5% 100%, 0% 100%, 0% 95%);
+  }
+  1% {
+    clip-path: polygon(90% 0%, 100% 0%, 100% 10%, 10% 100%, 0% 100%, 0% 90%);
+  }
+  1.5% {
+    clip-path: polygon(85% 0%, 100% 0%, 100% 15%, 15% 100%, 0% 100%, 0% 85%);
+  }
+  2% {
+    clip-path: polygon(80% 0%, 100% 0%, 100% 20%, 20% 100%, 0% 100%, 0% 80%);
+  }
+  2.5% {
+    clip-path: polygon(75% 0%, 100% 0%, 100% 25%, 25% 100%, 0% 100%, 0% 75%);
+  }
+  3% {
+    clip-path: polygon(70% 0%, 100% 0%, 100% 30%, 30% 100%, 0% 100%, 0% 70%);
+  }
+  3.5% {
+    clip-path: polygon(65% 0%, 100% 0%, 100% 35%, 35% 100%, 0% 100%, 0% 65%);
+  }
+  4% {
+    clip-path: polygon(60% 0%, 100% 0%, 100% 40%, 40% 100%, 0% 100%, 0% 60%);
+  }
+  4.5% {
+    clip-path: polygon(55% 0%, 100% 0%, 100% 45%, 45% 100%, 0% 100%, 0% 55%);
+  }
+  5% {
+    clip-path: polygon(50% 0%, 100% 0%, 100% 50%, 50% 100%, 0% 100%, 0% 50%);
+  }
+  5.5% {
+    clip-path: polygon(45% 0%, 100% 0%, 100% 55%, 55% 100%, 0% 100%, 0% 45%);
+  }
+  6% {
+    clip-path: polygon(40% 0%, 100% 0%, 100% 60%, 60% 100%, 0% 100%, 0% 40%);
+  }
+  6.5% {
+    clip-path: polygon(35% 0%, 100% 0%, 100% 65%, 65% 100%, 0% 100%, 0% 35%);
+  }
+  7% {
+    clip-path: polygon(30% 0%, 100% 0%, 100% 70%, 70% 100%, 0% 100%, 0% 30%);
+  }
+  7.5% {
+    clip-path: polygon(25% 0%, 100% 0%, 100% 75%, 75% 100%, 0% 100%, 0% 25%);
+  }
+  8% {
+    clip-path: polygon(20% 0%, 100% 0%, 100% 80%, 80% 100%, 0% 100%, 0% 20%);
+  }
+  8.5% {
+    clip-path: polygon(15% 0%, 100% 0%, 100% 85%, 85% 100%, 0% 100%, 0% 15%);
+  }
+  9% {
+    clip-path: polygon(10% 0%, 100% 0%, 100% 90%, 90% 100%, 0% 100%, 0% 10%);
+  }
+  9.5% {
+    clip-path: polygon(5% 0%, 100% 0%, 100% 95%, 95% 100%, 0% 100%, 0% 5%);
+  }
+  10% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 100% 100%, 0% 100%, 0% 0%);
+  }
+  10% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+  100% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+}
+#galerie-dinamica.galerie-10 .slides figure:nth-child(2) {
+  animation-name: revealUniform10;
+  animation-duration: 60s;
+  animation-delay: 0s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-10 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-10 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-10 .slides figure:nth-child(3) {
+  animation-name: revealUniform10;
+  animation-duration: 60s;
+  animation-delay: 6s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-10 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-10 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-10 .slides figure:nth-child(4) {
+  animation-name: revealUniform10;
+  animation-duration: 60s;
+  animation-delay: 12s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-10 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-10 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-10 .slides figure:nth-child(5) {
+  animation-name: revealUniform10;
+  animation-duration: 60s;
+  animation-delay: 18s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-10 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-10 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-10 .slides figure:nth-child(6) {
+  animation-name: revealUniform10;
+  animation-duration: 60s;
+  animation-delay: 24s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-10 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-10 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-10 .slides figure:nth-child(7) {
+  animation-name: revealUniform10;
+  animation-duration: 60s;
+  animation-delay: 30s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-10 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-10 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-10 .slides figure:nth-child(8) {
+  animation-name: revealUniform10;
+  animation-duration: 60s;
+  animation-delay: 36s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-10 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-10 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-10 .slides figure:nth-child(9) {
+  animation-name: revealUniform10;
+  animation-duration: 60s;
+  animation-delay: 42s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-10 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-10 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-10 .slides figure:nth-child(10) {
+  animation-name: revealUniform10;
+  animation-duration: 60s;
+  animation-delay: 48s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-10 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-10 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+@keyframes revealUniform11 {
+  0% {
+    clip-path: polygon(100% 0%, 100% 0%, 0% 100%, 0% 100%);
+  }
+  0.4545454545% {
+    clip-path: polygon(95% 0%, 100% 0%, 100% 5%, 5% 100%, 0% 100%, 0% 95%);
+  }
+  0.9090909091% {
+    clip-path: polygon(90% 0%, 100% 0%, 100% 10%, 10% 100%, 0% 100%, 0% 90%);
+  }
+  1.3636363636% {
+    clip-path: polygon(85% 0%, 100% 0%, 100% 15%, 15% 100%, 0% 100%, 0% 85%);
+  }
+  1.8181818182% {
+    clip-path: polygon(80% 0%, 100% 0%, 100% 20%, 20% 100%, 0% 100%, 0% 80%);
+  }
+  2.2727272727% {
+    clip-path: polygon(75% 0%, 100% 0%, 100% 25%, 25% 100%, 0% 100%, 0% 75%);
+  }
+  2.7272727273% {
+    clip-path: polygon(70% 0%, 100% 0%, 100% 30%, 30% 100%, 0% 100%, 0% 70%);
+  }
+  3.1818181818% {
+    clip-path: polygon(65% 0%, 100% 0%, 100% 35%, 35% 100%, 0% 100%, 0% 65%);
+  }
+  3.6363636364% {
+    clip-path: polygon(60% 0%, 100% 0%, 100% 40%, 40% 100%, 0% 100%, 0% 60%);
+  }
+  4.0909090909% {
+    clip-path: polygon(55% 0%, 100% 0%, 100% 45%, 45% 100%, 0% 100%, 0% 55%);
+  }
+  4.5454545455% {
+    clip-path: polygon(50% 0%, 100% 0%, 100% 50%, 50% 100%, 0% 100%, 0% 50%);
+  }
+  5% {
+    clip-path: polygon(45% 0%, 100% 0%, 100% 55%, 55% 100%, 0% 100%, 0% 45%);
+  }
+  5.4545454545% {
+    clip-path: polygon(40% 0%, 100% 0%, 100% 60%, 60% 100%, 0% 100%, 0% 40%);
+  }
+  5.9090909091% {
+    clip-path: polygon(35% 0%, 100% 0%, 100% 65%, 65% 100%, 0% 100%, 0% 35%);
+  }
+  6.3636363636% {
+    clip-path: polygon(30% 0%, 100% 0%, 100% 70%, 70% 100%, 0% 100%, 0% 30%);
+  }
+  6.8181818182% {
+    clip-path: polygon(25% 0%, 100% 0%, 100% 75%, 75% 100%, 0% 100%, 0% 25%);
+  }
+  7.2727272727% {
+    clip-path: polygon(20% 0%, 100% 0%, 100% 80%, 80% 100%, 0% 100%, 0% 20%);
+  }
+  7.7272727273% {
+    clip-path: polygon(15% 0%, 100% 0%, 100% 85%, 85% 100%, 0% 100%, 0% 15%);
+  }
+  8.1818181818% {
+    clip-path: polygon(10% 0%, 100% 0%, 100% 90%, 90% 100%, 0% 100%, 0% 10%);
+  }
+  8.6363636364% {
+    clip-path: polygon(5% 0%, 100% 0%, 100% 95%, 95% 100%, 0% 100%, 0% 5%);
+  }
+  9.0909090909% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 100% 100%, 0% 100%, 0% 0%);
+  }
+  9.0909090909% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+  100% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+}
+#galerie-dinamica.galerie-11 .slides figure:nth-child(2) {
+  animation-name: revealUniform11;
+  animation-duration: 66s;
+  animation-delay: 0s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-11 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-11 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-11 .slides figure:nth-child(3) {
+  animation-name: revealUniform11;
+  animation-duration: 66s;
+  animation-delay: 6s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-11 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-11 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-11 .slides figure:nth-child(4) {
+  animation-name: revealUniform11;
+  animation-duration: 66s;
+  animation-delay: 12s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-11 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-11 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-11 .slides figure:nth-child(5) {
+  animation-name: revealUniform11;
+  animation-duration: 66s;
+  animation-delay: 18s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-11 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-11 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-11 .slides figure:nth-child(6) {
+  animation-name: revealUniform11;
+  animation-duration: 66s;
+  animation-delay: 24s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-11 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-11 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-11 .slides figure:nth-child(7) {
+  animation-name: revealUniform11;
+  animation-duration: 66s;
+  animation-delay: 30s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-11 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-11 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-11 .slides figure:nth-child(8) {
+  animation-name: revealUniform11;
+  animation-duration: 66s;
+  animation-delay: 36s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-11 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-11 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-11 .slides figure:nth-child(9) {
+  animation-name: revealUniform11;
+  animation-duration: 66s;
+  animation-delay: 42s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-11 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-11 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-11 .slides figure:nth-child(10) {
+  animation-name: revealUniform11;
+  animation-duration: 66s;
+  animation-delay: 48s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-11 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-11 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-11 .slides figure:nth-child(11) {
+  animation-name: revealUniform11;
+  animation-duration: 66s;
+  animation-delay: 54s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-11 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-11 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+@keyframes revealUniform12 {
+  0% {
+    clip-path: polygon(100% 0%, 100% 0%, 0% 100%, 0% 100%);
+  }
+  0.4166666667% {
+    clip-path: polygon(95% 0%, 100% 0%, 100% 5%, 5% 100%, 0% 100%, 0% 95%);
+  }
+  0.8333333333% {
+    clip-path: polygon(90% 0%, 100% 0%, 100% 10%, 10% 100%, 0% 100%, 0% 90%);
+  }
+  1.25% {
+    clip-path: polygon(85% 0%, 100% 0%, 100% 15%, 15% 100%, 0% 100%, 0% 85%);
+  }
+  1.6666666667% {
+    clip-path: polygon(80% 0%, 100% 0%, 100% 20%, 20% 100%, 0% 100%, 0% 80%);
+  }
+  2.0833333333% {
+    clip-path: polygon(75% 0%, 100% 0%, 100% 25%, 25% 100%, 0% 100%, 0% 75%);
+  }
+  2.5% {
+    clip-path: polygon(70% 0%, 100% 0%, 100% 30%, 30% 100%, 0% 100%, 0% 70%);
+  }
+  2.9166666667% {
+    clip-path: polygon(65% 0%, 100% 0%, 100% 35%, 35% 100%, 0% 100%, 0% 65%);
+  }
+  3.3333333333% {
+    clip-path: polygon(60% 0%, 100% 0%, 100% 40%, 40% 100%, 0% 100%, 0% 60%);
+  }
+  3.75% {
+    clip-path: polygon(55% 0%, 100% 0%, 100% 45%, 45% 100%, 0% 100%, 0% 55%);
+  }
+  4.1666666667% {
+    clip-path: polygon(50% 0%, 100% 0%, 100% 50%, 50% 100%, 0% 100%, 0% 50%);
+  }
+  4.5833333333% {
+    clip-path: polygon(45% 0%, 100% 0%, 100% 55%, 55% 100%, 0% 100%, 0% 45%);
+  }
+  5% {
+    clip-path: polygon(40% 0%, 100% 0%, 100% 60%, 60% 100%, 0% 100%, 0% 40%);
+  }
+  5.4166666667% {
+    clip-path: polygon(35% 0%, 100% 0%, 100% 65%, 65% 100%, 0% 100%, 0% 35%);
+  }
+  5.8333333333% {
+    clip-path: polygon(30% 0%, 100% 0%, 100% 70%, 70% 100%, 0% 100%, 0% 30%);
+  }
+  6.25% {
+    clip-path: polygon(25% 0%, 100% 0%, 100% 75%, 75% 100%, 0% 100%, 0% 25%);
+  }
+  6.6666666667% {
+    clip-path: polygon(20% 0%, 100% 0%, 100% 80%, 80% 100%, 0% 100%, 0% 20%);
+  }
+  7.0833333333% {
+    clip-path: polygon(15% 0%, 100% 0%, 100% 85%, 85% 100%, 0% 100%, 0% 15%);
+  }
+  7.5% {
+    clip-path: polygon(10% 0%, 100% 0%, 100% 90%, 90% 100%, 0% 100%, 0% 10%);
+  }
+  7.9166666667% {
+    clip-path: polygon(5% 0%, 100% 0%, 100% 95%, 95% 100%, 0% 100%, 0% 5%);
+  }
+  8.3333333333% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 100% 100%, 0% 100%, 0% 0%);
+  }
+  8.3333333333% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+  100% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+}
+#galerie-dinamica.galerie-12 .slides figure:nth-child(2) {
+  animation-name: revealUniform12;
+  animation-duration: 72s;
+  animation-delay: 0s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-12 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-12 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-12 .slides figure:nth-child(3) {
+  animation-name: revealUniform12;
+  animation-duration: 72s;
+  animation-delay: 6s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-12 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-12 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-12 .slides figure:nth-child(4) {
+  animation-name: revealUniform12;
+  animation-duration: 72s;
+  animation-delay: 12s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-12 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-12 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-12 .slides figure:nth-child(5) {
+  animation-name: revealUniform12;
+  animation-duration: 72s;
+  animation-delay: 18s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-12 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-12 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-12 .slides figure:nth-child(6) {
+  animation-name: revealUniform12;
+  animation-duration: 72s;
+  animation-delay: 24s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-12 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-12 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-12 .slides figure:nth-child(7) {
+  animation-name: revealUniform12;
+  animation-duration: 72s;
+  animation-delay: 30s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-12 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-12 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-12 .slides figure:nth-child(8) {
+  animation-name: revealUniform12;
+  animation-duration: 72s;
+  animation-delay: 36s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-12 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-12 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-12 .slides figure:nth-child(9) {
+  animation-name: revealUniform12;
+  animation-duration: 72s;
+  animation-delay: 42s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-12 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-12 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-12 .slides figure:nth-child(10) {
+  animation-name: revealUniform12;
+  animation-duration: 72s;
+  animation-delay: 48s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-12 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-12 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-12 .slides figure:nth-child(11) {
+  animation-name: revealUniform12;
+  animation-duration: 72s;
+  animation-delay: 54s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-12 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-12 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-12 .slides figure:nth-child(12) {
+  animation-name: revealUniform12;
+  animation-duration: 72s;
+  animation-delay: 60s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-12 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-12 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+@keyframes revealUniform13 {
+  0% {
+    clip-path: polygon(100% 0%, 100% 0%, 0% 100%, 0% 100%);
+  }
+  0.3846153846% {
+    clip-path: polygon(95% 0%, 100% 0%, 100% 5%, 5% 100%, 0% 100%, 0% 95%);
+  }
+  0.7692307692% {
+    clip-path: polygon(90% 0%, 100% 0%, 100% 10%, 10% 100%, 0% 100%, 0% 90%);
+  }
+  1.1538461538% {
+    clip-path: polygon(85% 0%, 100% 0%, 100% 15%, 15% 100%, 0% 100%, 0% 85%);
+  }
+  1.5384615385% {
+    clip-path: polygon(80% 0%, 100% 0%, 100% 20%, 20% 100%, 0% 100%, 0% 80%);
+  }
+  1.9230769231% {
+    clip-path: polygon(75% 0%, 100% 0%, 100% 25%, 25% 100%, 0% 100%, 0% 75%);
+  }
+  2.3076923077% {
+    clip-path: polygon(70% 0%, 100% 0%, 100% 30%, 30% 100%, 0% 100%, 0% 70%);
+  }
+  2.6923076923% {
+    clip-path: polygon(65% 0%, 100% 0%, 100% 35%, 35% 100%, 0% 100%, 0% 65%);
+  }
+  3.0769230769% {
+    clip-path: polygon(60% 0%, 100% 0%, 100% 40%, 40% 100%, 0% 100%, 0% 60%);
+  }
+  3.4615384615% {
+    clip-path: polygon(55% 0%, 100% 0%, 100% 45%, 45% 100%, 0% 100%, 0% 55%);
+  }
+  3.8461538462% {
+    clip-path: polygon(50% 0%, 100% 0%, 100% 50%, 50% 100%, 0% 100%, 0% 50%);
+  }
+  4.2307692308% {
+    clip-path: polygon(45% 0%, 100% 0%, 100% 55%, 55% 100%, 0% 100%, 0% 45%);
+  }
+  4.6153846154% {
+    clip-path: polygon(40% 0%, 100% 0%, 100% 60%, 60% 100%, 0% 100%, 0% 40%);
+  }
+  5% {
+    clip-path: polygon(35% 0%, 100% 0%, 100% 65%, 65% 100%, 0% 100%, 0% 35%);
+  }
+  5.3846153846% {
+    clip-path: polygon(30% 0%, 100% 0%, 100% 70%, 70% 100%, 0% 100%, 0% 30%);
+  }
+  5.7692307692% {
+    clip-path: polygon(25% 0%, 100% 0%, 100% 75%, 75% 100%, 0% 100%, 0% 25%);
+  }
+  6.1538461538% {
+    clip-path: polygon(20% 0%, 100% 0%, 100% 80%, 80% 100%, 0% 100%, 0% 20%);
+  }
+  6.5384615385% {
+    clip-path: polygon(15% 0%, 100% 0%, 100% 85%, 85% 100%, 0% 100%, 0% 15%);
+  }
+  6.9230769231% {
+    clip-path: polygon(10% 0%, 100% 0%, 100% 90%, 90% 100%, 0% 100%, 0% 10%);
+  }
+  7.3076923077% {
+    clip-path: polygon(5% 0%, 100% 0%, 100% 95%, 95% 100%, 0% 100%, 0% 5%);
+  }
+  7.6923076923% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 100% 100%, 0% 100%, 0% 0%);
+  }
+  7.6923076923% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+  100% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+}
+#galerie-dinamica.galerie-13 .slides figure:nth-child(2) {
+  animation-name: revealUniform13;
+  animation-duration: 78s;
+  animation-delay: 0s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-13 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-13 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-13 .slides figure:nth-child(3) {
+  animation-name: revealUniform13;
+  animation-duration: 78s;
+  animation-delay: 6s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-13 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-13 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-13 .slides figure:nth-child(4) {
+  animation-name: revealUniform13;
+  animation-duration: 78s;
+  animation-delay: 12s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-13 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-13 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-13 .slides figure:nth-child(5) {
+  animation-name: revealUniform13;
+  animation-duration: 78s;
+  animation-delay: 18s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-13 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-13 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-13 .slides figure:nth-child(6) {
+  animation-name: revealUniform13;
+  animation-duration: 78s;
+  animation-delay: 24s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-13 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-13 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-13 .slides figure:nth-child(7) {
+  animation-name: revealUniform13;
+  animation-duration: 78s;
+  animation-delay: 30s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-13 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-13 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-13 .slides figure:nth-child(8) {
+  animation-name: revealUniform13;
+  animation-duration: 78s;
+  animation-delay: 36s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-13 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-13 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-13 .slides figure:nth-child(9) {
+  animation-name: revealUniform13;
+  animation-duration: 78s;
+  animation-delay: 42s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-13 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-13 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-13 .slides figure:nth-child(10) {
+  animation-name: revealUniform13;
+  animation-duration: 78s;
+  animation-delay: 48s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-13 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-13 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-13 .slides figure:nth-child(11) {
+  animation-name: revealUniform13;
+  animation-duration: 78s;
+  animation-delay: 54s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-13 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-13 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-13 .slides figure:nth-child(12) {
+  animation-name: revealUniform13;
+  animation-duration: 78s;
+  animation-delay: 60s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-13 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-13 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-13 .slides figure:nth-child(13) {
+  animation-name: revealUniform13;
+  animation-duration: 78s;
+  animation-delay: 66s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-13 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-13 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+@keyframes revealUniform14 {
+  0% {
+    clip-path: polygon(100% 0%, 100% 0%, 0% 100%, 0% 100%);
+  }
+  0.3571428571% {
+    clip-path: polygon(95% 0%, 100% 0%, 100% 5%, 5% 100%, 0% 100%, 0% 95%);
+  }
+  0.7142857143% {
+    clip-path: polygon(90% 0%, 100% 0%, 100% 10%, 10% 100%, 0% 100%, 0% 90%);
+  }
+  1.0714285714% {
+    clip-path: polygon(85% 0%, 100% 0%, 100% 15%, 15% 100%, 0% 100%, 0% 85%);
+  }
+  1.4285714286% {
+    clip-path: polygon(80% 0%, 100% 0%, 100% 20%, 20% 100%, 0% 100%, 0% 80%);
+  }
+  1.7857142857% {
+    clip-path: polygon(75% 0%, 100% 0%, 100% 25%, 25% 100%, 0% 100%, 0% 75%);
+  }
+  2.1428571429% {
+    clip-path: polygon(70% 0%, 100% 0%, 100% 30%, 30% 100%, 0% 100%, 0% 70%);
+  }
+  2.5% {
+    clip-path: polygon(65% 0%, 100% 0%, 100% 35%, 35% 100%, 0% 100%, 0% 65%);
+  }
+  2.8571428571% {
+    clip-path: polygon(60% 0%, 100% 0%, 100% 40%, 40% 100%, 0% 100%, 0% 60%);
+  }
+  3.2142857143% {
+    clip-path: polygon(55% 0%, 100% 0%, 100% 45%, 45% 100%, 0% 100%, 0% 55%);
+  }
+  3.5714285714% {
+    clip-path: polygon(50% 0%, 100% 0%, 100% 50%, 50% 100%, 0% 100%, 0% 50%);
+  }
+  3.9285714286% {
+    clip-path: polygon(45% 0%, 100% 0%, 100% 55%, 55% 100%, 0% 100%, 0% 45%);
+  }
+  4.2857142857% {
+    clip-path: polygon(40% 0%, 100% 0%, 100% 60%, 60% 100%, 0% 100%, 0% 40%);
+  }
+  4.6428571429% {
+    clip-path: polygon(35% 0%, 100% 0%, 100% 65%, 65% 100%, 0% 100%, 0% 35%);
+  }
+  5% {
+    clip-path: polygon(30% 0%, 100% 0%, 100% 70%, 70% 100%, 0% 100%, 0% 30%);
+  }
+  5.3571428571% {
+    clip-path: polygon(25% 0%, 100% 0%, 100% 75%, 75% 100%, 0% 100%, 0% 25%);
+  }
+  5.7142857143% {
+    clip-path: polygon(20% 0%, 100% 0%, 100% 80%, 80% 100%, 0% 100%, 0% 20%);
+  }
+  6.0714285714% {
+    clip-path: polygon(15% 0%, 100% 0%, 100% 85%, 85% 100%, 0% 100%, 0% 15%);
+  }
+  6.4285714286% {
+    clip-path: polygon(10% 0%, 100% 0%, 100% 90%, 90% 100%, 0% 100%, 0% 10%);
+  }
+  6.7857142857% {
+    clip-path: polygon(5% 0%, 100% 0%, 100% 95%, 95% 100%, 0% 100%, 0% 5%);
+  }
+  7.1428571429% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 100% 100%, 0% 100%, 0% 0%);
+  }
+  7.1428571429% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+  100% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+}
+#galerie-dinamica.galerie-14 .slides figure:nth-child(2) {
+  animation-name: revealUniform14;
+  animation-duration: 84s;
+  animation-delay: 0s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-14 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-14 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-14 .slides figure:nth-child(3) {
+  animation-name: revealUniform14;
+  animation-duration: 84s;
+  animation-delay: 6s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-14 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-14 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-14 .slides figure:nth-child(4) {
+  animation-name: revealUniform14;
+  animation-duration: 84s;
+  animation-delay: 12s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-14 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-14 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-14 .slides figure:nth-child(5) {
+  animation-name: revealUniform14;
+  animation-duration: 84s;
+  animation-delay: 18s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-14 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-14 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-14 .slides figure:nth-child(6) {
+  animation-name: revealUniform14;
+  animation-duration: 84s;
+  animation-delay: 24s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-14 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-14 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-14 .slides figure:nth-child(7) {
+  animation-name: revealUniform14;
+  animation-duration: 84s;
+  animation-delay: 30s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-14 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-14 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-14 .slides figure:nth-child(8) {
+  animation-name: revealUniform14;
+  animation-duration: 84s;
+  animation-delay: 36s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-14 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-14 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-14 .slides figure:nth-child(9) {
+  animation-name: revealUniform14;
+  animation-duration: 84s;
+  animation-delay: 42s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-14 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-14 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-14 .slides figure:nth-child(10) {
+  animation-name: revealUniform14;
+  animation-duration: 84s;
+  animation-delay: 48s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-14 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-14 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-14 .slides figure:nth-child(11) {
+  animation-name: revealUniform14;
+  animation-duration: 84s;
+  animation-delay: 54s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-14 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-14 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-14 .slides figure:nth-child(12) {
+  animation-name: revealUniform14;
+  animation-duration: 84s;
+  animation-delay: 60s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-14 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-14 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-14 .slides figure:nth-child(13) {
+  animation-name: revealUniform14;
+  animation-duration: 84s;
+  animation-delay: 66s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-14 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-14 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-14 .slides figure:nth-child(14) {
+  animation-name: revealUniform14;
+  animation-duration: 84s;
+  animation-delay: 72s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-14 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-14 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+@keyframes revealUniform15 {
+  0% {
+    clip-path: polygon(100% 0%, 100% 0%, 0% 100%, 0% 100%);
+  }
+  0.3333333333% {
+    clip-path: polygon(95% 0%, 100% 0%, 100% 5%, 5% 100%, 0% 100%, 0% 95%);
+  }
+  0.6666666667% {
+    clip-path: polygon(90% 0%, 100% 0%, 100% 10%, 10% 100%, 0% 100%, 0% 90%);
+  }
+  1% {
+    clip-path: polygon(85% 0%, 100% 0%, 100% 15%, 15% 100%, 0% 100%, 0% 85%);
+  }
+  1.3333333333% {
+    clip-path: polygon(80% 0%, 100% 0%, 100% 20%, 20% 100%, 0% 100%, 0% 80%);
+  }
+  1.6666666667% {
+    clip-path: polygon(75% 0%, 100% 0%, 100% 25%, 25% 100%, 0% 100%, 0% 75%);
+  }
+  2% {
+    clip-path: polygon(70% 0%, 100% 0%, 100% 30%, 30% 100%, 0% 100%, 0% 70%);
+  }
+  2.3333333333% {
+    clip-path: polygon(65% 0%, 100% 0%, 100% 35%, 35% 100%, 0% 100%, 0% 65%);
+  }
+  2.6666666667% {
+    clip-path: polygon(60% 0%, 100% 0%, 100% 40%, 40% 100%, 0% 100%, 0% 60%);
+  }
+  3% {
+    clip-path: polygon(55% 0%, 100% 0%, 100% 45%, 45% 100%, 0% 100%, 0% 55%);
+  }
+  3.3333333333% {
+    clip-path: polygon(50% 0%, 100% 0%, 100% 50%, 50% 100%, 0% 100%, 0% 50%);
+  }
+  3.6666666667% {
+    clip-path: polygon(45% 0%, 100% 0%, 100% 55%, 55% 100%, 0% 100%, 0% 45%);
+  }
+  4% {
+    clip-path: polygon(40% 0%, 100% 0%, 100% 60%, 60% 100%, 0% 100%, 0% 40%);
+  }
+  4.3333333333% {
+    clip-path: polygon(35% 0%, 100% 0%, 100% 65%, 65% 100%, 0% 100%, 0% 35%);
+  }
+  4.6666666667% {
+    clip-path: polygon(30% 0%, 100% 0%, 100% 70%, 70% 100%, 0% 100%, 0% 30%);
+  }
+  5% {
+    clip-path: polygon(25% 0%, 100% 0%, 100% 75%, 75% 100%, 0% 100%, 0% 25%);
+  }
+  5.3333333333% {
+    clip-path: polygon(20% 0%, 100% 0%, 100% 80%, 80% 100%, 0% 100%, 0% 20%);
+  }
+  5.6666666667% {
+    clip-path: polygon(15% 0%, 100% 0%, 100% 85%, 85% 100%, 0% 100%, 0% 15%);
+  }
+  6% {
+    clip-path: polygon(10% 0%, 100% 0%, 100% 90%, 90% 100%, 0% 100%, 0% 10%);
+  }
+  6.3333333333% {
+    clip-path: polygon(5% 0%, 100% 0%, 100% 95%, 95% 100%, 0% 100%, 0% 5%);
+  }
+  6.6666666667% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 100% 100%, 0% 100%, 0% 0%);
+  }
+  6.6666666667% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+  100% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+}
+#galerie-dinamica.galerie-15 .slides figure:nth-child(2) {
+  animation-name: revealUniform15;
+  animation-duration: 90s;
+  animation-delay: 0s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-15 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-15 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-15 .slides figure:nth-child(3) {
+  animation-name: revealUniform15;
+  animation-duration: 90s;
+  animation-delay: 6s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-15 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-15 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-15 .slides figure:nth-child(4) {
+  animation-name: revealUniform15;
+  animation-duration: 90s;
+  animation-delay: 12s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-15 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-15 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-15 .slides figure:nth-child(5) {
+  animation-name: revealUniform15;
+  animation-duration: 90s;
+  animation-delay: 18s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-15 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-15 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-15 .slides figure:nth-child(6) {
+  animation-name: revealUniform15;
+  animation-duration: 90s;
+  animation-delay: 24s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-15 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-15 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-15 .slides figure:nth-child(7) {
+  animation-name: revealUniform15;
+  animation-duration: 90s;
+  animation-delay: 30s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-15 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-15 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-15 .slides figure:nth-child(8) {
+  animation-name: revealUniform15;
+  animation-duration: 90s;
+  animation-delay: 36s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-15 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-15 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-15 .slides figure:nth-child(9) {
+  animation-name: revealUniform15;
+  animation-duration: 90s;
+  animation-delay: 42s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-15 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-15 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-15 .slides figure:nth-child(10) {
+  animation-name: revealUniform15;
+  animation-duration: 90s;
+  animation-delay: 48s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-15 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-15 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-15 .slides figure:nth-child(11) {
+  animation-name: revealUniform15;
+  animation-duration: 90s;
+  animation-delay: 54s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-15 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-15 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-15 .slides figure:nth-child(12) {
+  animation-name: revealUniform15;
+  animation-duration: 90s;
+  animation-delay: 60s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-15 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-15 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-15 .slides figure:nth-child(13) {
+  animation-name: revealUniform15;
+  animation-duration: 90s;
+  animation-delay: 66s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-15 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-15 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-15 .slides figure:nth-child(14) {
+  animation-name: revealUniform15;
+  animation-duration: 90s;
+  animation-delay: 72s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-15 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-15 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-15 .slides figure:nth-child(15) {
+  animation-name: revealUniform15;
+  animation-duration: 90s;
+  animation-delay: 78s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-15 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-15 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+@keyframes revealUniform16 {
+  0% {
+    clip-path: polygon(100% 0%, 100% 0%, 0% 100%, 0% 100%);
+  }
+  0.3125% {
+    clip-path: polygon(95% 0%, 100% 0%, 100% 5%, 5% 100%, 0% 100%, 0% 95%);
+  }
+  0.625% {
+    clip-path: polygon(90% 0%, 100% 0%, 100% 10%, 10% 100%, 0% 100%, 0% 90%);
+  }
+  0.9375% {
+    clip-path: polygon(85% 0%, 100% 0%, 100% 15%, 15% 100%, 0% 100%, 0% 85%);
+  }
+  1.25% {
+    clip-path: polygon(80% 0%, 100% 0%, 100% 20%, 20% 100%, 0% 100%, 0% 80%);
+  }
+  1.5625% {
+    clip-path: polygon(75% 0%, 100% 0%, 100% 25%, 25% 100%, 0% 100%, 0% 75%);
+  }
+  1.875% {
+    clip-path: polygon(70% 0%, 100% 0%, 100% 30%, 30% 100%, 0% 100%, 0% 70%);
+  }
+  2.1875% {
+    clip-path: polygon(65% 0%, 100% 0%, 100% 35%, 35% 100%, 0% 100%, 0% 65%);
+  }
+  2.5% {
+    clip-path: polygon(60% 0%, 100% 0%, 100% 40%, 40% 100%, 0% 100%, 0% 60%);
+  }
+  2.8125% {
+    clip-path: polygon(55% 0%, 100% 0%, 100% 45%, 45% 100%, 0% 100%, 0% 55%);
+  }
+  3.125% {
+    clip-path: polygon(50% 0%, 100% 0%, 100% 50%, 50% 100%, 0% 100%, 0% 50%);
+  }
+  3.4375% {
+    clip-path: polygon(45% 0%, 100% 0%, 100% 55%, 55% 100%, 0% 100%, 0% 45%);
+  }
+  3.75% {
+    clip-path: polygon(40% 0%, 100% 0%, 100% 60%, 60% 100%, 0% 100%, 0% 40%);
+  }
+  4.0625% {
+    clip-path: polygon(35% 0%, 100% 0%, 100% 65%, 65% 100%, 0% 100%, 0% 35%);
+  }
+  4.375% {
+    clip-path: polygon(30% 0%, 100% 0%, 100% 70%, 70% 100%, 0% 100%, 0% 30%);
+  }
+  4.6875% {
+    clip-path: polygon(25% 0%, 100% 0%, 100% 75%, 75% 100%, 0% 100%, 0% 25%);
+  }
+  5% {
+    clip-path: polygon(20% 0%, 100% 0%, 100% 80%, 80% 100%, 0% 100%, 0% 20%);
+  }
+  5.3125% {
+    clip-path: polygon(15% 0%, 100% 0%, 100% 85%, 85% 100%, 0% 100%, 0% 15%);
+  }
+  5.625% {
+    clip-path: polygon(10% 0%, 100% 0%, 100% 90%, 90% 100%, 0% 100%, 0% 10%);
+  }
+  5.9375% {
+    clip-path: polygon(5% 0%, 100% 0%, 100% 95%, 95% 100%, 0% 100%, 0% 5%);
+  }
+  6.25% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 100% 100%, 0% 100%, 0% 0%);
+  }
+  6.25% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+  100% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+}
+#galerie-dinamica.galerie-16 .slides figure:nth-child(2) {
+  animation-name: revealUniform16;
+  animation-duration: 96s;
+  animation-delay: 0s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-16 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-16 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-16 .slides figure:nth-child(3) {
+  animation-name: revealUniform16;
+  animation-duration: 96s;
+  animation-delay: 6s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-16 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-16 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-16 .slides figure:nth-child(4) {
+  animation-name: revealUniform16;
+  animation-duration: 96s;
+  animation-delay: 12s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-16 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-16 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-16 .slides figure:nth-child(5) {
+  animation-name: revealUniform16;
+  animation-duration: 96s;
+  animation-delay: 18s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-16 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-16 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-16 .slides figure:nth-child(6) {
+  animation-name: revealUniform16;
+  animation-duration: 96s;
+  animation-delay: 24s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-16 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-16 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-16 .slides figure:nth-child(7) {
+  animation-name: revealUniform16;
+  animation-duration: 96s;
+  animation-delay: 30s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-16 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-16 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-16 .slides figure:nth-child(8) {
+  animation-name: revealUniform16;
+  animation-duration: 96s;
+  animation-delay: 36s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-16 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-16 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-16 .slides figure:nth-child(9) {
+  animation-name: revealUniform16;
+  animation-duration: 96s;
+  animation-delay: 42s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-16 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-16 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-16 .slides figure:nth-child(10) {
+  animation-name: revealUniform16;
+  animation-duration: 96s;
+  animation-delay: 48s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-16 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-16 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-16 .slides figure:nth-child(11) {
+  animation-name: revealUniform16;
+  animation-duration: 96s;
+  animation-delay: 54s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-16 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-16 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-16 .slides figure:nth-child(12) {
+  animation-name: revealUniform16;
+  animation-duration: 96s;
+  animation-delay: 60s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-16 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-16 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-16 .slides figure:nth-child(13) {
+  animation-name: revealUniform16;
+  animation-duration: 96s;
+  animation-delay: 66s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-16 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-16 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-16 .slides figure:nth-child(14) {
+  animation-name: revealUniform16;
+  animation-duration: 96s;
+  animation-delay: 72s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-16 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-16 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-16 .slides figure:nth-child(15) {
+  animation-name: revealUniform16;
+  animation-duration: 96s;
+  animation-delay: 78s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-16 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-16 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-16 .slides figure:nth-child(16) {
+  animation-name: revealUniform16;
+  animation-duration: 96s;
+  animation-delay: 84s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-16 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-16 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+@keyframes revealUniform17 {
+  0% {
+    clip-path: polygon(100% 0%, 100% 0%, 0% 100%, 0% 100%);
+  }
+  0.2941176471% {
+    clip-path: polygon(95% 0%, 100% 0%, 100% 5%, 5% 100%, 0% 100%, 0% 95%);
+  }
+  0.5882352941% {
+    clip-path: polygon(90% 0%, 100% 0%, 100% 10%, 10% 100%, 0% 100%, 0% 90%);
+  }
+  0.8823529412% {
+    clip-path: polygon(85% 0%, 100% 0%, 100% 15%, 15% 100%, 0% 100%, 0% 85%);
+  }
+  1.1764705882% {
+    clip-path: polygon(80% 0%, 100% 0%, 100% 20%, 20% 100%, 0% 100%, 0% 80%);
+  }
+  1.4705882353% {
+    clip-path: polygon(75% 0%, 100% 0%, 100% 25%, 25% 100%, 0% 100%, 0% 75%);
+  }
+  1.7647058824% {
+    clip-path: polygon(70% 0%, 100% 0%, 100% 30%, 30% 100%, 0% 100%, 0% 70%);
+  }
+  2.0588235294% {
+    clip-path: polygon(65% 0%, 100% 0%, 100% 35%, 35% 100%, 0% 100%, 0% 65%);
+  }
+  2.3529411765% {
+    clip-path: polygon(60% 0%, 100% 0%, 100% 40%, 40% 100%, 0% 100%, 0% 60%);
+  }
+  2.6470588235% {
+    clip-path: polygon(55% 0%, 100% 0%, 100% 45%, 45% 100%, 0% 100%, 0% 55%);
+  }
+  2.9411764706% {
+    clip-path: polygon(50% 0%, 100% 0%, 100% 50%, 50% 100%, 0% 100%, 0% 50%);
+  }
+  3.2352941176% {
+    clip-path: polygon(45% 0%, 100% 0%, 100% 55%, 55% 100%, 0% 100%, 0% 45%);
+  }
+  3.5294117647% {
+    clip-path: polygon(40% 0%, 100% 0%, 100% 60%, 60% 100%, 0% 100%, 0% 40%);
+  }
+  3.8235294118% {
+    clip-path: polygon(35% 0%, 100% 0%, 100% 65%, 65% 100%, 0% 100%, 0% 35%);
+  }
+  4.1176470588% {
+    clip-path: polygon(30% 0%, 100% 0%, 100% 70%, 70% 100%, 0% 100%, 0% 30%);
+  }
+  4.4117647059% {
+    clip-path: polygon(25% 0%, 100% 0%, 100% 75%, 75% 100%, 0% 100%, 0% 25%);
+  }
+  4.7058823529% {
+    clip-path: polygon(20% 0%, 100% 0%, 100% 80%, 80% 100%, 0% 100%, 0% 20%);
+  }
+  5% {
+    clip-path: polygon(15% 0%, 100% 0%, 100% 85%, 85% 100%, 0% 100%, 0% 15%);
+  }
+  5.2941176471% {
+    clip-path: polygon(10% 0%, 100% 0%, 100% 90%, 90% 100%, 0% 100%, 0% 10%);
+  }
+  5.5882352941% {
+    clip-path: polygon(5% 0%, 100% 0%, 100% 95%, 95% 100%, 0% 100%, 0% 5%);
+  }
+  5.8823529412% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 100% 100%, 0% 100%, 0% 0%);
+  }
+  5.8823529412% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+  100% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+}
+#galerie-dinamica.galerie-17 .slides figure:nth-child(2) {
+  animation-name: revealUniform17;
+  animation-duration: 102s;
+  animation-delay: 0s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-17 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-17 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-17 .slides figure:nth-child(3) {
+  animation-name: revealUniform17;
+  animation-duration: 102s;
+  animation-delay: 6s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-17 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-17 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-17 .slides figure:nth-child(4) {
+  animation-name: revealUniform17;
+  animation-duration: 102s;
+  animation-delay: 12s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-17 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-17 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-17 .slides figure:nth-child(5) {
+  animation-name: revealUniform17;
+  animation-duration: 102s;
+  animation-delay: 18s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-17 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-17 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-17 .slides figure:nth-child(6) {
+  animation-name: revealUniform17;
+  animation-duration: 102s;
+  animation-delay: 24s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-17 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-17 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-17 .slides figure:nth-child(7) {
+  animation-name: revealUniform17;
+  animation-duration: 102s;
+  animation-delay: 30s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-17 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-17 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-17 .slides figure:nth-child(8) {
+  animation-name: revealUniform17;
+  animation-duration: 102s;
+  animation-delay: 36s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-17 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-17 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-17 .slides figure:nth-child(9) {
+  animation-name: revealUniform17;
+  animation-duration: 102s;
+  animation-delay: 42s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-17 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-17 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-17 .slides figure:nth-child(10) {
+  animation-name: revealUniform17;
+  animation-duration: 102s;
+  animation-delay: 48s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-17 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-17 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-17 .slides figure:nth-child(11) {
+  animation-name: revealUniform17;
+  animation-duration: 102s;
+  animation-delay: 54s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-17 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-17 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-17 .slides figure:nth-child(12) {
+  animation-name: revealUniform17;
+  animation-duration: 102s;
+  animation-delay: 60s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-17 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-17 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-17 .slides figure:nth-child(13) {
+  animation-name: revealUniform17;
+  animation-duration: 102s;
+  animation-delay: 66s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-17 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-17 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-17 .slides figure:nth-child(14) {
+  animation-name: revealUniform17;
+  animation-duration: 102s;
+  animation-delay: 72s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-17 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-17 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-17 .slides figure:nth-child(15) {
+  animation-name: revealUniform17;
+  animation-duration: 102s;
+  animation-delay: 78s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-17 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-17 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-17 .slides figure:nth-child(16) {
+  animation-name: revealUniform17;
+  animation-duration: 102s;
+  animation-delay: 84s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-17 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-17 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-17 .slides figure:nth-child(17) {
+  animation-name: revealUniform17;
+  animation-duration: 102s;
+  animation-delay: 90s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-17 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-17 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+@keyframes revealUniform18 {
+  0% {
+    clip-path: polygon(100% 0%, 100% 0%, 0% 100%, 0% 100%);
+  }
+  0.2777777778% {
+    clip-path: polygon(95% 0%, 100% 0%, 100% 5%, 5% 100%, 0% 100%, 0% 95%);
+  }
+  0.5555555556% {
+    clip-path: polygon(90% 0%, 100% 0%, 100% 10%, 10% 100%, 0% 100%, 0% 90%);
+  }
+  0.8333333333% {
+    clip-path: polygon(85% 0%, 100% 0%, 100% 15%, 15% 100%, 0% 100%, 0% 85%);
+  }
+  1.1111111111% {
+    clip-path: polygon(80% 0%, 100% 0%, 100% 20%, 20% 100%, 0% 100%, 0% 80%);
+  }
+  1.3888888889% {
+    clip-path: polygon(75% 0%, 100% 0%, 100% 25%, 25% 100%, 0% 100%, 0% 75%);
+  }
+  1.6666666667% {
+    clip-path: polygon(70% 0%, 100% 0%, 100% 30%, 30% 100%, 0% 100%, 0% 70%);
+  }
+  1.9444444444% {
+    clip-path: polygon(65% 0%, 100% 0%, 100% 35%, 35% 100%, 0% 100%, 0% 65%);
+  }
+  2.2222222222% {
+    clip-path: polygon(60% 0%, 100% 0%, 100% 40%, 40% 100%, 0% 100%, 0% 60%);
+  }
+  2.5% {
+    clip-path: polygon(55% 0%, 100% 0%, 100% 45%, 45% 100%, 0% 100%, 0% 55%);
+  }
+  2.7777777778% {
+    clip-path: polygon(50% 0%, 100% 0%, 100% 50%, 50% 100%, 0% 100%, 0% 50%);
+  }
+  3.0555555556% {
+    clip-path: polygon(45% 0%, 100% 0%, 100% 55%, 55% 100%, 0% 100%, 0% 45%);
+  }
+  3.3333333333% {
+    clip-path: polygon(40% 0%, 100% 0%, 100% 60%, 60% 100%, 0% 100%, 0% 40%);
+  }
+  3.6111111111% {
+    clip-path: polygon(35% 0%, 100% 0%, 100% 65%, 65% 100%, 0% 100%, 0% 35%);
+  }
+  3.8888888889% {
+    clip-path: polygon(30% 0%, 100% 0%, 100% 70%, 70% 100%, 0% 100%, 0% 30%);
+  }
+  4.1666666667% {
+    clip-path: polygon(25% 0%, 100% 0%, 100% 75%, 75% 100%, 0% 100%, 0% 25%);
+  }
+  4.4444444444% {
+    clip-path: polygon(20% 0%, 100% 0%, 100% 80%, 80% 100%, 0% 100%, 0% 20%);
+  }
+  4.7222222222% {
+    clip-path: polygon(15% 0%, 100% 0%, 100% 85%, 85% 100%, 0% 100%, 0% 15%);
+  }
+  5% {
+    clip-path: polygon(10% 0%, 100% 0%, 100% 90%, 90% 100%, 0% 100%, 0% 10%);
+  }
+  5.2777777778% {
+    clip-path: polygon(5% 0%, 100% 0%, 100% 95%, 95% 100%, 0% 100%, 0% 5%);
+  }
+  5.5555555556% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 100% 100%, 0% 100%, 0% 0%);
+  }
+  5.5555555556% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+  100% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+}
+#galerie-dinamica.galerie-18 .slides figure:nth-child(2) {
+  animation-name: revealUniform18;
+  animation-duration: 108s;
+  animation-delay: 0s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-18 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-18 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-18 .slides figure:nth-child(3) {
+  animation-name: revealUniform18;
+  animation-duration: 108s;
+  animation-delay: 6s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-18 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-18 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-18 .slides figure:nth-child(4) {
+  animation-name: revealUniform18;
+  animation-duration: 108s;
+  animation-delay: 12s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-18 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-18 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-18 .slides figure:nth-child(5) {
+  animation-name: revealUniform18;
+  animation-duration: 108s;
+  animation-delay: 18s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-18 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-18 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-18 .slides figure:nth-child(6) {
+  animation-name: revealUniform18;
+  animation-duration: 108s;
+  animation-delay: 24s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-18 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-18 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-18 .slides figure:nth-child(7) {
+  animation-name: revealUniform18;
+  animation-duration: 108s;
+  animation-delay: 30s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-18 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-18 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-18 .slides figure:nth-child(8) {
+  animation-name: revealUniform18;
+  animation-duration: 108s;
+  animation-delay: 36s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-18 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-18 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-18 .slides figure:nth-child(9) {
+  animation-name: revealUniform18;
+  animation-duration: 108s;
+  animation-delay: 42s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-18 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-18 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-18 .slides figure:nth-child(10) {
+  animation-name: revealUniform18;
+  animation-duration: 108s;
+  animation-delay: 48s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-18 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-18 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-18 .slides figure:nth-child(11) {
+  animation-name: revealUniform18;
+  animation-duration: 108s;
+  animation-delay: 54s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-18 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-18 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-18 .slides figure:nth-child(12) {
+  animation-name: revealUniform18;
+  animation-duration: 108s;
+  animation-delay: 60s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-18 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-18 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-18 .slides figure:nth-child(13) {
+  animation-name: revealUniform18;
+  animation-duration: 108s;
+  animation-delay: 66s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-18 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-18 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-18 .slides figure:nth-child(14) {
+  animation-name: revealUniform18;
+  animation-duration: 108s;
+  animation-delay: 72s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-18 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-18 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-18 .slides figure:nth-child(15) {
+  animation-name: revealUniform18;
+  animation-duration: 108s;
+  animation-delay: 78s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-18 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-18 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-18 .slides figure:nth-child(16) {
+  animation-name: revealUniform18;
+  animation-duration: 108s;
+  animation-delay: 84s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-18 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-18 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-18 .slides figure:nth-child(17) {
+  animation-name: revealUniform18;
+  animation-duration: 108s;
+  animation-delay: 90s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-18 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-18 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-18 .slides figure:nth-child(18) {
+  animation-name: revealUniform18;
+  animation-duration: 108s;
+  animation-delay: 96s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-18 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-18 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+@keyframes revealUniform19 {
+  0% {
+    clip-path: polygon(100% 0%, 100% 0%, 0% 100%, 0% 100%);
+  }
+  0.2631578947% {
+    clip-path: polygon(95% 0%, 100% 0%, 100% 5%, 5% 100%, 0% 100%, 0% 95%);
+  }
+  0.5263157895% {
+    clip-path: polygon(90% 0%, 100% 0%, 100% 10%, 10% 100%, 0% 100%, 0% 90%);
+  }
+  0.7894736842% {
+    clip-path: polygon(85% 0%, 100% 0%, 100% 15%, 15% 100%, 0% 100%, 0% 85%);
+  }
+  1.0526315789% {
+    clip-path: polygon(80% 0%, 100% 0%, 100% 20%, 20% 100%, 0% 100%, 0% 80%);
+  }
+  1.3157894737% {
+    clip-path: polygon(75% 0%, 100% 0%, 100% 25%, 25% 100%, 0% 100%, 0% 75%);
+  }
+  1.5789473684% {
+    clip-path: polygon(70% 0%, 100% 0%, 100% 30%, 30% 100%, 0% 100%, 0% 70%);
+  }
+  1.8421052632% {
+    clip-path: polygon(65% 0%, 100% 0%, 100% 35%, 35% 100%, 0% 100%, 0% 65%);
+  }
+  2.1052631579% {
+    clip-path: polygon(60% 0%, 100% 0%, 100% 40%, 40% 100%, 0% 100%, 0% 60%);
+  }
+  2.3684210526% {
+    clip-path: polygon(55% 0%, 100% 0%, 100% 45%, 45% 100%, 0% 100%, 0% 55%);
+  }
+  2.6315789474% {
+    clip-path: polygon(50% 0%, 100% 0%, 100% 50%, 50% 100%, 0% 100%, 0% 50%);
+  }
+  2.8947368421% {
+    clip-path: polygon(45% 0%, 100% 0%, 100% 55%, 55% 100%, 0% 100%, 0% 45%);
+  }
+  3.1578947368% {
+    clip-path: polygon(40% 0%, 100% 0%, 100% 60%, 60% 100%, 0% 100%, 0% 40%);
+  }
+  3.4210526316% {
+    clip-path: polygon(35% 0%, 100% 0%, 100% 65%, 65% 100%, 0% 100%, 0% 35%);
+  }
+  3.6842105263% {
+    clip-path: polygon(30% 0%, 100% 0%, 100% 70%, 70% 100%, 0% 100%, 0% 30%);
+  }
+  3.9473684211% {
+    clip-path: polygon(25% 0%, 100% 0%, 100% 75%, 75% 100%, 0% 100%, 0% 25%);
+  }
+  4.2105263158% {
+    clip-path: polygon(20% 0%, 100% 0%, 100% 80%, 80% 100%, 0% 100%, 0% 20%);
+  }
+  4.4736842105% {
+    clip-path: polygon(15% 0%, 100% 0%, 100% 85%, 85% 100%, 0% 100%, 0% 15%);
+  }
+  4.7368421053% {
+    clip-path: polygon(10% 0%, 100% 0%, 100% 90%, 90% 100%, 0% 100%, 0% 10%);
+  }
+  5% {
+    clip-path: polygon(5% 0%, 100% 0%, 100% 95%, 95% 100%, 0% 100%, 0% 5%);
+  }
+  5.2631578947% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 100% 100%, 0% 100%, 0% 0%);
+  }
+  5.2631578947% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+  100% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+}
+#galerie-dinamica.galerie-19 .slides figure:nth-child(2) {
+  animation-name: revealUniform19;
+  animation-duration: 114s;
+  animation-delay: 0s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-19 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-19 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-19 .slides figure:nth-child(3) {
+  animation-name: revealUniform19;
+  animation-duration: 114s;
+  animation-delay: 6s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-19 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-19 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-19 .slides figure:nth-child(4) {
+  animation-name: revealUniform19;
+  animation-duration: 114s;
+  animation-delay: 12s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-19 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-19 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-19 .slides figure:nth-child(5) {
+  animation-name: revealUniform19;
+  animation-duration: 114s;
+  animation-delay: 18s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-19 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-19 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-19 .slides figure:nth-child(6) {
+  animation-name: revealUniform19;
+  animation-duration: 114s;
+  animation-delay: 24s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-19 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-19 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-19 .slides figure:nth-child(7) {
+  animation-name: revealUniform19;
+  animation-duration: 114s;
+  animation-delay: 30s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-19 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-19 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-19 .slides figure:nth-child(8) {
+  animation-name: revealUniform19;
+  animation-duration: 114s;
+  animation-delay: 36s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-19 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-19 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-19 .slides figure:nth-child(9) {
+  animation-name: revealUniform19;
+  animation-duration: 114s;
+  animation-delay: 42s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-19 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-19 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-19 .slides figure:nth-child(10) {
+  animation-name: revealUniform19;
+  animation-duration: 114s;
+  animation-delay: 48s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-19 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-19 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-19 .slides figure:nth-child(11) {
+  animation-name: revealUniform19;
+  animation-duration: 114s;
+  animation-delay: 54s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-19 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-19 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-19 .slides figure:nth-child(12) {
+  animation-name: revealUniform19;
+  animation-duration: 114s;
+  animation-delay: 60s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-19 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-19 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-19 .slides figure:nth-child(13) {
+  animation-name: revealUniform19;
+  animation-duration: 114s;
+  animation-delay: 66s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-19 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-19 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-19 .slides figure:nth-child(14) {
+  animation-name: revealUniform19;
+  animation-duration: 114s;
+  animation-delay: 72s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-19 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-19 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-19 .slides figure:nth-child(15) {
+  animation-name: revealUniform19;
+  animation-duration: 114s;
+  animation-delay: 78s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-19 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-19 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-19 .slides figure:nth-child(16) {
+  animation-name: revealUniform19;
+  animation-duration: 114s;
+  animation-delay: 84s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-19 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-19 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-19 .slides figure:nth-child(17) {
+  animation-name: revealUniform19;
+  animation-duration: 114s;
+  animation-delay: 90s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-19 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-19 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-19 .slides figure:nth-child(18) {
+  animation-name: revealUniform19;
+  animation-duration: 114s;
+  animation-delay: 96s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-19 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-19 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-19 .slides figure:nth-child(19) {
+  animation-name: revealUniform19;
+  animation-duration: 114s;
+  animation-delay: 102s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-19 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-19 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+@keyframes revealUniform20 {
+  0% {
+    clip-path: polygon(100% 0%, 100% 0%, 0% 100%, 0% 100%);
+  }
+  0.25% {
+    clip-path: polygon(95% 0%, 100% 0%, 100% 5%, 5% 100%, 0% 100%, 0% 95%);
+  }
+  0.5% {
+    clip-path: polygon(90% 0%, 100% 0%, 100% 10%, 10% 100%, 0% 100%, 0% 90%);
+  }
+  0.75% {
+    clip-path: polygon(85% 0%, 100% 0%, 100% 15%, 15% 100%, 0% 100%, 0% 85%);
+  }
+  1% {
+    clip-path: polygon(80% 0%, 100% 0%, 100% 20%, 20% 100%, 0% 100%, 0% 80%);
+  }
+  1.25% {
+    clip-path: polygon(75% 0%, 100% 0%, 100% 25%, 25% 100%, 0% 100%, 0% 75%);
+  }
+  1.5% {
+    clip-path: polygon(70% 0%, 100% 0%, 100% 30%, 30% 100%, 0% 100%, 0% 70%);
+  }
+  1.75% {
+    clip-path: polygon(65% 0%, 100% 0%, 100% 35%, 35% 100%, 0% 100%, 0% 65%);
+  }
+  2% {
+    clip-path: polygon(60% 0%, 100% 0%, 100% 40%, 40% 100%, 0% 100%, 0% 60%);
+  }
+  2.25% {
+    clip-path: polygon(55% 0%, 100% 0%, 100% 45%, 45% 100%, 0% 100%, 0% 55%);
+  }
+  2.5% {
+    clip-path: polygon(50% 0%, 100% 0%, 100% 50%, 50% 100%, 0% 100%, 0% 50%);
+  }
+  2.75% {
+    clip-path: polygon(45% 0%, 100% 0%, 100% 55%, 55% 100%, 0% 100%, 0% 45%);
+  }
+  3% {
+    clip-path: polygon(40% 0%, 100% 0%, 100% 60%, 60% 100%, 0% 100%, 0% 40%);
+  }
+  3.25% {
+    clip-path: polygon(35% 0%, 100% 0%, 100% 65%, 65% 100%, 0% 100%, 0% 35%);
+  }
+  3.5% {
+    clip-path: polygon(30% 0%, 100% 0%, 100% 70%, 70% 100%, 0% 100%, 0% 30%);
+  }
+  3.75% {
+    clip-path: polygon(25% 0%, 100% 0%, 100% 75%, 75% 100%, 0% 100%, 0% 25%);
+  }
+  4% {
+    clip-path: polygon(20% 0%, 100% 0%, 100% 80%, 80% 100%, 0% 100%, 0% 20%);
+  }
+  4.25% {
+    clip-path: polygon(15% 0%, 100% 0%, 100% 85%, 85% 100%, 0% 100%, 0% 15%);
+  }
+  4.5% {
+    clip-path: polygon(10% 0%, 100% 0%, 100% 90%, 90% 100%, 0% 100%, 0% 10%);
+  }
+  4.75% {
+    clip-path: polygon(5% 0%, 100% 0%, 100% 95%, 95% 100%, 0% 100%, 0% 5%);
+  }
+  5% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 100% 100%, 0% 100%, 0% 0%);
+  }
+  5% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+  100% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+}
+#galerie-dinamica.galerie-20 .slides figure:nth-child(2) {
+  animation-name: revealUniform20;
+  animation-duration: 120s;
+  animation-delay: 0s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-20 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-20 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-20 .slides figure:nth-child(3) {
+  animation-name: revealUniform20;
+  animation-duration: 120s;
+  animation-delay: 6s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-20 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-20 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-20 .slides figure:nth-child(4) {
+  animation-name: revealUniform20;
+  animation-duration: 120s;
+  animation-delay: 12s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-20 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-20 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-20 .slides figure:nth-child(5) {
+  animation-name: revealUniform20;
+  animation-duration: 120s;
+  animation-delay: 18s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-20 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-20 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-20 .slides figure:nth-child(6) {
+  animation-name: revealUniform20;
+  animation-duration: 120s;
+  animation-delay: 24s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-20 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-20 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-20 .slides figure:nth-child(7) {
+  animation-name: revealUniform20;
+  animation-duration: 120s;
+  animation-delay: 30s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-20 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-20 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-20 .slides figure:nth-child(8) {
+  animation-name: revealUniform20;
+  animation-duration: 120s;
+  animation-delay: 36s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-20 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-20 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-20 .slides figure:nth-child(9) {
+  animation-name: revealUniform20;
+  animation-duration: 120s;
+  animation-delay: 42s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-20 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-20 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-20 .slides figure:nth-child(10) {
+  animation-name: revealUniform20;
+  animation-duration: 120s;
+  animation-delay: 48s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-20 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-20 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-20 .slides figure:nth-child(11) {
+  animation-name: revealUniform20;
+  animation-duration: 120s;
+  animation-delay: 54s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-20 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-20 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-20 .slides figure:nth-child(12) {
+  animation-name: revealUniform20;
+  animation-duration: 120s;
+  animation-delay: 60s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-20 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-20 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-20 .slides figure:nth-child(13) {
+  animation-name: revealUniform20;
+  animation-duration: 120s;
+  animation-delay: 66s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-20 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-20 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-20 .slides figure:nth-child(14) {
+  animation-name: revealUniform20;
+  animation-duration: 120s;
+  animation-delay: 72s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-20 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-20 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-20 .slides figure:nth-child(15) {
+  animation-name: revealUniform20;
+  animation-duration: 120s;
+  animation-delay: 78s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-20 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-20 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-20 .slides figure:nth-child(16) {
+  animation-name: revealUniform20;
+  animation-duration: 120s;
+  animation-delay: 84s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-20 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-20 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-20 .slides figure:nth-child(17) {
+  animation-name: revealUniform20;
+  animation-duration: 120s;
+  animation-delay: 90s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-20 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-20 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-20 .slides figure:nth-child(18) {
+  animation-name: revealUniform20;
+  animation-duration: 120s;
+  animation-delay: 96s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-20 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-20 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-20 .slides figure:nth-child(19) {
+  animation-name: revealUniform20;
+  animation-duration: 120s;
+  animation-delay: 102s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-20 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-20 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+#galerie-dinamica.galerie-20 .slides figure:nth-child(20) {
+  animation-name: revealUniform20;
+  animation-duration: 120s;
+  animation-delay: 108s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: clip-path;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+#galerie-dinamica.galerie-20 .slides:hover figure {
+  animation-play-state: paused !important;
+}
+#galerie-dinamica.galerie-20 .slides:not(:hover) figure {
+  animation-play-state: running !important;
+}
+
+@media screen and (max-width: 1200px) {
+  #grid-galerie {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  #grid-galerie > figure {
+    grid-area: auto !important;
+  }
+  #galerie-dinamica {
+    display: none;
+  }
+}
+@media screen and (max-width: 800px) {
+  #grid-galerie {
+    display: block;
+  }
+  #grid-galerie > figure {
+    grid-area: auto !important;
+  }
+  #galerie-dinamica {
+    display: none;
+  }
+}

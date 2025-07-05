@@ -1,0 +1,88 @@
+@use '../../node_modules/bootstrap/scss/bootstrap' as bs with (
+  $body-bg: #ffffff,
+
+  $grid-breakpoints: (
+    xs: 0, 
+    sm: 576px,
+    md: 800px,
+    lg: 1200px
+  ),
+  $container-max-widths: (
+    sm: 540px, 
+    md: 800px,
+    lg: 1200px, 
+    xl: 1400px,
+    xxl: 1600px
+  ),
+
+  $border-radius: 2rem,
+  $border-radius-sm: 0.5rem,
+  $border-radius-lg: 2rem,
+  $btn-border-radius: 2rem
+);
+
+$themes: (
+  light: (
+    bg: var(--pink-lightest),
+    text: var(--pink-darkest),
+    link: var(--pink-dark),
+    h1: var(--pink-accent),
+    h2: var(--pink-accent),
+    h3: var(--pink-accent),
+    outline: 1px solid var(--pink-medium),
+    shadow: 0 4px 10px var(--pink-darkest),
+    border: 1px solid var(--pink-medium)
+  ),
+  dark: (
+    bg: var(--pink-dark),
+    text: var(--pink-lightest),
+    link: var(--pink-darkest),
+    h1: var(--pink-accent),
+    h2: var(--pink-accent),
+    h3: var(--pink-accent),
+    outline: 1px solid var(--pink-darkest),
+    shadow: 0 4px 10px black,
+    border: 1px solid var(--pink-darkest)
+  )
+);
+
+@each $name, $map in $themes {
+  .theme-#{$name} {
+    background-color: map-get($map, bg) !important;
+    color: map-get($map, text) !important;
+    outline: map-get($map, outline) !important;
+    box-shadow: map-get($map, shadow) !important;
+    border: map-get($map, border) !important;
+    border-radius: bs.$border-radius !important;
+
+    a {
+      color: map-get($map, link) !important;
+      text-decoration: underline;
+    }
+
+    h1 {
+      font-family: 'Lobster', cursive !important;
+      font-size: 2.5rem !important;
+      color: map-get($map, h1) !important;
+      margin: 0 !important;
+    }
+    h2 {
+      font-family: 'Lobster', cursive !important;
+      font-size: 2rem !important;
+      color: map-get($map, h2) !important;
+    }
+    h3 {
+      font-family: 'Lobster', cursive !important;
+      font-size: 1.2rem !important;
+      color: map-get($map, h3) !important;
+    }
+
+    .btn {
+      background-color: map-get($map, link) !important;
+      color: map-get($map, bg) !important;
+      border-color: map-get($map, text) !important;
+      box-shadow: map-get($map, shadow) !important;
+      border-radius: bs.$btn-border-radius !important;
+    }
+  }
+}

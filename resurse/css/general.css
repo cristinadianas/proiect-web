@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 html {
     font-size: 17px;
     transition: font-size 0.5s;
@@ -10,16 +14,42 @@ body {
     --pink-medium: #f7d6e0;
     --pink-dark: #e7acbc;
     --pink-darkest: #d48a9c;
-    --pink-accent: #ac3f59;
-    background-color: var(--pink-lightest);
-    /*
-    background-image: url("../imagini/background.png");
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    */
+    --pink-accent: #ac3f59; 
+    background-color: var(--pink-lightest); 
+    --timp-fundal: 20s;
 }
+  
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: url("../imagini/background1.png") center/cover no-repeat fixed;
+    opacity: 1;
+    z-index: -2;
+    animation: bg1fade var(--timp-fundal) linear infinite;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: url("../imagini/background2.png") center/cover no-repeat fixed;
+    opacity: 0;
+    z-index: -1;
+    animation: bg2fade var(--timp-fundal) linear infinite;
+}
+
+@keyframes bg1fade {
+    0%   { opacity: 1; }
+    50%  { opacity: 0; }
+    100% { opacity: 1; }
+}
+@keyframes bg2fade {
+    0%   { opacity: 0; }
+    50%  { opacity: 1; }
+    100% { opacity: 0; }
+}
+  
 
 header, footer {
     background-color: var(--pink-light);
@@ -45,17 +75,23 @@ nav {
     margin: 1rem var(--spatiere-pagina);
 }
 
-h1 {
+header h1 {
+    font-family: 'Dancing Script', cursive;
     font-size: 4rem;
-    color: var(--pink-darkest)
+    color: var(--pink-accent);
+    margin: 0;
 }
 
-h2 {
-    font-size: 1.6rem;
+main h2 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 4rem;
+    color: var(--pink-darkest);
 }
 
-h3 {
-    font-size: 1.4rem;
+main h3 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2rem;
+    color: var(--pink-darkest);
 }
 
 figcaption {
@@ -77,7 +113,9 @@ figcaption {
                          "fig1             fig1             produse          produse"
                          "fig2             fig2             produse          produse"
                          "noutati-in-moda  noutati-in-moda  noutati-in-moda  noutati-in-moda"
-                         "evolutia-modei   evolutia-modei   evolutia-modei   evolutia-modei";
+                         "evolutia-modei   evolutia-modei   evolutia-modei   evolutia-modei"
+                         "galerie-statica  galerie-statica  galerie-statica  galerie-statica"
+                         "galerie-dinamica galerie-dinamica galerie-dinamica galerie-dinamica";
 }
 
 #grid-pagina > * {
@@ -101,6 +139,14 @@ figcaption {
 
 #grid-pagina img[usemap="#imageMap"] {
     width: 360px;
+}
+
+#galerie-statica {
+    grid-area: galerie-statica;
+}
+
+#galerie-dinamica {
+    grid-area: galerie-dinamica;
 }
 
 #welcome {
@@ -212,7 +258,7 @@ figcaption {
     box-shadow: inset 10px 5px 6px -4px var(--pink-dark);
     font-weight: bold;
     text-align: center;
-    width: 140px;
+    width: 160px;
     white-space: normal;
     word-break: break-word;
     font-family: "Cinzel";
@@ -394,7 +440,270 @@ main a:active {
     background-color: var(--pink-darkest);
     color: var(--pink-lightest);
 }
+
+/* TEST ANIMAT ORIZONTAL */
+
+.marquee-wrapper {
+    width: 100%;
+    overflow: hidden;
+}
+
+.text-animat {
+    display: block;
+    width: 100%;
+    margin: 0;
+    white-space: nowrap;
+    will-change: transform;
+    animation: marquee 16s linear infinite;
+}
+
+@keyframes marquee {
+    0% { 
+        transform: translateX(100%); 
+    }
+    100% {
+        transform: translateX(-100%); 
+    }
+}
+
+hr.efect-css-stilizare-hr {
+    border: none;
+    height: 16px;
+    margin: 2rem 0;
+    border-radius: 6px;
+    background-image: 
+      repeating-linear-gradient(
+        to bottom,
+        var(--pink-accent) 0,
+        var(--pink-accent) 3px,
+        var(--pink-light) 3px,
+        var(--pink-ligh) 6px,
+        var(--pink-accent) 6px,
+        var(--pink-accent) 12px,
+        var(--pink-light) 12px,
+        var(--pink-light) 16px
+      );
+  }
+
+/* MULTI COLUMN */
+
+.multi-column {
+    column-count: 2;
+    column-gap: 2rem;
+    column-rule: 1px solid var(--pink-dark);
+    padding: 1rem;
+}
+
+/* SELECTION */
+
+::selection {
+    background-color: var(--pink-dark);
+    color: var(--pink-lightest);
+}  
+
+/* REFLEXIE TEXT */
+
+:root {
+    --pink-lightest: #fff5fa;
+    --pink-light: #ffe9f0;
+    --pink-medium: #f7d6e0;
+    --pink-dark: #e7acbc;
+    --pink-darkest: #d48a9c;
+    --pink-accent: #ac3f59;
+  }
   
+  .text-reflection-container {
+    position: relative;
+    display: inline-block;
+    font-family: "Georgia", serif;
+}
+  
+.text-reflection-text {
+    font-size: 4rem;
+    font-weight: bold;
+    color: var(--pink-darkest);
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+  
+.text-reflection-mirror {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    font-size: 4rem;
+    font-weight: bold;
+    color: var(--pink-darkest);
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+    transform: scaleY(-1) skewX(-30deg);
+    opacity: 0.6;
+  
+    mask-image: repeating-radial-gradient(
+        ellipse 80px 30px at 50% 60px,
+        rgba(212, 138, 156, 0.8) 0px,
+        rgba(212, 138, 156, 0.4) 8px,
+        transparent 12px,
+        transparent 20px
+    ),
+    repeating-radial-gradient(
+        ellipse 120px 45px at 50% 80px,
+        transparent 0px,
+        transparent 15px,
+        rgba(212, 138, 156, 0.6) 20px,
+        rgba(212, 138, 156, 0.3) 25px,
+        transparent 30px,
+        transparent 40px
+    );
+  
+    -webkit-mask-image: repeating-radial-gradient(
+        ellipse 80px 30px at 50% 60px,
+        rgba(212, 138, 156, 0.8) 0px,
+        rgba(212, 138, 156, 0.4) 8px,
+        transparent 12px,
+        transparent 20px
+    ),
+    repeating-radial-gradient(
+        ellipse 120px 45px at 50% 80px,
+        transparent 0px,
+        transparent 15px,
+        rgba(212, 138, 156, 0.6) 20px,
+        rgba(212, 138, 156, 0.3) 25px,
+        transparent 30px,
+        transparent 40px
+    );
+  
+    background: linear-gradient(
+        to bottom,
+        rgba(212, 138, 156, 0.6) 0%,
+        rgba(212, 138, 156, 0.4) 30%,
+        rgba(212, 138, 156, 0.2) 60%,
+        transparent 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  
+    transition: all 0.3s ease;
+  }
+  
+  .text-reflection-container:hover .text-reflection-mirror {
+    animation: wave-ripple 2s ease-in-out infinite;
+    transform: scaleY(-1) skewX(-30deg);
+    transition: transform 0.3s ease;
+  }
+  
+  @keyframes wave-ripple {
+    0% {
+      mask-image: repeating-radial-gradient(
+          ellipse 80px 30px at 50% 60px,
+          rgba(212, 138, 156, 0.8) 0px,
+          rgba(212, 138, 156, 0.4) 8px,
+          transparent 12px,
+          transparent 20px
+        ),
+        repeating-radial-gradient(
+          ellipse 120px 45px at 50% 80px,
+          transparent 0px,
+          transparent 15px,
+          rgba(212, 138, 156, 0.6) 20px,
+          rgba(212, 138, 156, 0.3) 25px,
+          transparent 30px,
+          transparent 40px
+        );
+  
+      -webkit-mask-image: repeating-radial-gradient(
+          ellipse 80px 30px at 50% 60px,
+          rgba(212, 138, 156, 0.8) 0px,
+          rgba(212, 138, 156, 0.4) 8px,
+          transparent 12px,
+          transparent 20px
+        ),
+        repeating-radial-gradient(
+          ellipse 120px 45px at 50% 80px,
+          transparent 0px,
+          transparent 15px,
+          rgba(212, 138, 156, 0.6) 20px,
+          rgba(212, 138, 156, 0.3) 25px,
+          transparent 30px,
+          transparent 40px
+        );
+    }
+  
+    50% {
+      mask-image: repeating-radial-gradient(
+          ellipse 100px 35px at 48% 65px,
+          rgba(212, 138, 156, 0.9) 2px,
+          rgba(212, 138, 156, 0.5) 10px,
+          transparent 14px,
+          transparent 22px
+        ),
+        repeating-radial-gradient(
+          ellipse 140px 50px at 52% 85px,
+          transparent 2px,
+          transparent 18px,
+          rgba(212, 138, 156, 0.7) 23px,
+          rgba(212, 138, 156, 0.4) 28px,
+          transparent 33px,
+          transparent 43px
+        );
+  
+      -webkit-mask-image: repeating-radial-gradient(
+          ellipse 100px 35px at 48% 65px,
+          rgba(212, 138, 156, 0.9) 2px,
+          rgba(212, 138, 156, 0.5) 10px,
+          transparent 14px,
+          transparent 22px
+        ),
+        repeating-radial-gradient(
+          ellipse 140px 50px at 52% 85px,
+          transparent 2px,
+          transparent 18px,
+          rgba(212, 138, 156, 0.7) 23px,
+          rgba(212, 138, 156, 0.4) 28px,
+          transparent 33px,
+          transparent 43px
+        );
+    }
+  
+    100% {
+      mask-image: repeating-radial-gradient(
+          ellipse 80px 30px at 50% 60px,
+          rgba(212, 138, 156, 0.8) 0px,
+          rgba(212, 138, 156, 0.4) 8px,
+          transparent 12px,
+          transparent 20px
+        ),
+        repeating-radial-gradient(
+          ellipse 120px 45px at 50% 80px,
+          transparent 0px,
+          transparent 15px,
+          rgba(212, 138, 156, 0.6) 20px,
+          rgba(212, 138, 156, 0.3) 25px,
+          transparent 30px,
+          transparent 40px
+        );
+  
+      -webkit-mask-image: repeating-radial-gradient(
+          ellipse 80px 30px at 50% 60px,
+          rgba(212, 138, 156, 0.8) 0px,
+          rgba(212, 138, 156, 0.4) 8px,
+          transparent 12px,
+          transparent 20px
+        ),
+        repeating-radial-gradient(
+          ellipse 120px 45px at 50% 80px,
+          transparent 0px,
+          transparent 15px,
+          rgba(212, 138, 156, 0.6) 20px,
+          rgba(212, 138, 156, 0.3) 25px,
+          transparent 30px,
+          transparent 40px
+        );
+    }
+}
 
 /* SCREEN SIZE */
 
@@ -410,13 +719,15 @@ main a:active {
     #grid-pagina {
         grid-template-areas: "welcome          welcome"
                              "promotii         promotii"
-                             "anunturi         anunturi"
                              "faq              faq"
+                             "anunturi         anunturi"
                              "program          program"
                              "fig1             produse"
                              "fig2             produse"
                              "noutati-in-moda  noutati-in-moda"
-                             "evolutia-modei   evolutia-modei";
+                             "evolutia-modei   evolutia-modei"
+                             "galerie-statica  galerie-statica"
+                             "galerie-dinamica galerie-dinamica";
         grid-gap: 1rem;
     }
 
@@ -430,6 +741,10 @@ main a:active {
     .container-iframe iframe {
         max-width: 500px;
     }
+
+    .multi-column {
+        column-count: 1;
+    }
 }
 
 @media screen and (max-width:800px) {
@@ -441,12 +756,16 @@ main a:active {
         margin-bottom: 15px;
     }
 
+    #videoclip {
+        width: 200px;
+    }
+
     html {
         font-size: 14px;
     }
 
     body {
-        --spatiere-pagina: 20px;
+        --spatiere-pagina: 25px;
     }
 
     header, footer, nav {
@@ -457,15 +776,16 @@ main a:active {
         width:135px;
     }
 
-    * {
-        transition: none !important;
-    }
-
     .container-iframe iframe {
         max-width: 320px;
     }
 
     .taburi-iframe > a {
-        max-width: 50px;
+        max-width: 100px;
+        font-size: 0.5rem;
+    }
+
+    .multi-column {
+        column-count: 1;
     }
 }

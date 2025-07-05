@@ -1,41 +1,267 @@
 {
-	"cale_galerie":"resurse/imagini/galerie",
+	"cale_galerie": "resurse/imagini/galerie",
 	"imagini": [
-		{
-			"fisier":"briose-frisca.png",
-			"descriere":"Brioșe",
-			"luni":["martie","februarie","noiembrie","aprilie", "decembrie"]
-		},
-		{
-			"fisier":"clatite.png",
-			"descriere":"Clătite cu dulceață",
-			"luni":["ianuarie","februarie","iunie"]
-			
-		},
-		{
-			"fisier":"gogosi.png",
-			"descriere":"Gogoși glazurate",
-			"luni":["ianuarie","noiembrie","iunie","martie","aprilie"]
-		},
-		{
-			"fisier":"tort-scortisoara.png",
-			"descriere":"Tort cu scorțisoară",
-			
-			"luni":["noiembrie","aprilie", "decembrie"]
-		},
-		{
-			"fisier":"prajitura-ciocolata.png",
-			"descriere":"Prăjitură cu ciocolată",
-			
-			"luni":["noiembrie","aprilie", "decembrie"]
-		},
-		{
-			"fisier":"tarta-afine.png",
-			"descriere":"Tartă cu afine"
-		},
-		{
-			"fisier":"tort-trandafiri.png",
-			"descriere":"Tort special"
-		}
+	  {
+		"fisier": "adidasi-in-natura.jpg",
+		"titlu": "Adidași urban-naturali",
+		"descriere": "Adidași în nuanțe calde, perfecți pentru plimbări în natură sau prin oraș.",
+		"luni": ["martie", "aprilie", "mai", "septembrie", "octombrie"]
+	  },
+	  {
+		"fisier": "adidasi-pe-ploaie.jpg",
+		"titlu": "Adidași rezistenți la umezeală",
+		"descriere": "Adidași albi cu detalii negre, ideali pentru zilele ploioase în oraș.",
+		"luni": ["februarie", "martie", "octombrie", "noiembrie"]
+	  },
+	  {
+		"fisier": "bocanci-roz.jpg",
+		"titlu": "Bocanci vișinii cu personalitate",
+		"descriere": "Bocanci colorați în vișiniu intens, pentru un look curajos în zilele reci.",
+		"luni": ["octombrie", "noiembrie", "decembrie", "ianuarie"]
+	  },
+	  {
+		"fisier": "botine-roz.jpg",
+		"titlu": "Botine fucsia statement",
+		"descriere": "Botine moderne cu toc gros, pentru seri speciale și ținute îndrăznețe.",
+		"luni": ["ianuarie", "februarie", "martie", "septembrie", "octombrie", "noiembrie", "decembrie"]
+	  },
+	  {
+		"fisier": "cizme-de-ploaie.jpg",
+		"titlu": "Cizme de ploaie vesele",
+		"descriere": "Cizme roz cu buline galbene, ideale pentru plimbări în zilele ploioase.",
+		"luni": ["februarie", "martie", "aprilie", "mai", "septembrie"]
+	  },
+	  {
+		"fisier": "cizme-inalte-cowboy.jpg",
+		"titlu": "Cizme cowboy elegante",
+		"descriere": "Cizme negre cu broderii albe, perfecte pentru un stil western urban.",
+		"luni": ["septembrie", "octombrie", "noiembrie", "decembrie"]
+	  },
+	  {
+		"fisier": "cizme-inalte.jpg",
+		"titlu": "Cizme elegante din velur",
+		"descriere": "Cizme maro din piele întoarsă, ideale pentru ținute feminine de toamnă.",
+		"luni": ["octombrie", "noiembrie", "decembrie", "ianuarie"]
+	  },
+	  {
+		"fisier": "ghete-in-zapada.jpg",
+		"titlu": "Ghete îmblănite de iarnă",
+		"descriere": "Ghete confortabile cu blăniță, excelente pentru zăpadă și temperaturi scăzute.",
+		"luni": ["decembrie", "ianuarie", "februarie"]
+	  },
+	  {
+		"fisier": "ghete-ploaie.jpg",
+		"titlu": "Ghete casual pentru ploaie",
+		"descriere": "Ghete maro pentru oraș, perfecte pentru vremea instabilă.",
+		"luni": ["martie", "aprilie", "octombrie", "noiembrie"]
+	  },
+	  {
+		"fisier": "pantofi-deosebiti.jpg",
+		"titlu": "Pantofi eleganți cu luciu",
+		"descriere": "Pantofi roz pudrat, ideali pentru evenimente speciale sau ținute romantice.",
+		"luni": ["aprilie", "mai", "iunie", "august", "septembrie"]
+	  },
+	  {
+		"fisier": "pantofi-eleganti-pe-gheata.jpg",
+		"titlu": "Patine elegante pe gheață",
+		"descriere": "Pantofi tip patine pentru iarnă, combinație de stil și funcționalitate.",
+		"luni": ["decembrie", "ianuarie", "februarie"]
+	  },
+	  {
+		"fisier": "pantofi-eleganti.jpg",
+		"titlu": "Pantofi stiletto negri",
+		"descriere": "Pantofi clasici cu toc înalt, potriviți pentru ținute elegante de seară.",
+		"luni": ["aprilie", "mai", "iunie", "septembrie", "octombrie"]
+	  },
+	  {
+		"fisier": "pantofi-ocazie.jpg",
+		"titlu": "Pantofi de catifea bleumarin",
+		"descriere": "Pantofi cu toc mediu și textură de catifea, ideali pentru evenimente speciale.",
+		"luni": ["martie", "aprilie", "mai", "octombrie", "decembrie"]
+	  },
+	  {
+		"fisier": "sandale-deosebite.jpg",
+		"titlu": "Sandale cu perle și fundițe",
+		"descriere": "Sandale elegante pentru ocazii, decorate cu perle și detalii rafinate.",
+		"luni": ["mai", "iunie", "iulie", "august"]
+	  },
+	  {
+		"fisier": "sandale-elegante-in-natura.jpg",
+		"titlu": "Sandale albe în grădină",
+		"descriere": "Sandale simple, feminine, perfecte pentru plimbări în zilele însorite.",
+		"luni": ["iunie", "iulie", "august"]
+	  },
+	  {
+		"fisier": "sandale-elegante-plaja.jpg",
+		"titlu": "Sandale casual pentru plajă",
+		"descriere": "Sandale ușoare de vară, ideale pentru mersul pe nisip sau pe faleză.",
+		"luni": ["iunie", "iulie", "august", "septembrie"]
+	  },
+	  {
+		"fisier": "slapi.jpg",
+		"titlu": "Șlapi de plajă relaxați",
+		"descriere": "Șlapi simpli și comozi, ideali pentru o zi la piscină sau la mare.",
+		"luni": ["iunie", "iulie", "august"]
+	  },
+	  {
+		"fisier": "adidasi-casual.jpg",
+		"titlu": "Adidași roz pentru oraș",
+		"descriere": "Adidași moderni în nuanțe vesele, ideali pentru plimbări în oraș.",
+		"luni": ["aprilie", "mai", "iunie", "septembrie"]
+	  },
+	  {
+		"fisier": "adidasi-copil.jpg",
+		"titlu": "Adidași roz pentru copii",
+		"descriere": "Încălțăminte confortabilă pentru cei mici, cu detalii pufoase pentru extra confort.",
+		"luni": ["martie", "aprilie", "octombrie", "noiembrie"]
+	  },
+	  {
+		"fisier": "adidasi-in-natura.jpg",
+		"titlu": "Adidași roz în natură",
+		"descriere": "Pantofi sport roz deschis, ideali pentru plimbări relaxante în aer liber.",
+		"luni": ["martie", "aprilie", "mai", "septembrie", "octombrie"]
+	  },
+	  {
+		"fisier": "adidasi-new-balance.jpg",
+		"titlu": "Adidași New Balance roz-gri",
+		"descriere": "Pantofi sport moderni, comozi și versatili pentru activități zilnice.",
+		"luni": ["aprilie", "mai", "iunie", "septembrie"]
+	  },
+	  {
+		"fisier": "adidasi-pe-raft.jpg",
+		"titlu": "Adidași statement în vitrină",
+		"descriere": "Adidași în nuanțe puternice de roz, perfecți pentru stiluri urbane îndrăznețe.",
+		"luni": ["aprilie", "mai", "iunie", "august", "septembrie"]
+	  },
+	  {
+		"fisier": "adidasi-roz-casual.jpg",
+		"titlu": "Adidași roz casual",
+		"descriere": "Încălțăminte ușoară, colorată și modernă pentru zilele relaxate.",
+		"luni": ["mai", "iunie", "iulie", "august"]
+	  },
+	  {
+		"fisier": "adidasi-roz.jpg",
+		"titlu": "Adidași albi cu accente roz",
+		"descriere": "Pantofi sport feminini, comozi și stilizați în nuanțe pastel.",
+		"luni": ["aprilie", "mai", "iunie", "septembrie"]
+	  },
+	  {
+		"fisier": "bocanci-sanie.jpg",
+		"titlu": "Bocanci de iarnă și sanie",
+		"descriere": "Bocanci groși pentru zilele geroase și activități de iarnă.",
+		"luni": ["decembrie", "ianuarie", "februarie"]
+	  },
+	  {
+		"fisier": "converse-care-free.jpg",
+		"titlu": "Converse albi de vară",
+		"descriere": "Pantofi casual albi, perfecți pentru vacanțe și plimbări de vară.",
+		"luni": ["mai", "iunie", "iulie", "august"]
+	  },
+	  {
+		"fisier": "ghete-si-ugg.jpg",
+		"titlu": "Ghete și UGG la interior",
+		"descriere": "Mix de ghete confortabile, ideale pentru sezonul rece.",
+		"luni": ["noiembrie", "decembrie", "ianuarie", "februarie"]
+	  },
+	  {
+		"fisier": "ghete-toamna.jpg",
+		"titlu": "Ghete verzi de toamnă",
+		"descriere": "Ghete joase în nuanțe închise, potrivite pentru ținute casual de toamnă.",
+		"luni": ["septembrie", "octombrie", "noiembrie"]
+	  },
+	  {
+		"fisier": "ghete.jpg",
+		"titlu": "Gheată de drumeție",
+		"descriere": "Încălțăminte sportivă, robustă și impermeabilă pentru aventuri în natură.",
+		"luni": ["ianuarie", "februarie", "martie", "aprilie", "octombrie", "noiembrie"]
+	  },
+	  {
+		"fisier": "pantofi-albi-ocazie.jpg",
+		"titlu": "Pantofi de mireasă cu pietre",
+		"descriere": "Pantofi albi, rafinați, decorați cu pietre, perfecți pentru ocazii speciale.",
+		"luni": ["mai", "iunie", "august", "septembrie", "decembrie"]
+	  },
+	  {
+		"fisier": "pantofi-balerini-albi.jpg",
+		"titlu": "Balerini albi de vară",
+		"descriere": "Pantofi comozi și simpli, perfecți pentru plimbări lejere.",
+		"luni": ["mai", "iunie", "iulie", "august"]
+	  },
+	  {
+		"fisier": "pantofi-balet.jpg",
+		"titlu": "Poante de balet",
+		"descriere": "Pantofi profesioniști de balet, ideali pentru grație și precizie.",
+		"luni": ["ianuarie", "februarie", "martie", "decembrie"]
+	  },
+	  {
+		"fisier": "pantofi-costum.jpg",
+		"titlu": "Pantofi casual maro închis",
+		"descriere": "Pantofi comozi, cu design minimalist, ideali pentru ținute casual.",
+		"luni": ["martie", "aprilie", "septembrie", "octombrie"]
+	  },
+	  {
+		"fisier": "pantofi-de-ocazie.jpg",
+		"titlu": "Pantofi aurii cu toc înalt",
+		"descriere": "Pantofi eleganți, perfecți pentru evenimente de gală.",
+		"luni": ["aprilie", "mai", "iunie", "decembrie"]
+	  },
+	  {
+		"fisier": "pantofi-eleganti-parfum.jpg",
+		"titlu": "Sandale elegante de seară",
+		"descriere": "Sandale aurii și roșii, perfecte pentru ținute de ocazie și seri speciale.",
+		"luni": ["mai", "iunie", "iulie", "august"]
+	  },
+	  {
+		"fisier": "pantofi-eleganti-roz.jpg",
+		"titlu": "Pantofi roz pastel cu fundiță",
+		"descriere": "Pantofi feminini, rafinați, potriviți pentru ținute romantice.",
+		"luni": ["aprilie", "mai", "iunie", "septembrie"]
+	  },
+	  {
+		"fisier": "pantofi-ocazie-in-natura.jpg",
+		"titlu": "Pantofi de ocazie în natură",
+		"descriere": "Pantofi albi cu barete fine, ideali pentru nunți în aer liber sau evenimente de vară.",
+		"luni": ["mai", "iunie", "iulie", "august", "septembrie"]
+	  },
+	  {
+		"fisier": "papuci.jpg",
+		"titlu": "Papuci de nuntă pentru domnișoare",
+		"descriere": "Papuci comozi și simpatici, ideali pentru relaxare înainte de o zi specială.",
+		"luni": ["mai", "iunie", "iulie", "august"]
+	  },
+	  {
+		"fisier": "patine.jpg",
+		"titlu": "Patine albe clasice",
+		"descriere": "Patine elegante și comode pentru momente de bucurie pe gheață.",
+		"luni": ["decembrie", "ianuarie", "februarie"]
+	  },
+	  {
+		"fisier": "role.jpg",
+		"titlu": "Role roz pentru vară",
+		"descriere": "Role colorate și vesele, perfecte pentru plimbări recreative în zilele călduroase.",
+		"luni": ["mai", "iunie", "iulie", "august"]
+	  },
+	  {
+		"fisier": "sandale-in-masina-vacanta.jpg",
+		"titlu": "Sandale casual în vacanță",
+		"descriere": "Sandale maro confortabile, perfecte pentru excursii și drumuri lungi de vară.",
+		"luni": ["iunie", "iulie", "august"]
+	  },
+	  {
+		"fisier": "slapi-in-nisip.jpg",
+		"titlu": "Șlapi colorați pe nisip",
+		"descriere": "Șlapi veseli și comozi, perfecți pentru plajă și soare.",
+		"luni": ["iunie", "iulie", "august"]
+	  },
+	  {
+		"fisier": "pantofi-bebelus.jpg",
+		"titlu": "Pantofi bebeluș roz",
+		"descriere": "Pantofi mici de bebeluș, roz, așezați pe un suport de lemn, fundal estompat",
+		"luni": ["martie", "aprilie"],
+		"autor": "monpetitchouphotography",
+		"license": "CC-BY 2.0",
+		"license_url": "https://creativecommons.org/licenses/by/2.0/",
+		"sursa_url": "https://www.flickr.com/photos/151722166@N08/34903515270"
+	  }	  
 	]
-}
+} 

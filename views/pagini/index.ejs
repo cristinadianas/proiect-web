@@ -5,6 +5,7 @@
         <meta name="keywords" content="pantofi, AdoraStep, magazin de pantofi, magazin online, pantofi cu toc, tocuri, adidași, cizme, sneakers, încălțăminte, transport curier, București, Vans, Adidas, Puma, Reebok, moda, stil, confort, eleganta, tendinte, încălțăminte casual, încălțăminte formala, design, calitate, reduceri, promotii, pantofi sport, pantofi de lux, pantofi pentru femei, pantofi de dama, pantofi cu sireturi, pantofi din piele, pantofi din catifea, sandale, pantofi de iarna, pantofi de vara, pantofi de birou, pantofi pentru ocazii speciale">
         <meta name="description" content="AdoraStep: Magazin de Pantofi de Damă, cu o gamă variată de produse: pantofi cu toc, sneakers, cizme, încălțăminte casual și formală. Transport la Domiciliu">
         <%- include("../fragmente/head.ejs") %>
+        <link rel="stylesheet" type="text/css" href="/resurse/css/galerie.css">
     </head>
     <body>
         <%- include("../fragmente/header.ejs") %>
@@ -12,16 +13,16 @@
             <div id="grid-pagina">
 
                 <section id="promotii">
-                    <h2>Promoții</h2>
-
-                    <p>Ip: <%- locals.Ip %></p>
+                    <div class="marquee-wrapper">
+                        <h2 class="text-animat">Descoperă noile promoții! Stocurile sunt limitate!</h2>
+                    </div>
                     
                     <p>Descoperiți ofertele noastre de <b>reduceri</b> și <b>promoții</b> la <b>pantofi sport</b> și <b>pantofi de lux</b>. Nu ratați șansa de a cumpăra <b>pantofi din piele</b> sau <b>pantofi din catifea</b> la prețuri avantajoase!</p>
                     
                     <p><b>Promoțiile noastre</b> sunt gândite nu doar ca o simplă reducere de preț, ci ca o modalitate de a vă oferi acces la ultimele <b>tendințe</b> în materie de <b>design și confort</b>. Fiecare ofertă este concepută pentru a satisface nevoile clienților noștri, aducând inovație și valoare adăugată fiecărei achiziții.</p>
                                     
                     <p>Clienții noștri beneficiază de consultanță dedicată, astfel încât fiecare achiziție să fie o experiență plăcută și informată. Fie că sunteți în căutarea unui model clasic sau a unei inovații moderne, promoțiile noastre vă ajută să găsiți întotdeauna cea mai bună opțiune.</p>
-                    
+
                     <section id="promotii-zilnice">
                         <h3>Super Promoții de Azi</h3>
                         <p>Profită de discounturile pe care le-am pregătit special pentru tine. <strong>Reducerile sunt valabile pentru o perioadă limitată</strong> și se aplică la o gamă variată de articole: de la încălțăminte cool pentru oraș și echipamente sport de performanță, până la piese de lux care adaugă rafinament garderobei tale.</p>
@@ -69,16 +70,7 @@
                     </details>
                 </section>
 
-                <section id="anunturi">
-                    <h2>Anunțuri</h2>
-                    <p><time datetime="2025-03-01">1 martie 2025</time>: În luna femeii, am dat startul unor super <b>promoții</b>! <a href="#promotii">Click aici</a> pentru acces rapid la sectiunea de <b>promoții</b>!</p>
-                    <p><time datetime="2025-01-01">25 decembrie 2024</time>: Un an nou fericit și <b>stilat</b>!</p>
-                    <p><time datetime="2024-12-25">25 decembrie 2024</time>: Crăciun fericit plin de cadouri <b>chic</b>!</p>
-                    <p><time datetime="2024-12-15">15 decembrie 2024</time>: Magazinul va fi închis cu ocazia sărbătorilor pe <time datetime="2024-12-25">25 decembrie</time>, <time datetime="2024-12-26">26 decembrie</time> și <time datetime="2025-01-01">1 ianuarie</time>.</p>
-                    <p><time datetime="2024-10-16">16 octombrie 2024</time>: Astăzi se deschide magazinul AdoraStep! Vă așteptăm cu drag atât online, cât și la sediul nostru!</p>
-                </section>
-
-                <section id="faq">
+                <section id="faq" class="theme-light p-4">
                     <h2>Întrebări Frecvente</h2>
                     <details>
                         <summary>Care este politica de retur?</summary>
@@ -95,7 +87,16 @@
                     <br>
                 </section>
 
-                <section id="program">
+                <section id="anunturi" class="theme-dark p-4">
+                    <h2>Anunțuri</h2>
+                    <p><time datetime="2025-03-01">1 martie 2025</time>: În luna femeii, am dat startul unor super <b>promoții</b>! <a href="#promotii">Click aici</a> pentru acces rapid la sectiunea de <b>promoții</b>!</p>
+                    <p><time datetime="2025-01-01">25 decembrie 2024</time>: Un an nou fericit și <b>stilat</b>!</p>
+                    <p><time datetime="2024-12-25">25 decembrie 2024</time>: Crăciun fericit plin de cadouri <b>chic</b>!</p>
+                    <p><time datetime="2024-12-15">15 decembrie 2024</time>: Magazinul va fi închis cu ocazia sărbătorilor pe <time datetime="2024-12-25">25 decembrie</time>, <time datetime="2024-12-26">26 decembrie</time> și <time datetime="2025-01-01">1 ianuarie</time>.</p>
+                    <p><time datetime="2024-10-16">16 octombrie 2024</time>: Astăzi se deschide magazinul AdoraStep! Vă așteptăm cu drag atât online, cât și la sediul nostru!</p>
+                </section>
+
+                <section id="program" class="theme-light p-4">
                     <h2>Program</h2>
                     <p>Vă așteptăm cu drag în magazinul nostru, unde veți găsi produse de calitate și oferte speciale, într-un ambient plăcut și prietenos! Echipa noastră este pregătită să vă ajute cu orice aveți nevoie. </p>
                     <p>Consultați programul nostru și vizitați-ne când vă este mai convenabil:</p>
@@ -280,6 +281,8 @@
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                     </div>
                 </article>
+
+                <%- include("../fragmente/galerie-statica.ejs") %>
             </div>
         </main>
         <%- include("../fragmente/footer.ejs") %>

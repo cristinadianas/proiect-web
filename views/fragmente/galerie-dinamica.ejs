@@ -1,0 +1,18 @@
+<section id="galerie-dinamica" class="galerie-<%= imaginiD.length %>">
+    <div class="text-reflection-container">
+        <h1 class="text-reflection-text">Galerie Animata</h1>
+        <div class="text-reflection-mirror">Galerie Animata</div>
+    </div>
+    <br><br><br><br>
+    <div class="slides">
+        <% imaginiD.forEach(img => { %>
+            <figure>
+                <picture>
+                <img src="<%- img.fisier %>" title="<%- img.descriere %>" alt="<%- (img.alt !== undefined ? img.alt : img.titlu) %>">
+                </picture>
+                <figcaption><%- img.descriere %></figcaption>
+            </figure>
+        <% }) %>
+    </div>
+    <br>
+</section>

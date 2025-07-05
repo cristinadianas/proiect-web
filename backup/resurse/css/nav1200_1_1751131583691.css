@@ -1,0 +1,9 @@
+ul.meniu {
+  font-size: 0.9rem;
+}
+ul.meniu > li:first-child::after {
+  display: none;
+}
+ul.meniu li {
+  width: 135px;
+}
