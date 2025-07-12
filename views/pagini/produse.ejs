@@ -1,87 +1,249 @@
 <!DOCTYPE html>
 <html  lang="ro">
+
     <head>
-        <meta name="description" content="Cofetaria Dulcelind ofera prajituri, torturi, produse de patiserie cu optiunea de achizitie online si livrare prin curier.">
-        <meta name="keywords" content="cofetarie, Dulcelind, prajituri, torturi, dulce, pateuri, produse">
-        <link rel="stylesheet" href="/resurse/css/produse.css" type="text/css" />
-        <title>Cofetăria Dulcelind - home</title>
-        <%- include("../fragmente/head") %>     
+        <title>Magazin de Pantofi AdoraStep</title>
+        <meta name="keywords" content="pantofi, AdoraStep, magazin de pantofi, magazin online, pantofi cu toc, tocuri, adidași, cizme, sneakers, încălțăminte, transport curier, București, Vans, Adidas, Puma, Reebok, moda, stil, confort, eleganta, tendinte, încălțăminte casual, încălțăminte formala, design, calitate, reduceri, promotii, pantofi sport, pantofi de lux, pantofi pentru femei, pantofi de dama, pantofi cu sireturi, pantofi din piele, pantofi din catifea, sandale, pantofi de iarna, pantofi de vara, pantofi de birou, pantofi pentru ocazii speciale">
+        <meta name="description" content="AdoraStep: Magazin de Pantofi de Damă, cu o gamă variată de produse: pantofi cu toc, sneakers, cizme, încălțăminte casual și formală. Transport la Domiciliu">
+        <%- include("../fragmente/head.ejs") %>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+        <link rel="stylesheet" type="text/css" href="/resurse/css/produse.css">
         <script type="text/javascript" src=/resurse/js/produse.js></script>
-        <script type="text/javascript" src=/resurse/js/produse-cos.js></script>
-
     </head>
+
     <body>
-    <header class="c1" id="titlu" >
-        <h1 style="color:red;">Cofetaria <span>Dulcelind</span></h1>
-        <%- include("../fragmente/header") %>
-    </header>
+        <%- include("../fragmente/header.ejs");  %> 
 
-    <main>
-        <label> Nume: <input type="text" id="inp-nume"></label>
-        <!--<label> Maxim calorii: <input type="number" id="inp-calorii" value="10000"></label>-->
-        <div> Calorii:<!-- trebuie sa aiba acelasi name ca sa formeze un grup -->
-            <p><label>Dietetic (calorii &lt; 350)
-                <input id="i_rad1"  name="gr_rad" value="0:350" type="radio"/>
-            </label></p>
-            <p><label>Mediu (350 &le; calorii &lt; 700)
-                <input id="i_rad2"  name="gr_rad" value="350:700" type="radio"/>
-            </label>
-            <p><label>Ridicat caloric (700 &le; calorii)
-                <input id="i_rad3" name="gr_rad" value="700:1000000000" type="radio"/>
-            </label>
-            <p><label>Toate
-                <input id="i_rad4" checked name="gr_rad" value="toate" type="radio"/>
-            </label>
-        </div>
+        <main>
+            <div id="container-produse">
 
+                <section id="toate-produsele">
+                    <h2>Produse</h2>
 
-        <label> Pret minim: <input type="range" id="inp-pret" value="0" min="0"  max="70"> <span id="infoRange">(0)</span></label>
-        <label>Select simplu:
-            <select id="inp-categorie">
-                <option id="sel-toate" selected value="toate">toate</option>
-                <% for (let opt of locals.optiuni) { %>
-                    <option value="<%- opt.unnest %>"><%- opt.unnest %> </option>
-                <% } %>
-            </select>
-        </label>
+                    <label class="form-label"> Nume: <input type="text" id="inp-nume"></label><br>
 
-        <p>
-        <button id="filtrare">Filtreaza</button> 
+                    <label>Descrierea conține: <textarea id="inp-descriere"></textarea></label><br>                
 
-        <button id="resetare">Reseteaza</button><br/>
-        <button id="sortCrescNume">Sorteaza crescator dupa pret si nume</button>
-        <button id="sortDescrescNume">Sorteaza descrescator dupa pret si nume</button>
-        
-        </p>
-      
-        <p id="p-suma">Apăsați Alt+"c" pentru suma preturilor produselor afișate. </p>
-  
-        <section id="produse">
+                    <label> Pret minim: <%= pretMin %><input type="range" id="inp-pret" value="0" min="<%= pretMin %>" max="<%= pretMax %>"><%= pretMax %> <span id="infoRange">(80)</span></label> <br>
 
-            <h2>Produse</h2>
-            <div class="grid-produse">
-                <% for( let prod of locals.produse) { %>
-                    <article class="produs" >
-                        <h3 class="nume">Nume: <a href="/produs/<%-prod.id %>" ><span class="val-nume"><%- prod.nume%></span></a></h3>
-                        <div class="info-prod">
-                            <p class="pret">Pret: <span class="val-pret"><%- prod.pret%></span></p>
-                            <p class="calorii">Calorii: <span class="val-calorii"><%- prod.calorii%></span></p>
-                            <p class="gramaj">Gramaj: <span class="val-gramaj"><%- prod.gramaj%></span></p>
-                        </div>
-                        <p class="categorie">Categorie:<span class="val-categorie"><%- prod.categorie%></span></p>
-                        <figure>
-                            <a href="/produs/<%-prod.id %>" ><img src="/resurse/imagini/produse/<%- prod.imagine %>" style="width:50%;height:auto;" alt="[imagine <%- prod.nume %>]" /></a>
-                        </figure>
-                        <label class="selecteaza-cos">
-                            Selectează:<br/>
-                            <input type="checkbox" class="select-cos" value="<%-prod.id %>" autocomplete="off">
+                    <div> Marime toc: 
+                        <p><label>Fara toc
+                            <input id="i_rad1"  name="gr_rad" value="0:0" type="radio"/>
+                        </label></p>
+                        <p><label>Cu toc mic (&lt; 5 cm)
+                            <input id="i_rad2"  name="gr_rad" value="1:4" type="radio"/>
                         </label>
-                    </article>
-                <% }%>
-            </div>
-        </section>
-    </main>
+                        <p><label>Cu toc inalt (&ge; 5 cm, maxim <%= maxToc %> cm)
+                            <input id="i_rad3" name="gr_rad" value="5:1000000000" type="radio"/>
+                        </label>
+                        <p><label>Toate
+                            <input id="i_rad4" checked name="gr_rad" value="toate" type="radio"/>
+                        </label>
+                    </div>
 
-    <%- include("../fragmente/footer") %>
+                    <label>Culori:  
+                        <select id="inp-culori" multiple>
+                            <% for (let opt of locals.culori) { %>
+                                <option value="<%- opt.unnest %>"><%- opt.unnest %> </option>
+                            <% } %>
+                        </select>
+                    </label><br>
+
+                    <label>Material:
+                        <input list="lista-materiale" id="inp-material">
+                        <datalist id="lista-materiale">
+                          <% for (let m of locals.materiale) { %>
+                            <option value="<%= m %>">
+                          <% } %>
+                        </datalist>
+                    </label><br>
+
+                    <details>
+                        <summary>Ocazii recomandate: </summary>  
+                        <p>
+                            <label>
+                              <input type="checkbox" id="toggle-all-ocazii" checked>
+                              Selectează/Deselectează toate ocaziile
+                            </label>
+                        </p>                                              
+                        <% function getCategorie(ocazie) {
+                            const o = ocazie.toLowerCase();
+                            if (["vara", "iarna", "toamna", "primavara", "zile reci", "zile ploioase", "vremea instabila"].some(s => o.includes(s))) return "anotimp";
+                            if (["nunta", "petrecere", "eveniment", "burlacite", "spectacol", "gala", "cocktail", "seri speciale", "evenimente elegante"].some(s => o.includes(s))) return "eveniment";
+                            return "activitate";
+                        } %>
+                      
+                        <% const categorii = { anotimp: [], eveniment: [], activitate: [] }; %>
+                        <% for (let o of locals.ocazii) { categorii[getCategorie(o)].push(o); } %>
+                      
+                        <% for (let cat in categorii) { %>
+                          <fieldset>
+                            <legend style="text-transform: capitalize;"><%= cat %></legend>
+                            <% for (let o of categorii[cat]) { %>
+                              <label class="eticheta-ocazie" style="display:inline-block; width: 200px">
+                                <input type="checkbox" name="ocazii" value="<%= o %>" checked> <%= o %>
+                              </label>
+                            <% } %>
+                          </fieldset>
+                        <% } %>
+                    </details>                      
+                    
+                    <label>Tip: 
+                        <select id="inp-tip">
+                            <option id="sel-toate" selected value="toate">toate</option>
+                            <% for (let opt of locals.optiuni) { %>
+                                <option value="<%- opt.unnest %>"><%- opt.unnest %> </option>
+                            <% } %>
+                        </select>
+                    </label><br>
+
+                    <button id="resetare">
+                        <span>Resetează</span>
+                    </button>
+
+                    <div>
+                        <label for="cheie1">Primul criteriu sortare:</label>
+                        <select id="cheie1">
+                            <option value="pret">pret</option>
+                            <option value="nume">nume</option>
+                            <option value="nr_ocazii">număr ocazii</option>
+                            <option value="inaltime_toc">inăltime toc</option>
+                        </select>
+                    
+                        <label for="cheie2">Al doilea criteriu sortare:</label>
+                        <select id="cheie2">
+                            <option value="pret">pret</option>
+                            <option value="nume">nume</option>
+                            <option value="nr_ocazii">număr ocazii</option>
+                            <option value="inaltime_toc">inăltime toc</option>
+                        </select>
+                    
+                        <label for="directie">Direcție sortare:</label>
+                        <select id="directie">
+                            <option value="crescator">Crescător</option>
+                            <option value="descrescator">Descrescător</option>
+                        </select>
+                    
+                        <button id="btn-sortare-dinamica">
+                            <span>Sortează</span>
+                        </button>                          
+                    </div>
+                    
+                
+                    <p id="nr-produse-afisate">Produse afișate: <span id="val-nr-produse">0</span></p>
+                    <p id="p-suma">Apăsați Alt+"c" pentru suma preturilor produselor afișate. </p>
+            
+                    <section id="produse">
+                        <p id="mesaj-niciun-produs" style="display:none; font-weight:bold; color:red;">
+                            Nu există produse conform filtrării curente.
+                        </p>                        
+                        <div class="grid-produse">                     
+                            <% for (let prod of locals.produse) { %>
+                                <article class="produs theme-light 
+                                        <%= iduriIeftine.includes(Number(prod.id)) ? 'ieftin' : '' %> 
+                                        <%= iduriNoi.includes(Number(prod.id)) ? 'produs-nou' : '' %>"
+                                        data-id="<%- prod.id %>">
+
+                                    <div class="butoane-actiuni">
+                                        <button class="btn-pastreaza" title="Păstrează produsul la filtrare">
+                                            <i class="fa fa-thumbtack"></i>
+                                        </button>
+                                        <button class="btn-ascunde" title="Ascunde temporar produsul">
+                                            <i class="fa fa-eye-slash"></i>
+                                        </button>
+                                        <button class="btn-blocheaza" title="Șterge produsul pentru sesiunea curentă">
+                                            <i class="fa fa-ban"></i>
+                                        </button>                                 
+                                    </div>  
+                                    
+                                    <div class="buton-compara">
+                                        <button class="btn-compara" title="Compară acest produs">
+                                            <i class="fa fa-balance-scale"></i>
+                                        </button>
+                                    </div>
+                                    
+
+                                    <h3><a href="/produs/<%- prod.id %>" class="val-nume"><%- prod.nume %></a></h3>
+                            
+                                    <div class="info-container">
+                                        <div class="tabel-caracteristici">
+                                            <table class="caracteristici">
+                                                <tr>
+                                                    <th>Preț</th>
+                                                    <th>Culoare</th>
+                                                    <th>Ocazii recomandate</th>
+                                                    <th>Data adăugare</th>
+                                                    <th>Ediție limitată</th>
+                                                </tr>
+                                                <tr>
+                                                    <td class="val-pret"><%- prod.pret %></td>
+                                                    <td><%- prod.culoare %></td>
+                                                    <td class="val-ocazii"><%- prod.ocazii_recomandate.join(", ") %></td>
+                                                    <td>
+                                                        <%
+                                                            const zile = ["Duminică", "Luni", "Marți", "Miercuri", "Joi", "Vineri", "Sâmbătă"];
+                                                            const luni = ["Ianuarie", "Februarie", "Martie", "Aprilie", "Mai", "Iunie",
+                                                                          "Iulie", "August", "Septembrie", "Octombrie", "Noiembrie", "Decembrie"];
+                                                            const data = new Date(prod.data_adaugare);
+                                                            const zi = data.getDate();
+                                                            const ziSapt = zile[data.getDay()];
+                                                            const luna = luni[data.getMonth()];
+                                                            const an = data.getFullYear();
+                                                            const dataAfisata = `${zi}(${ziSapt})/${luna}/${an}`;
+                                                            const dataISO = data.toISOString();
+                                                        %>
+                                                        <time datetime="<%= dataISO %>" class="val-data_adaugare"><%= dataAfisata %></time>
+                                                    </td>
+                                                    <td class="val-editie_limitata"><%- prod.editie_limitata ? "da" : "nu" %></td>
+                                                </tr>
+                                            </table>
+                                            <p class="val-inaltime_toc" style="display:none;"><%- prod.inaltime_toc %></p>
+                                            <p class="val-tip" style="display:none;"><%- prod.tip %></p>
+                                            <p class="val-culoare" style="display:none;"><%- prod.culoare %></p>
+                                            <p class="val-material" style="display:none;"><%- prod.material %></p>
+                                            <p class="val-marimi_disponibile" style="display:none;"><%- prod.marimi_disponibile.join(",") %></p>
+                                            <p class="val-tip_toc" style="display:none;"><%- prod.tip_toc %></p>
+                                            <p class="val-impermeabili" style="display:none;"><%- prod.impermeabili ? 'Da' : 'Nu' %></p>
+
+                                        </div>
+                            
+                                        <figure class="figura-produs">
+                                            <a href="/produs/<%- prod.id %>">
+                                                <% 
+                                                const imagini = (prod.imagine || "").split(",").map(f => f.trim()).filter(f => f);
+                                                const primaImagine = imagini.length ? imagini[0] : "imagine-default.jpg";
+                                                %>
+                                                <img src="/resurse/imagini/produse/<%- primaImagine %>" 
+                                                     alt="imagine <%- prod.nume %>" 
+                                                     class="imagine-produs" />
+                                            </a>
+                                        </figure>
+                                    </div>
+                            
+                                    <% if (prod.descriere) { %>
+                                        <p class="descriere val-descriere"><%- prod.descriere %></p>
+                                    <% } %>
+
+                                    <p class="categorie val-categorie">Categorie: <%- prod.categorie %></p>
+                            
+                                    <label class="selecteaza-cos">
+                                        Selectează:<br />
+                                        <input type="checkbox" class="select-cos" value="<%- prod.id %>" autocomplete="off">
+                                    </label>
+                                </article>
+                            <% } %>                    
+                        </div>
+                        <div id="paginare" style="text-align:center; margin-top: 1em;">
+                        </div>       
+                    </section>
+                </section>
+
+            </div>
+        </main>
+
+        <div id="container-comparare" style="display:none; position:fixed; top:10px; right:10px; z-index:1000;">
+        </div>
+        
+        <%- include("../fragmente/footer") %>
     </body>
 </html>

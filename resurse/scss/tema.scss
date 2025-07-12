@@ -1,0 +1,86 @@
+body.light main > div{
+    > section,
+    > article,
+    > figure {
+        background-color: var(--pink-lightest) !important;
+        color: var(--pink-darkest) !important;
+        outline: 1px solid var(--pink-medium) !important;
+        box-shadow: 0 4px 10px var(--pink-darkest) !important;
+        border: 1px solid var(--pink-medium) !important;
+        border-radius: 2rem !important;
+
+        a {
+        color: var(--pink-dark) !important;
+        text-decoration: underline;
+        }
+
+        h1 {
+        font-family: 'Lobster', cursive !important;
+        font-size: 2.5rem !important;
+        color: var(--pink-accent) !important;
+        margin: 0 !important;
+        }
+        h2 {
+        font-family: 'Lobster', cursive !important;
+        font-size: 2rem !important;
+        color: var(--pink-accent) !important;
+        }
+        h3 {
+        font-family: 'Lobster', cursive !important;
+        font-size: 1.2rem !important;
+        color: var(--pink-accent) !important;
+        }
+
+        .btn {
+        background-color: var(--pink-dark) !important;
+        color: var(--pink-lightest) !important;
+        border-color: var(--pink-medium) !important;
+        box-shadow: 0 4px 10px var(--pink-darkest) !important;
+        border-radius: 2rem !important;
+        }
+    }
+}
+  
+body.dark main > div{
+    > section,
+    > article,
+    > figure {
+        background-color: var(--pink-dark) !important;
+        color: var(--pink-lightest) !important;
+        outline: 1px solid var(--pink-darkest) !important;
+        box-shadow: 0 4px 10px black !important;
+        border: 1px solid var(--pink-darkest) !important;
+        border-radius: 2rem !important;
+
+        a {
+        color: var(--pink-darkest) !important;
+        text-decoration: underline;
+        }
+
+        h1 {
+        font-family: 'Lobster', cursive !important;
+        font-size: 2.5rem !important;
+        color: var(--pink-accent) !important;
+        margin: 0 !important;
+        }
+        h2 {
+        font-family: 'Lobster', cursive !important;
+        font-size: 2rem !important;
+        color: var(--pink-accent) !important;
+        }
+        h3 {
+        font-family: 'Lobster', cursive !important;
+        font-size: 1.2rem !important;
+        color: var(--pink-accent) !important;
+        }
+
+        .btn {
+        background-color: var(--pink-darkest) !important;
+        color: var(--pink-dark) !important;
+        border-color: var(--pink-lightest) !important;
+        box-shadow: 0 4px 10px black !important;
+        border-radius: 2rem !important;
+        }
+    }
+}
+  

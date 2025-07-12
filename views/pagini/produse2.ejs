@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html  lang="ro">
+
+    <head>
+        <title>Magazin de Pantofi AdoraStep</title>
+        <meta name="keywords" content="pantofi, AdoraStep, magazin de pantofi, magazin online, pantofi cu toc, tocuri, adidași, cizme, sneakers, încălțăminte, transport curier, București, Vans, Adidas, Puma, Reebok, moda, stil, confort, eleganta, tendinte, încălțăminte casual, încălțăminte formala, design, calitate, reduceri, promotii, pantofi sport, pantofi de lux, pantofi pentru femei, pantofi de dama, pantofi cu sireturi, pantofi din piele, pantofi din catifea, sandale, pantofi de iarna, pantofi de vara, pantofi de birou, pantofi pentru ocazii speciale">
+        <meta name="description" content="AdoraStep: Magazin de Pantofi de Damă, cu o gamă variată de produse: pantofi cu toc, sneakers, cizme, încălțăminte casual și formală. Transport la Domiciliu">
+        <%- include("../fragmente/head.ejs") %>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+        <link rel="stylesheet" type="text/css" href="/resurse/css/produse.css">
+        <script type="text/javascript" src="/resurse/js/produse2.js" defer></script>
+    </head>
+
+    <body>
+        <%- include("../fragmente/header.ejs");  %> 
+
+        <main>
+            <div id="container-produse">
+
+                <section id="toate-produsele">
+                    <h2>Produse</h2>
+
+                    <label class="form-label"> Nume: <input type="text" id="inp-nume"></label><br>
+
+                    <label>Descrierea conține: <textarea id="inp-descriere"></textarea></label><br>                
+
+                    <label> Pret minim: <%= pretMin %><input type="range" id="inp-pret" value="0" min="<%= pretMin %>" max="<%= pretMax %>"><%= pretMax %> <span id="infoRange">(80)</span></label> <br>
+
+                    <div> Marime toc: 
+                        <p><label>Fara toc
+                            <input id="i_rad1"  name="gr_rad" value="0:0" type="radio"/>
+                        </label></p>
+                        <p><label>Cu toc mic (&lt; 5 cm)
+                            <input id="i_rad2"  name="gr_rad" value="1:4" type="radio"/>
+                        </label>
+                        <p><label>Cu toc inalt (&ge; 5 cm, maxim <%= maxToc %> cm)
+                            <input id="i_rad3" name="gr_rad" value="5:1000000000" type="radio"/>
+                        </label>
+                        <p><label>Toate
+                            <input id="i_rad4" checked name="gr_rad" value="toate" type="radio"/>
+                        </label>
+                    </div>
+
+                    <label>Culori:  
+                        <select id="inp-culori" multiple>
+                            <% for (let opt of locals.culori) { %>
+                                <option value="<%- opt.unnest %>"><%- opt.unnest %> </option>
+                            <% } %>
+                        </select>
+                    </label><br>
+
+                    <label>Material:
+                        <input list="lista-materiale" id="inp-material">
+                        <datalist id="lista-materiale">
+                          <% for (let m of locals.materiale) { %>
+                            <option value="<%= m %>">
+                          <% } %>
+                        </datalist>
+                    </label><br>
+
+                    <details>
+                        <summary>Ocazii recomandate: </summary>  
+                        <p>
+                            <label>
+                              <input type="checkbox" id="toggle-all-ocazii" checked>
+                              Selectează/Deselectează toate ocaziile
+                            </label>
+                        </p>                                              
+                        <% function getCategorie(ocazie) {
+                            const o = ocazie.toLowerCase();
+                            if (["vara", "iarna", "toamna", "primavara", "zile reci", "zile ploioase", "vremea instabila"].some(s => o.includes(s))) return "anotimp";
+                            if (["nunta", "petrecere", "eveniment", "burlacite", "spectacol", "gala", "cocktail", "seri speciale", "evenimente elegante"].some(s => o.includes(s))) return "eveniment";
+                            return "activitate";
+                        } %>
+                      
+                        <% const categorii = { anotimp: [], eveniment: [], activitate: [] }; %>
+                        <% for (let o of locals.ocazii) { categorii[getCategorie(o)].push(o); } %>
+                      
+                        <% for (let cat in categorii) { %>
+                          <fieldset>
+                            <legend style="text-transform: capitalize;"><%= cat %></legend>
+                            <% for (let o of categorii[cat]) { %>
+                              <label class="eticheta-ocazie" style="display:inline-block; width: 200px">
+                                <input type="checkbox" name="ocazii" value="<%= o %>" checked> <%= o %>
+                              </label>
+                            <% } %>
+                          </fieldset>
+                        <% } %>
+                    </details>                      
+                    
+                    <label>Tip: 
+                        <select id="inp-tip">
+                            <option id="sel-toate" selected value="toate">toate</option>
+                            <% for (let opt of locals.optiuni) { %>
+                                <option value="<%- opt.unnest %>"><%- opt.unnest %> </option>
+                            <% } %>
+                        </select>
+                    </label><br>
+
+                    <button id="resetare">
+                        <span>Resetează</span>
+                    </button>
+
+                    <div>
+                        <label for="cheie1">Primul criteriu sortare:</label>
+                        <select id="cheie1">
+                            <option value="pret">pret</option>
+                            <option value="nume">nume</option>
+                            <option value="nr_ocazii">număr ocazii</option>
+                            <option value="inaltime_toc">inăltime toc</option>
+                        </select>
+                    
+                        <label for="cheie2">Al doilea criteriu sortare:</label>
+                        <select id="cheie2">
+                            <option value="pret">pret</option>
+                            <option value="nume">nume</option>
+                            <option value="nr_ocazii">număr ocazii</option>
+                            <option value="inaltime_toc">inăltime toc</option>
+                        </select>
+                    
+                        <label for="directie">Direcție sortare:</label>
+                        <select id="directie">
+                            <option value="crescator">Crescător</option>
+                            <option value="descrescator">Descrescător</option>
+                        </select>
+                    
+                        <button id="btn-sortare-dinamica">
+                            <span>Sortează</span>
+                        </button>                          
+                    </div>
+                    
+                
+                    <p id="nr-produse-afisate">Produse afișate: <span id="val-nr-produse">0</span></p>
+                    <p id="p-suma">Apăsați Alt+"c" pentru suma preturilor produselor afișate. </p>
+            
+                    <section id="produse">
+                        <p id="mesaj-niciun-produs" style="display:none; font-weight:bold; color:red;">
+                            Nu există produse conform filtrării curente.
+                        </p>                        
+                        <div class="grid-produse">                    
+                        </div>     
+                    </section>
+                </section>
+
+            </div>
+        </main>
+
+        <div id="container-comparare" style="display:none; position:fixed; top:10px; right:10px; z-index:1000;">
+        </div>
+        
+        <%- include("../fragmente/footer") %>
+    </body>
+</html>

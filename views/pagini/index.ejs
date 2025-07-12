@@ -118,7 +118,7 @@
                             </tbody>
                         </table>
                     </div>
-                  </section>
+                </section>      
 
                 <section id="produse">
                     <h2>Produse</h2>
@@ -220,6 +220,23 @@
                             </table>
                         </div>
                     </details>
+
+                    <br>
+
+                    <% const doarProduseNoi = produseNoi.filter(p => p.esteNou); %>
+
+                    <% if (doarProduseNoi.length > 0) { %>
+                      <section id="produse-noi">
+                        <h3>Produse noi</h2>
+                            <p> Descopera noile produse AdoraStep! Ia-le de pe raft cat sunt calde!</p>
+                          <% for (let p of doarProduseNoi) { %>
+                              <a href="/produs/<%= p.id %>">
+                                <%= p.nume %>
+                              </a><br>
+                          <% } %>
+                      </section>
+                    <% } %>
+
                 </section>
 
                 <figure id="fig1">

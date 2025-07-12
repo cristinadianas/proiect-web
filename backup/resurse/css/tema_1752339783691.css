@@ -1,0 +1,95 @@
+body.light main > div > section,
+body.light main > div > article,
+body.light main > div > figure {
+  background-color: var(--pink-lightest) !important;
+  color: var(--pink-darkest) !important;
+  outline: 1px solid var(--pink-medium) !important;
+  box-shadow: 0 4px 10px var(--pink-darkest) !important;
+  border: 1px solid var(--pink-medium) !important;
+  border-radius: 2rem !important;
+}
+body.light main > div > section a,
+body.light main > div > article a,
+body.light main > div > figure a {
+  color: var(--pink-dark) !important;
+  text-decoration: underline;
+}
+body.light main > div > section h1,
+body.light main > div > article h1,
+body.light main > div > figure h1 {
+  font-family: "Lobster", cursive !important;
+  font-size: 2.5rem !important;
+  color: var(--pink-accent) !important;
+  margin: 0 !important;
+}
+body.light main > div > section h2,
+body.light main > div > article h2,
+body.light main > div > figure h2 {
+  font-family: "Lobster", cursive !important;
+  font-size: 2rem !important;
+  color: var(--pink-accent) !important;
+}
+body.light main > div > section h3,
+body.light main > div > article h3,
+body.light main > div > figure h3 {
+  font-family: "Lobster", cursive !important;
+  font-size: 1.2rem !important;
+  color: var(--pink-accent) !important;
+}
+body.light main > div > section .btn,
+body.light main > div > article .btn,
+body.light main > div > figure .btn {
+  background-color: var(--pink-dark) !important;
+  color: var(--pink-lightest) !important;
+  border-color: var(--pink-medium) !important;
+  box-shadow: 0 4px 10px var(--pink-darkest) !important;
+  border-radius: 2rem !important;
+}
+
+body.dark main > div > section,
+body.dark main > div > article,
+body.dark main > div > figure {
+  background-color: var(--pink-dark) !important;
+  color: var(--pink-lightest) !important;
+  outline: 1px solid var(--pink-darkest) !important;
+  box-shadow: 0 4px 10px black !important;
+  border: 1px solid var(--pink-darkest) !important;
+  border-radius: 2rem !important;
+}
+body.dark main > div > section a,
+body.dark main > div > article a,
+body.dark main > div > figure a {
+  color: var(--pink-darkest) !important;
+  text-decoration: underline;
+}
+body.dark main > div > section h1,
+body.dark main > div > article h1,
+body.dark main > div > figure h1 {
+  font-family: "Lobster", cursive !important;
+  font-size: 2.5rem !important;
+  color: var(--pink-accent) !important;
+  margin: 0 !important;
+}
+body.dark main > div > section h2,
+body.dark main > div > article h2,
+body.dark main > div > figure h2 {
+  font-family: "Lobster", cursive !important;
+  font-size: 2rem !important;
+  color: var(--pink-accent) !important;
+}
+body.dark main > div > section h3,
+body.dark main > div > article h3,
+body.dark main > div > figure h3 {
+  font-family: "Lobster", cursive !important;
+  font-size: 1.2rem !important;
+  color: var(--pink-accent) !important;
+}
+body.dark main > div > section .btn,
+body.dark main > div > article .btn,
+body.dark main > div > figure .btn {
+  background-color: var(--pink-darkest) !important;
+  color: var(--pink-dark) !important;
+  border-color: var(--pink-lightest) !important;
+  box-shadow: 0 4px 10px black !important;
+  border-radius: 2rem !important;
+}

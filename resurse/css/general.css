@@ -88,6 +88,12 @@ main h2 {
     color: var(--pink-darkest);
 }
 
+h2 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 4rem;
+    color: var(--pink-darkest);
+}
+
 main h3 {
     font-family: 'Dancing Script', cursive;
     font-size: 2rem;
@@ -320,6 +326,41 @@ figcaption {
     color: var(--pink-darkest);
 }
 
+/* TEMA */
+
+#schimba_tema {
+    position: fixed;
+    top: 1em;
+    left: 1em;
+    width: 4rem;
+    height: 4rem;
+    background: var(--pink-light);
+    border: 2px solid var(--pink-medium);
+    border-bottom-right-radius: 2rem;
+    border-top-left-radius: 0.5rem;
+    box-shadow: inset 0 0 10px var(--pink-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    opacity: 0.8;
+    transition: box-shadow 0.3s ease, opacity 0.3s ease, transform 0.2s ease;
+    z-index: 1000;
+    cursor: pointer;
+}
+  
+#schimba_tema:hover {
+    opacity: 1;
+    box-shadow: 0 0 8px 2px var(--pink-dark);
+    transform: scale(1.05);
+}
+  
+#schimba_tema i {
+    font-size: 1.5rem;
+    color: var(--pink-darkest);
+    transition: color 0.3s ease;
+}
+  
 /* TABEL */
 
 .table-container {

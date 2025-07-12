@@ -1,39 +1,115 @@
 <!DOCTYPE html>
 <html  lang="ro">
     <head>
-        <meta name="description" content="Cofetaria Dulcelind ofera prajituri, torturi, produse de patiserie cu optiunea de achizitie online si livrare prin curier.">
-        <meta name="keywords" content="cofetarie, Dulcelind, prajituri, torturi, dulce, pateuri, produse">
-        
-        <title>Cofetăria Dulcelind - home</title>
-        <%- include("../fragmente/head") %>     
-        <link href="/resurse/css/produs.css" type="text/css" rel="stylesheet" />
+        <title>Magazin de Pantofi AdoraStep</title>
+        <meta name="keywords" content="pantofi, AdoraStep, magazin de pantofi, magazin online, pantofi cu toc, tocuri, adidași, cizme, sneakers, încălțăminte, transport curier, București, Vans, Adidas, Puma, Reebok, moda, stil, confort, eleganta, tendinte, încălțăminte casual, încălțăminte formala, design, calitate, reduceri, promotii, pantofi sport, pantofi de lux, pantofi pentru femei, pantofi de dama, pantofi cu sireturi, pantofi din piele, pantofi din catifea, sandale, pantofi de iarna, pantofi de vara, pantofi de birou, pantofi pentru ocazii speciale">
+        <meta name="description" content="AdoraStep: Magazin de Pantofi de Damă, cu o gamă variată de produse: pantofi cu toc, sneakers, cizme, încălțăminte casual și formală. Transport la Domiciliu">
+        <%- include("../fragmente/head.ejs") %>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script type="text/javascript" src="/resurse/js/produse.js" defer></script>
+        <link rel="stylesheet" type="text/css" href="/resurse/css/produs.css">
     </head>
-    <body>
-        <header class="c1" id="titlu" >
-            <h1 style="color:red;">Cofetaria <span>Dulcelind</span></h1>
-            <%- include("../fragmente/nav") %>
-        </header>
-    <main>
-        <section>
-            <h2>Pagină produs</h2>
-                <article id="art-produs">
-                    <h3><span class="nume"><%- locals.prod.nume %></span></h3>
-                    <p>Pret: <span class="pret"><%- locals.prod.pret %> </span></p>
-                    <p>Descriere: <span class="descriere"><%- locals.prod.descriere %> </span></p>
-                    <p>Ingrediente: <span class="ingrediente"><%- locals.prod.ingrediente %> </span></p>
-                    <p>Calorii: <span class="calorii"><%- locals.prod.calorii %> </span></p>
-                    <p>Gramaj: <span class="gramaj"><%- locals.prod.gramaj %> </span></p>
-                    <p>Categorie: <span class="categorie"><%- locals.prod.categorie %> </span></p>
-                    <p>Pentru diabetici: <span class="pt_diabetici"><%- locals.prod.pt_diabetici %> </span></p>
-                    <p>Data adăugare: <span class="categorie"><%- locals.prod.data_adaugare %> </span></p>
-                    <figure class="imag-produs">
-                        <img  src="/resurse/imagini/produse/<%- locals.prod.imagine %>" alt="[imagine <%- locals.prod.nume %>]" />
-                    </figure>    
-                </article>
-            
-        </section>
-    </main>
 
-    <%- include("../fragmente/footer") %>
+    <body>
+        <%- include("../fragmente/header.ejs");  %> 
+
+        <main>
+            <div id="container-produs">
+                <section id="detaliu-produs">
+                    <article class="produs theme-light <%= esteNou ? ' produs-nou' : '' %>" data-id="<%- prod.id %>">
+
+                        <div class="buton-compara">
+                            <button class="btn-compara" title="Compară acest produs">
+                                <i class="fa fa-balance-scale"></i>
+                            </button>
+                        </div>
+    
+                        <h3><a href="/produs/<%- prod.id %>" class="val-nume"><%- prod.nume %></a></h3>
+    
+                        <div class="info-container">
+                            <div class="tabel-caracteristici detaliu">
+                                <% 
+                                    const zile = ['Duminică','Luni','Marți','Miercuri','Joi','Vineri','Sâmbătă'];
+                                    const luni = ['Ianuarie','Februarie','Martie','Aprilie','Mai','Iunie','Iulie','August','Septembrie','Octombrie','Noiembrie','Decembrie'];
+                                    const d = new Date(prod.data_adaugare);
+                                    const zi = d.getDate();
+                                    const ziS = zile[d.getDay()];
+                                    const luna = luni[d.getMonth()];
+                                    const an = d.getFullYear();
+                                    const dataAfis = `${zi} (${ziS}) ${luna} ${an}`;
+                                    const dataISO = d.toISOString();
+                                %>
+                                <table class="caracteristici">
+                                    <tr>
+                                        <th>Preț</th><th>Culoare</th><th>Tip</th><th>Categorie</th>
+                                        <th>Mărimi disp.</th><th>Ocazii</th><th>Înălțime toc</th>
+                                        <th>Tip toc</th><th>Impermeabili</th><th>Ediție limitată</th><th>Material</th><th>Data adăugare</th>
+                                    </tr>
+                                    <tr>
+                                        <td class="val-pret"><%= prod.pret %> RON</td>
+                                        <td class="val-culoare"><%= prod.culoare %></td>
+                                        <td class="val-tip"><%= prod.tip %></td>
+                                        <td class="val-categorie"><%= prod.categorie %></td>
+                                        <td class="val-marimi_disponibile"><%= prod.marimi_disponibile.join(', ') %></td>
+                                        <td class="val-ocazii"><%= prod.ocazii_recomandate.join(', ') %></td>
+                                        <td class="val-inaltime_toc"><%= prod.inaltime_toc %> cm</td>
+                                        <td class="val-tip_toc"><%= prod.tip_toc %></td>
+                                        <td class="val-impermeabili"><%= prod.impermeabili ? 'Da' : 'Nu' %></td>
+                                        <td class="val-editie_limitata"><%= prod.editie_limitata ? 'Da' : 'Nu' %></td>
+                                        <td class="val-material"><%= prod.material %></td>
+                                        <td><time datetime="<%= dataISO %>"><%= dataAfis %></time></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <figure class="figura-produs">
+                                <div class="container-carusel">
+                                <% if (prod.imagini.length > 1) { %>
+                                    <div id="carouselImagini" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                                      <div class="carousel-inner">
+                                        <% prod.imagini.forEach((img, idx) => { %>
+                                          <div class="carousel-item <%= idx === 0 ? 'active' : '' %>">
+                                            <img src="/resurse/imagini/produse/<%= img %>" class="d-block w-100" alt="Imagine produs <%= prod.nume %>">
+                                          </div>
+                                        <% }); %>
+                                      </div>
+                                      <button class="carousel-control-prev" type="button" data-bs-target="#carouselImagini" data-bs-slide="prev">
+                                        <span class="carousel-control-prev-icon"></span>
+                                        <span class="visually-hidden">Anterior</span>
+                                      </button>
+                                      <button class="carousel-control-next" type="button" data-bs-target="#carouselImagini" data-bs-slide="next">
+                                        <span class="carousel-control-next-icon"></span>
+                                        <span class="visually-hidden">Următor</span>
+                                      </button>
+                                    </div>
+                                    <% } else { %>
+                                      <img src="/resurse/imagini/produse/<%= prod.imagini[0] %>" class="d-block w-100" alt="Imagine produs <%= prod.nume %>">
+                                    <% } %>  
+                                    </div>                                  
+                            </figure>
+                        </div>
+    
+    
+                        <% if (prod.descriere) { %>
+                            <p class="descriere val-descriere"><%- prod.descriere %></p>
+                        <% } %>
+    
+                        <p class="categorie">Categorie: <%- prod.categorie %></p>
+    
+                        <label class="selecteaza-cos">
+                            Selectează:<br />
+                            <input type="checkbox" class="select-cos" value="<%- prod.id %>" autocomplete="off">
+                        </label>
+                    </article>
+                </section>
+            </div>
+        </main>
+
+        <div id="container-comparare" style="display:none; position:fixed; top:10px; right:10px; z-index:1000;">
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+        <%- include("../fragmente/footer") %>
     </body>
 </html>

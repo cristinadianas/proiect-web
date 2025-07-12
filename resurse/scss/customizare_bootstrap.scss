@@ -1,4 +1,23 @@
+$pink-lightest: #fff5fa;
+$pink-light: #ffe9f0;
+$pink-medium: #f7d6e0;
+$pink-dark: #e7acbc;
+$pink-darkest: #d48a9c;
+$pink-accent: #ac3f59; 
+
 @use '../../node_modules/bootstrap/scss/bootstrap' as bs with (
+  $primary: $pink-medium,
+
+  $input-border-radius: 0.5rem,
+  $input-border-width: 2px,
+  
+  $btn-border-width: 2px,
+  
+  $form-range-thumb-width: 1.5rem,
+  $form-range-thumb-height: 1.5rem,
+  $form-range-thumb-bg: var(--pink-medium),
+  $form-range-track-bg: var(--pink-lightest),
+
   $body-bg: #ffffff,
 
   $grid-breakpoints: (
@@ -31,7 +50,12 @@ $themes: (
     h3: var(--pink-accent),
     outline: 1px solid var(--pink-medium),
     shadow: 0 4px 10px var(--pink-darkest),
-    border: 1px solid var(--pink-medium)
+    border: 1px solid var(--pink-medium),
+    btn-primary-bg: var(--pink-medium),
+    btn-primary-border: var(--pink-medium),
+    btn-primary-text: var(--pink-darkest),
+    btn-outline-primary-color: var(--pink-medium),
+    btn-outline-primary-border: var(--pink-medium)
   ),
   dark: (
     bg: var(--pink-dark),
@@ -42,7 +66,12 @@ $themes: (
     h3: var(--pink-accent),
     outline: 1px solid var(--pink-darkest),
     shadow: 0 4px 10px black,
-    border: 1px solid var(--pink-darkest)
+    border: 1px solid var(--pink-darkest),
+    btn-primary-bg: var(--pink-darkest),
+    btn-primary-border: var(--pink-darkest),
+    btn-primary-text: var(--pink-lightest),
+    btn-outline-primary-color: var(--pink-medium),
+    btn-outline-primary-border: var(--pink-medium)
   )
 );
 

@@ -16,7 +16,7 @@ Nu rulati fisierul sql cu psql deoarece veti avea probleme la diacritice. Motivu
 
  
 După ce ați creat tabelul, creati un utilizator nou cu comanda:
-CREATE USER nume_utilizator WITH ENCRYPTED PASSWORD 'parola';
-GRANT ALL PRIVILEGES ON DATABASE nume_baza_date TO nume_utilizator ;
-GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO nume_utilizator;
-GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO nume_utilizator;
+CREATE USER cristina WITH ENCRYPTED PASSWORD 'cristina';
+GRANT ALL PRIVILEGES ON DATABASE magazin_pantofi TO cristina ;
+GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO cristina;
+GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO cristina;

@@ -1,7 +1,12 @@
+<script src="/resurse/js/tema.js"></script>
+
 <header>
     <img src="/resurse/imagini/logo.png" alt="logo-magazin" width="200" id="logo">
     <h1 class="Dancing Script">Magazin de Pantofi AdoraStep</h1>
     <p id="watermark"></p>
+    <button id="schimba_tema" title="Comută tema">
+        <i id="icon-tema" class="fa-solid fa-sun"></i>
+    </button>   
 </header>
 
 <nav>
@@ -15,38 +20,38 @@
     <input id="ch-menu" type="checkbox">
     <ul class="meniu">
         <li>
-            <a href="index">
+            <a href="/index">
                 <div class="text-icon" id="acasa">Acasa</div>
                 <div class="imag-icon" id="acasa-mediu"><span class="fa-solid fa-house"></span></div>
             </a>            
             <ul>
-                <li><a href="index#promotii">Promotii</a></li>
-                <li><a href="index#produse">Produse</a></li>
-                <li><a href="index#noutati-in-moda">Noutati</a></li>
-                <li><a href="index#evolutia-modei">Evolutia Modei</a></li>
-                <li><a href="index#faq">FAQ</a></li>
-                <li><a href="index#anunturi">Anunțuri</a></li>
-                <li><a href="index#program">Program</a></li>
-                <li><a href="index#galerie-statica">Statica</a></li>
-                <li><a href="index#galerie-dinamica">Dinamica</a></li>
+                <li><a href="/index#promotii">Promotii</a></li>
+                <li><a href="/index#produse">Produse</a></li>
+                <li><a href="/index#noutati-in-moda">Noutati</a></li>
+                <li><a href="/index#evolutia-modei">Evolutia Modei</a></li>
+                <li><a href="/index#faq">FAQ</a></li>
+                <li><a href="/index#anunturi">Anunțuri</a></li>
+                <li><a href="/index#program">Program</a></li>
+                <li><a href="/index#galerie-statica">Statica</a></li>
+                <li><a href="/index#galerie-dinamica">Dinamica</a></li>
             </ul>
         </li>
-        <li><div class="text-icon"><a href="despre">Despre</a></div></li>
-        <li><div class="text-icon"><a href="produse">Produse</a></div><div class="imag-icon" ><span class="fa-solid fa-cart-shopping"></span></div>
+        <li><div class="text-icon"><a href="/despre">Despre</a></div></li>
+        <li><div class="text-icon"><a href="/produse">Produse</a></div><div class="imag-icon" ><span class="fa-solid fa-cart-shopping"></span></div>
             <ul>
-                <li><a href="produse?tip=cofetarie">cofetarie</a></li>
-                <li><a href="produse?tip=gelaterie">gelaterie</a></li>
-                <li><a href="produse?tip=patiserie">gelaterie</a></li>
-
+                <li><a href="/produse">Toate</a></li>
+                <% for(let opt of locals.optiuniMeniu) { %>
+                    <li><a href="/produse?categorie=<%= opt.unnest %>"> <%= opt.unnest %> </a></li>
+                <% } %>
             </ul>
         </li>
-        <li><div class="text-icon"><a href="galerie">Galerie</a></div><div class="imag-icon" ><span class="fa-solid fa-camera"></span></div>
+        <li><div class="text-icon"><a href="/galerie">Galerie</a></div><div class="imag-icon" ><span class="fa-solid fa-camera"></span></div>
             <ul>
-                <li><a href="galerie#galerie-statica">Statica</a></li>
-                <li><a href="galerie#galerie-dinamica">Dinamica</a></li>
+                <li><a href="/galerie#galerie-statica">Statica</a></li>
+                <li><a href="/galerie#galerie-dinamica">Dinamica</a></li>
             </ul>
         </li>
-        <li><div class="text-icon"><a href="cont">Contul Meu</a></div><div class="imag-icon" ><span class="fa-solid fa-circle-user"></span></div></li>
-        <li><div class="text-icon"><a href="cautare">Cautare</a></div><div class="imag-icon" ><span class="fa-solid fa-magnifying-glass"></span></div></li>
+        <li><div class="text-icon"><a href="/cont">Contul Meu</a></div><div class="imag-icon" ><span class="fa-solid fa-circle-user"></span></div></li>
+        <li><div class="text-icon"><a href="/cautare">Cautare</a></div><div class="imag-icon" ><span class="fa-solid fa-magnifying-glass"></span></div></li>       
     </ul>
 </nav>
